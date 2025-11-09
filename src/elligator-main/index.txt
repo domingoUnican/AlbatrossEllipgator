@@ -1,0 +1,120 @@
+{
+  title: Elligator
+  description: A way to hide a cryptographic key exchange using
+               elliptic curves as random noise.
+}
+
+**Elligator** is a way to hide a cryptographic key exchange using
+elliptic curves as random noise,
+devised by Daniel J.&nbsp;Bernstein,
+Mike Hamburg,
+Anna Krasnova, and
+Tanja Lange.
+
+
+When do you need Elligator?
+---------------------------
+
+Elligator addresses a specific problem:
+you need to perform a cryptographic key exchange protocol,
+_and hide the very fact that you are using cryptography_.
+
+A cryptographic key exchange can happen in various forms.
+The most popular ones often use Diffie-Hellman key exchanges and send
+random public keys over the network.
+Problem is, random public keys are not random bytes.
+A passive eavesdropper can easily spot the difference,
+and notice that you are trying to exchange keys.
+
+This is when Elligator comes in.
+It maps uniformly distributed random numbers to certain types of
+elliptic curve points, and back.
+This effectively allows you to turn random public keys into actual
+random bytes,
+which hides metadata and facilitates steganography.
+
+
+Who is this website for?
+------------------------
+
+We are a secondary resource aimed at implementers of cryptographic
+protocols that use Elligator.
+We assume some familiarity with terms commonly used in elliptic curve
+cryptography.
+If you need an introduction or a refresher,
+we recommend the excellent [&ldquo;ECCHacks&rdquo; talk by Daniel
+J.&nbsp;Bernstein and Tanja Lange][ECCHacks].
+
+[ECCHacks]: https://media.ccc.de/v/31c3_-_6369_-_en_-_saal_1_-_201412272145_-_ecchacks_-_djb_-_tanja_lange
+
+The canonical, primary resource for learning about Elligator is the
+paper [Daniel J.&nbsp;Bernstein, Mike Hamburg, Anna Krasnova, Tanja
+Lange. Elligator: Elliptic-curve points indistinguishable from uniform
+random strings.  ACM Conference on Computer and Communications Security
+2013, pp.&nbsp;967&ndash;980][paper].
+
+[paper]: https://dl.acm.org/doi/10.1145/2508859.2516734
+
+
+Is Elligator the solution to censorship-resistance?
+---------------------------------------------------
+
+It is *part of* the solution.
+Elligator can hide positive proof that a cryptographic key exchange is
+taking place.
+It goes without saying, however, that it is exceedingly unlikely for
+two hosts to just send each other random data;
+the mere presence of sequences of random bytes in and of itself remains
+suspicious.
+Protocols that adopt Elligator need to have a bigger picture view of
+the threat model and how to maintain plausible deniability.
+
+Additionally, Elligator won&#8217;t help you if you&#8217;re already the victim of
+[rubber-hose cryptanalysis](https://xkcd.com/538/).
+
+
+What other applications does Elligator have?
+--------------------------------------------
+
+Elligator is not limited to plausible deniability and
+censorship-resistance.
+A number of cryptographic protocols need a way to map an arbitrary input
+to an elliptic curve point _whose factorisation is unknown_
+(&ldquo;hashing to an elliptic curve&rdquo;),
+such as verifiable random functions (VRFs) and oblivious pseudorandom
+functions (OPRFs).
+Elligator provides a critical part for implementing these kinds of
+cryptographic protocol elements.
+
+
+Show me the code.
+-----------------
+
+We have a list of [known implementations](implementations).
+We also made a reference implementation
+([html](src), [tarball](/elligator-reference.tar.gz))
+in Python (not for production).
+
+If you want to implement Elligator yourself
+you should read [how Elligator works](map),
+and [how to apply it safely](key-exchange).
+Then you can copy the [explicit formulas](formulas)
+and test it with our [test vectors](vectors).
+
+Legal
+-----
+
+The pseudocode presented on any of these pages,
+including explicit formulas,
+are provided under either of these terms:
+
+- [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+- [2-clause BSD](/LICENSE.SNIPPETS.2BSD)
+
+If a page or file hosted on this domain indicates different terms,
+then those different terms take precedence.
+
+This does not grant any additional rights with regards to the the other
+parts of this website;
+in particular, no additional rights are granted for the body text,
+design, CSS or HTML.

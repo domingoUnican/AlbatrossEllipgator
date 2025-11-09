@@ -1,0 +1,94 @@
+{
+    title: Known Implementations
+    description: list of known Elligator&nbsp;2 implementations.
+}
+
+Known Elligator&nbsp;2 Implementations
+======================================
+
+These are the implementation we know about as of 2022/06.
+Please [contact us](mailto:elligator@loup-vaillant.fr) to have your
+implementation added to this list.
+
+
+Complete implementations
+------------------------
+
+They provide a complete implementation,
+suitable for key exchange.
+
+- __[libdecaf](https://sourceforge.net/projects/ed448goldilocks/)__
+  Implements a _variant_ of Elligator for
+  [ristretto255](https://ristretto.group/)
+  (based on Curve255) and ristretto448 (based on Curve448).
+  Implementers seeking to implement Elligator for the Ristretto group
+  may want to follow libdecaf instead.
+  This would promote compatibility,
+  avoid fragmentation,
+  and would be just as safe
+  (The libdecaf author basically invented Elligator&nbsp;2).
+
+- __[Monocypher](https://monocypher.org)__
+  implements Elligator&nbsp;2 for Curve25519.
+  It is designed to be [compatible with X25519](key-exchange).
+  The map uses <var>Z<sub>u</sub></var>&nbsp;=&nbsp;2,
+  non-negative field elements are the set
+  {0,&nbsp;1,&nbsp;…&nbsp;(<var>p</var>&minus;1)/2},
+  and the inverse map always generate positive representatives
+  (and pad the top _two_ most significant bits with random data).
+
+- __[GNUnet](https://gnunet.org)__
+  implements Elligator&nbsp;2 for X25519.
+  It is very close to Monocypher and Kleshni, but
+  bits are padded and the [special public key derivation](key-exchange)
+  is implemented.
+  The functionality is exposed through a RFC9180-style
+  KEM interface.
+  Elligator is used to obfuscate transport-level key exchanges
+  and authentications of GNUnet peers.
+
+Hash-to-Point implementations
+-----------------------------
+
+These only implement the direct map
+(without necessarily exposing it),
+so random numbers can be mapped to curve points whose discrete logarithm
+is unknown
+(this is most useful for [Password Authenticated Key
+Agreement](https://en.wikipedia.org/wiki/Password-authenticated_key_agreement)).
+
+- __[libsodium](https://libsodium.org)__
+  uses the Elligator&nbsp;2 direct map for Ed25519 and
+  [ristretto255](https://ristretto.group).
+  For Ed25519 it follows the Map-to-Curve procedure outlined in the
+  [Hash to curve RFC draft][RFC].
+  For ristretto255 it only implements [this mapping][rmap],
+  which is indistinguishable from a random oracle.
+
+[RFC]:  https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-hash-to-curve-16
+[rmap]: https://ristretto.group/formulas/elligator.html
+
+- __[Curve25519-Dalek](https://dalek.rs/)__
+  uses the Elligator&nbsp;2 direct map for Ed25519 and
+  [ristretto255](https://ristretto.group).
+  It uses the same strategies as libsodium.
+
+
+Incomplete implementations
+--------------------------
+
+- __[Kleshni](https://github.com/Kleshni/Elligator-2)__
+  implements Elligator&nbsp;2 for Curve25519.
+  It is very close to Monocypher.
+  The only difference is that the direct map does not ignore the top two
+  bits.
+  Instead all 256 bits are interpreted and reduced modulo <var>p</var>.
+  However, as of 2022/06:
+
+  - The inverse map does not pad the representative at all,
+    so the top two bits are always zero.
+    To pad those bits in a way that is compatible with its direct map we
+    need to randomly negate the representative then randomly add
+    <var>p</var>.
+  - The [special public key derivation](key-exchange)
+    required to use the inverse map safely is missing.

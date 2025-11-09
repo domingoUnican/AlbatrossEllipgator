@@ -1,0 +1,887 @@
+ * Serving Flask app 'DistributedNetwork.NetworkCommunication.flask_server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.33:5000
+[33mPress CTRL+C to quit[0m
+Executing commit requests...
+127.0.0.1 - - [09/Nov/2025 19:17:22] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:22] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:22] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:22] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /node/0/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /node/0/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:23] "GET /node/0/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/2/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/0/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:24] "GET /node/1/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/1/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/1/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/1/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/1/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/3/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/1/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/1/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/3/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/4/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/3/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/4/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:25] "GET /node/2/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/2/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/2/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/4/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/5/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/4/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/4/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/5/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/4/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/3/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/6/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/4/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:26] "GET /node/5/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/6/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/7/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/4/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/6/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/6/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/6/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:27] "GET /node/5/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/5/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/8/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/5/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/5/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/8/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/9/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/8/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/6/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/7/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:28] "GET /node/8/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/6/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/7/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/7/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/7/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/9/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/10/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/9/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/7/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/9/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/7/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/9/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/8/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:29] "GET /node/9/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/8/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/11/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/8/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/11/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/9/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/12/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/11/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:30] "GET /node/10/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/10/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/10/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/10/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/10/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/12/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/13/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/12/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/12/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/12/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/11/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/12/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:31] "GET /node/12/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/11/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/14/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/3/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/14 HTTP/1.1" 200 -
+Commit successful on node 3: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/12 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/12/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/14/verify_lde/7 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/5 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/7/commit HTTP/1.1" 200 -
+Commit successful on node 7: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/14/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/0/commit HTTP/1.1" 200 -
+Commit successful on node 0: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/6 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/13/verify_lde/14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/14/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:32] "GET /node/14/verify_lde/1 HTTP/1.1" 200 -
+Commit successful on node 14: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/1/commit HTTP/1.1" 200 -
+Commit successful on node 1: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/13/verify_lde/9 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/10 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/13/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/10/commit HTTP/1.1" 200 -
+Commit successful on node 10: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/11 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/11/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/4/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/12 HTTP/1.1" 200 -
+Commit successful on node 4: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/12/commit HTTP/1.1" 200 -
+Commit successful on node 11: Commit completed.
+Commit successful on node 12: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/13 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/13/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/5 HTTP/1.1" 200 -
+Commit successful on node 13: Commit completed.
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/2/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/5/commit HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/9 HTTP/1.1" 200 -
+Commit failed on node 5: 200
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/8 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/14/verify_lde/6 HTTP/1.1" 200 -
+Commit failed on node 2: 200127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/8/commit HTTP/1.1" 200 -
+
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/9/commit HTTP/1.1" 200 -
+Commit failed on node 8: 200
+Commit failed on node 9: 200
+127.0.0.1 - - [09/Nov/2025 19:17:33] "GET /node/6/commit HTTP/1.1" 200 -
+Commit failed on node 6: 200
+Executing reveal requests...
+127.0.0.1 - - [09/Nov/2025 19:17:35] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+[2025-11-09 19:17:36,444] ERROR in app: Exception on /node/0/verify_polynomial/3 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/3 HTTP/1.1[0m" 500 -
+The polynomial verification uploaded by node 3 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/3/reveal HTTP/1.1[0m" 400 -
+127.0.0.1 - - [09/Nov/2025 19:17:36] "GET /sync_nodes HTTP/1.1" 200 -
+[2025-11-09 19:17:36,622] ERROR in app: Exception on /node/0/verify_polynomial/12 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/12 HTTP/1.1[0m" 500 -
+The polynomial verification uploaded by node 12 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/12/reveal HTTP/1.1[0m" 400 -
+Reveal failed on node 3: 400Reveal failed on node 12: 400
+
+[2025-11-09 19:17:36,653] ERROR in app: Exception on /node/0/verify_polynomial/14 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/14 HTTP/1.1[0m" 500 -
+[2025-11-09 19:17:36,739] ERROR in app: Exception on /node/0/verify_polynomial/1 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/1 HTTP/1.1[0m" 500 -
+The polynomial verification uploaded by node 1 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/1/reveal HTTP/1.1[0m" 400 -
+The polynomial verification uploaded by node 14 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/14/reveal HTTP/1.1[0m" 400 -
+[2025-11-09 19:17:36,782] ERROR in app: Exception on /node/1/verify_polynomial/0 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/1/verify_polynomial/0 HTTP/1.1[0m" 500 -
+[2025-11-09 19:17:36,796] ERROR in app: Exception on /node/0/verify_polynomial/10 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/10 HTTP/1.1[0m" 500 -
+The polynomial verification uploaded by node 0 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/0/reveal HTTP/1.1[0m" 400 -
+The polynomial verification uploaded by node 10 was incorrect: 500Reveal failed on node 0: 400[2025-11-09 19:17:36,808] ERROR in app: Exception on /node/0/verify_polynomial/4 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/4 HTTP/1.1[0m" 500 -
+
+
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/10/reveal HTTP/1.1[0m" 400 -
+The polynomial verification uploaded by node 4 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/4/reveal HTTP/1.1[0m" 400 -
+Reveal failed on node 10: 400   t   r   a   c   e   s       a   n   d   
+               [2025-11-09 19:17:36,810] ERROR in app: Exception on /node/0/verify_polynomial/11 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/11 HTTP/1.1[0m" 500 -
+[2025-11-09 19:17:36,811] ERROR in app: Exception on /node/0/verify_polynomial/7 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/7 HTTP/1.1[0m" 500 -
+Reveal failed on node 4: 400
+The polynomial verification uploaded by node 11 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/11/reveal HTTP/1.1[0m" 400 -
+The polynomial verification uploaded by node 7 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/7/reveal HTTP/1.1[0m" 400 -
+Reveal failed on node 11: 400
+Reveal failed on node 7: 400
+[2025-11-09 19:17:36,812] ERROR in app: Exception on /node/0/verify_polynomial/13 [GET]
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/.venv/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkCommunication/controller.py", line 100, in verify_polynomial
+    if node.verify_polynomial(poly_id):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in verify_polynomial
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/anabellum/Documents/Albatross_EC/src/DistributedNetwork/NetworkManagement/node_EC.py", line 51, in <listcomp>
+    encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+                                                                        ^^^^^^^^
+AttributeError: 'Ledger_EC' object has no attribute 'p'
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[35m[1mGET /node/0/verify_polynomial/13 HTTP/1.1[0m" 500 -
+The polynomial verification uploaded by node 13 was incorrect: 500
+127.0.0.1 - - [09/Nov/2025 19:17:36] "[31m[1mGET /node/13/reveal HTTP/1.1[0m" 400 -
+Reveal failed on node 13: 400
+Some reveals failed. Proceeding with alternative action.
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+[127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/0/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/1/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/2/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+                                                                                                         127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/3/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/4/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:37] "GET /node/5/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/6/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/9/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/10/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/12/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/5?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/5/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 5
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/8?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/7?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/8/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 8
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/2?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/2/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/7/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/1?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 2
+Recovery successful on node 7
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/13/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/1/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 1
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/11?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/3?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/11/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/3/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/4?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/4/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 11
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/12?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 4
+Recovery successful on node 3
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/13?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:38] "GET /node/14/verify_dleq/10?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/14/verify_dleq/6?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/14/verify_dleq/0?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/13/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/0/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/12/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/14/verify_dleq/14?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/6/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/10/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 6
+Recovery successful on node 0
+Recovery successful on node 13
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/14/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/14/verify_dleq/9?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 12
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/9/recovery?failed_nodes=0,1,3,4,7,10,11,12,13,14 HTTP/1.1" 200 -
+Recovery successful on node 10
+Recovery successful on node 9
+Recovery successful on node 14
+Proceeding with secret reconstruction.
+Number of secrets: 0
+Traceback (most recent call last):
+  File "/Users/anabellum/Documents/Albatross_EC/src/main.py", line 80, in <module>
+    output_time = protocol.handle_output_phase()
+                  ^^^^^^^^^^^^^^^^^^^^^^^reco_parties:  [11, 3, 9, 2, 12, 13, 8, 14, 7, 4]
+^^^^^^^
+reco_parties:  [8, 10, 9, 7, 13, 14, 15, 6, 3, 11]  File "/Users/anabellum/Documents/Albatross_EC/src/ALBATROSSProtocol/ALBATROSS.py", line 137, in handle_output_phase
+
+    self.__execute_recovery_phase()
+  File "/Users/anabellum/Documents/Albatross_EC/src/ALBATROSSProtocol/ALBATROSS.py", line 188, in __execute_recovery_phase
+reco_parties:  [6, 7, 14, 10, 13, 9, 12, 4, 8, 15]
+    self.__execute_reconstruction_phase(failed_nodes)
+  File "/Users/anabellum/Documents/Albatross_EC/src/ALBATROSSProtocol/ALBATROSS.py", line 221, in __execute_reconstruction_phase
+xverif:  15
+    subgrupo = random.sample(participantes, r)
+      reco_parties:  [8, 7, 11, 5, 6, 14, 12, 15, 10, 9]  
+      reco_parties:  [9, 15, 14, 7, 11, 3, 12, 13, 6, 10]
+ ^^^^^xverif:  15
+^^^127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/0/reconstruction/10?reco_parties=10,2,8,1,11,12,7,13,6,3 HTTP/1.1" 200 -
+^^^^^^^^xverif:  15
+^^^^^^^^^^^Number of secrets post-add: 1
+Reconstruction successful for node 10
+^^^^
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/4/reconstruction/7?reco_parties=7,9,8,6,12,13,14,5,2,10 HTTP/1.1" 200 -
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/random.py", line 453, in sample
+xverif:  15
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/1/reconstruction/5?reco_parties=5,6,13,9,12,8,11,3,7,14 HTTP/1.1" 200 -
+Number of secrets post-add: 2
+Reconstruction successful for node 7
+Number of secrets post-add: 3
+Reconstruction successful for node 5
+xverif:  15
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
+127.0.0.1 - - [09/Nov/2025 19:17:39] "GET /node/3/reconstruction/7?reco_parties=7,6,10,4,5,13,11,14,9,8 HTTP/1.1" 200 -

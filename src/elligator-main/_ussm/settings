@@ -1,0 +1,6 @@
+{
+  boring: ^_\n^[.]git$\n.*~$\n^#.*#$\n[.]gitignore
+  source-extension: txt
+  html-processor  : markdown
+  default-language: en
+}

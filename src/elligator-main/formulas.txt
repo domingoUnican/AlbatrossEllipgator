@@ -1,0 +1,396 @@
+{
+    title: Explicit Formulas
+    description: Easy and fast implementations for Elligator 2
+}
+
+Explicit Formulas for Elligator&nbsp;2
+======================================
+
+Conditional move & swap
+-----------------------
+
+We recommend [constant time](https://bearssl.org/constanttime.html)
+implementations to avoid leaking secrets.
+So instead of writing regular conditionals we use `CMOVE()` and
+`CSWAP()`.
+
+The `CMOVE(x, y, condition)` operation is a conditional move.
+It means &ldquo;if `condition`, assign <var>y</var> to
+<var>x</var>&rdquo;:
+
+    if condition
+        x = y
+
+The `CSWAP(x, y, condition)` operation is a conditional swap.
+It means &ldquo;if `condition`, swap the values of <var>x</var> and
+<var>y</var>&rdquo;:
+
+    if condition
+        x, y = y, x
+
+`CMOVE()` and `CSWAP()` must be implemented in a way that doesn&#8217;t use
+actual branches or indices,
+to make sure they run in constant time.
+
+
+Inverse square root
+-------------------
+
+The `inv_sqrt`(<var>x</var>) function implements inverse square root.
+Given a non-zero square <var>s</var> and a non-square <var>n</var>:
+
+- `inv_sqrt`(0)&nbsp;=&nbsp;(0, True)
+- `inv_sqrt`(<var>s</var>)&nbsp;=&nbsp;(&radic;(1/<var>x</var>), True)
+- `inv_sqrt`(<var>n</var>)&nbsp;=&nbsp;(&radic;(<var>k</var>/<var>x</var>), False),
+  where <var>k</var>&nbsp;=&nbsp;&radic;&minus;1 if
+  <var>q</var>&nbsp;&equiv;&nbsp;5&nbsp;(mod&nbsp;8) (Curve25519),
+  and <var>k</var>&nbsp;=&nbsp;&minus;1 if
+  <var>q</var>&nbsp;&equiv;&nbsp;3&nbsp;(mod&nbsp;4) (Curve448).
+
+Recommended way to implement `inv_sqrt`(<var>x</var>) if
+<var>q</var>&nbsp;&equiv;&nbsp;5&nbsp;(mod&nbsp;8) (Curve25519):
+
+    inv_sqrt(x)
+      ir        = x^((p - 5) / 8)
+      quartic   = x × ir^2
+      m_sqrt_m1 = quartic == -1 or quartic == -sqrt_m1
+      is_square = quartic == -1 or quartic == 1 or x == 0
+      CMOVE(ir, ir × sqrt_m1, m_sqrt_m1)
+      return ir, is_square
+
+Where
+`sqrt_m1`&nbsp;=&nbsp;&radic;&minus;1&nbsp;=&nbsp;abs((2<sup>(<var>q</var>&minus;1)&nbsp;/&nbsp;4)</sup>).
+For Curve25519,
+p&nbsp;=&nbsp;2<sup>255</sup>&minus;19 and
+`sqrt_m1`&nbsp;=&nbsp;196811613<wbr>767075059<wbr>568070793<wbr>049885420<wbr>154460665<wbr>159238901<wbr>627440210<wbr>731238297<wbr>84752
+
+Recommended way to implement `inv_sqrt`(<var>x</var>) if
+<var>q</var>&nbsp;&equiv;&nbsp;3&nbsp;(mod&nbsp;4) (Curve448):
+
+    inv_sqrt(x)
+      ir        = x^((p - 3) / 4)
+      legendre  = x × ir^2
+      is_square = legendre != -1
+      return ir, is_square
+
+<aside>
+We don&#8217;t offer an optimised strategy
+for other field primes.
+Such fields are rarely specified in elliptic curve standards.
+
+In such cases,
+start by recovering a square root;
+guidance for this can be found in
+[I-D.draft-irtf-cfrg-hash-to-curve-16, appendix&nbsp;I](https://tools.ietf.org/html/draft-irtf-cfrg-hash-to-curve-16#appendix-I).
+Once one of the two square roots has been determined,
+compute the multiplicative inverse thereof to get
+the inverse square root.
+This is not very optimised,
+but works.
+Optimisation for any individual case is left
+as an exercise for the reader.
+</aside>
+
+
+The direct map
+--------------
+
+Compute the point (<var>u</var>,&nbsp;<var>v</var>) from the
+representative <var>r</var>:
+
+- <var>w</var>&nbsp;=&nbsp;&minus;<var>A</var>&nbsp;/&nbsp;(1&nbsp;+&nbsp;<var>Z</var>&nbsp;<var>r</var><sup>2</sup>)
+- <var>e</var>&nbsp;=&nbsp;`legendre`(<var>w</var><sup>3</sup>&nbsp;+&nbsp;<var>A</var>&nbsp;<var>w</var><sup>2</sup>&nbsp;+&nbsp;<var>B</var>&nbsp;<var>w</var>)
+- <var>u</var>&nbsp;=&nbsp;<var>e</var>&nbsp;<var>w</var>&nbsp;&minus;&nbsp;(1&nbsp;&minus;&nbsp;<var>e</var>)&nbsp;(<var>A</var>&nbsp;/&nbsp;2)
+- <var>v</var>&nbsp;=&nbsp;&minus;<var>e</var>&nbsp;&radic;(<var>u</var><sup>3</sup>&nbsp;+&nbsp;<var>A</var>&nbsp;<var>u</var><sup>2</sup>&nbsp;+&nbsp;<var>B</var>&nbsp;<var>u</var>)
+- <var>P</var>&nbsp;=&nbsp;(<var>u</var>,&nbsp;<var>v</var>)
+
+When <var>B</var>&nbsp;=&nbsp;1
+(this is true of all Montgomery curves compatible with
+Elligator&nbsp;2),
+the recommended way to implement the above is:
+
+    direct_map(r)
+      u      = r^2
+      t1     = u × Z
+      v      = t1 + 1
+      t2     = v^2
+      t3     = A^2
+      t3     = t3 × t1
+      t3     = t3 - t2
+      t3     = t3 × A
+      t1     = t2 × v
+      t1, s? = inv_sqrt(t3 × t1)
+      u      = u × Zu
+      v      = r × Zv
+      CMOVE(u, 1, s?)
+      CMOVE(v, 1, s?)
+      v      = v × t3
+      v      = v × t1
+      t1     = t1^2
+      u      = u × -A
+      u      = u × t3
+      u      = u × t2
+      u      = u × t1
+      t1 = -v
+      CMOVE(v, t1, is_square XOR is_negative(v))
+      P      = (u, v)
+      return P
+
+Where <var>A</var>, is a curve constant,
+<var>Z</var> an arbitrary non-square parameter,
+and <var>Z<sub>u</sub></var> and <var>Z<sub>v</sub></var> constants
+derived from <var>Z</var>.
+In practice, <var>Z</var> is chosen in a way that minimises computation:
+either a small number,
+or something that eliminates <var>Z<sub>u</sub></var> and
+<var>Z<sub>v</sub></var>.
+
+In the context of key exchange with X25519 and X448,
+<var>v</var> can be ignored entirely.
+This saves a couple operations:
+
+    direct_map(r)
+      u      = r^2
+      t1     = u × Z
+      v      = t1 + 1
+      t2     = v^2
+      t3     = A^2
+      t3     = t3 × t1
+      t3     = t3 - t2
+      t3     = t3 × A
+      t1     = t2 × v
+      t1, s? = inv_sqrt(t3 × t1)
+      u      = u × Zu
+      CMOVE(u, 1, s?)
+      t1     = t1^2
+      u      = u × -A
+      u      = u × t3
+      u      = u × t2
+      u      = u × t1
+      return u
+
+### Curve25519 parameters
+
+<table>
+<tr><td><var>q</var></td><td>Prime&nbsp;field</td><td>2<sup>255</sup>&nbsp;&minus;&nbsp;19</td></tr>
+<tr><td><var>A</var></td><td>Curve&nbsp;constant</td><td>486662</td></tr>
+<tr><td><var>B</var></td><td>Curve&nbsp;constant</td><td>1</td></tr>
+<tr><td><var>Z</var></td><td>Non-square</td><td>2</td></tr>
+<tr><td><var>Z<sub>u</sub></var></td><td>&minus;<var>Z</var>&radic;&minus;1</td><td>185337218<wbr>652430857<wbr>981713338<wbr>943668698<wbr>957428593<wbr>009725016<wbr>942407498<wbr>577089052<wbr>50445</td></tr>
+<tr><td><var>Z<sub>v</sub></var></td><td>&radic;<var>Z<sub>u</sub></var></td><td>196811613<wbr>767075059<wbr>568070793<wbr>049885420<wbr>154460665<wbr>159238901<wbr>627440210<wbr>731238297<wbr>84751</td></tr>
+</table>
+
+These are the values suggested in the original Elligator paper,
+and used in most of the implementations we know of.
+A good alternative for <var>Z</var>,
+used by
+[ristretto255](https://ristretto.group/test_vectors/ristretto255.html),
+is <var>Z</var>&nbsp;=&nbsp;&radic;&minus;1,
+such that
+<var>Z<sub>u</sub></var>&nbsp;=&nbsp;<var>Z<sub>v</sub></var>&nbsp;=&nbsp;1.
+
+### Curve448 parameters
+
+<table>
+<tr><td><var>q</var></td><td>Prime&nbsp;field</td><td>2<sup>448</sup>&nbsp;&minus;&nbsp;2<sup>224</sup>&nbsp;&minus;&nbsp;1</td></tr>
+<tr><td><var>A</var></td><td>Curve&nbsp;constant</td><td>156326</td></tr>
+<tr><td><var>B</var></td><td>Curve&nbsp;constant</td><td>1</td></tr>
+<tr><td><var>Z</var></td><td>Non-square</td><td>&minus;1</td></tr>
+<tr><td><var>Z<sub>u</sub></var></td><td>&minus;<var>Z</var>&nbsp;</td><td>1</td></tr>
+<tr><td><var>Z<sub>v</sub></var></td><td>&radic;<var>Z<sub>u</sub></var></td><td>1</td></tr>
+</table>
+
+
+The inverse map
+---------------
+
+If the point
+<var>P</var>&nbsp;=&nbsp;(<var>u</var>,&nbsp;<var>v</var>)
+satisfies the following:
+
+- <var>u</var>&nbsp;&ne;&nbsp;&minus;A;
+- &minus;<var>Z</var><var>u</var>(<var>u</var>&nbsp;+&nbsp;<var>A</var>)
+  is a square;
+- if <var>v</var>&nbsp;=&nbsp;0,
+  then <var>u</var>&nbsp;=&nbsp;0 as well.
+
+Then the representative of <var>P</var> is computed thus:
+
+- <var>r</var>&nbsp;=&nbsp;&radic;(&minus;<var>u</var>&nbsp;/&nbsp;(<var>Z</var>&nbsp;(<var>u</var>&nbsp;+&nbsp;<var>A</var>)))
+  when <var>v</var> is non-negative,
+- <var>r</var>&nbsp;=&nbsp;&radic;(&minus;(<var>u</var>&nbsp;+&nbsp;<var>A</var>)&nbsp;/&nbsp;(<var>Z</var>&nbsp;<var>u</var>))
+  otherwise.
+
+The recommended way to test the eligibility of a point
+(<var>u</var>,&nbsp;<var>v</var>) and compute its representative
+<var>r</var> is:
+
+    inverse_map((u, v))
+      t     = u + A
+      r     = -Z × u
+      r     = r × t
+      r, s? = inv_sqrt(r)
+      if not s?, return nothing  # no representative
+      CMOVE(u, t, is_negative(v))
+      r     = u × r
+      t     = -r
+      CMOVE(r, t, is_negative(r))
+      return r
+
+The constants <var>A</var> and <var>Z</var> are the same as the direct
+map.
+
+<aside>
+We don&#8217;t need to know <var>v</var>,
+only its sign – which is generally randomised anyway.
+</aside>
+
+<aside>
+The conditional is not constant time.
+This is okay,
+because we are supposed to select another random point from scratch and
+start over.
+Assuming the random selection is secure,
+this only reveals how many times we tried.
+</aside>
+
+
+Converting from Edwards to Montgomery
+-------------------------------------
+
+The conversion formulas are known,
+but to avoid extraneous divisions we generally take advantage of
+projective coordinates
+(<var>X</var>,&nbsp;<var>Y</var>,&nbsp;<var>Z</var>) such that:
+
+- <var>x</var>&nbsp;=&nbsp;<var>X</var>/<var>Z</var>
+- <var>y</var>&nbsp;=&nbsp;<var>Y</var>/<var>Z</var>
+
+
+### Curve25519
+
+The twisted Edwards (<var>x</var>,&nbsp;<var>y</var>) are converted to
+the Montgomery <var>u</var> coordinate thus:
+
+    ed25519_to_curve25519(X, Y, Z)
+      T = Z + Y
+      u = Z - Y
+      u = 1 / u
+      u = u * T
+      return u
+
+
+### Curve448
+
+This one requires _two_ conversions:
+from Ed448Goldilocks to an isogenous Edwards curve,
+then from that Edwards curve to Curve448.
+The isogeny conversion is as follows:
+
+    isogeny_to_ed(X, Y, Z):
+      X2 = X^2
+      Y2 = Y^2
+      du = (Z^2 * 2) - X2 - Y2
+      V  = Y2 - X2
+      D  = du * V
+      U  = V * X * Y * sqrt_d2
+      V  = (Y2 + X2) * du
+      return (U, V, D)
+
+where `sqrt_d2`&nbsp;=&nbsp;2&radic;&minus;39081&nbsp;=&nbsp;197888467<wbr>295464439<wbr>538354009<wbr>753858038<wbr>256835152<wbr>591059802<wbr>148199779<wbr>196087404<wbr>232002515<wbr>713604263<wbr>127793030<wbr>747855424<wbr>464185691<wbr>766453844<wbr>835192428.
+
+Once we&#8217;ve done the above then added the low order point,
+we can convert to Montgomery
+(this is slightly different from Curve25519):
+
+    ed_to_curve448(X, Y, Z)
+      T = Y + Z
+      u = Y - Z
+      u = 1 / u
+      u = u * T
+      return u
+
+
+Adding a low order point
+------------------------
+
+Curve25519 and Curve448 have few low order points
+(8 and 4 respectively).
+This enables a couple optimisations.
+
+
+### Curve25519
+
+Curve25519 doesn&#8217;t need scalar multiplication to select its low order
+point.
+We could instead select them with a pre-computed table and constant time
+lookup,
+but even that is overkill.
+Ed25519 has 4 generators of the low order group
+(4 points of order 8).
+Let&#8217;s (somewhat arbitrarily) chose the generator
+<var>H</var>&nbsp;=&nbsp;(<var>x</var>,&nbsp;<var>y</var>)
+where both <var>x</var> and <var>y</var> are positive
+(below <var>q</var>/2).
+A naive look up table would look like this:
+
+    0.H = ( 0       ,  1)
+    1.H = ( x       ,  y)
+    2.H = ( sqrt(-1), -0)
+    3.H = ( x       , -y)
+    4.H = (-0       , -1)
+    5.H = (-x       , -y)
+    6.H = (-sqrt(-1),  0)
+    7.H = (-x       ,  y)
+
+Where
+<var>x</var>&nbsp;=&nbsp;143993178<wbr>682001182<wbr>603479343<wbr>205272325<wbr>806188239<wbr>711943452<wbr>612142175<wbr>754167887<wbr>99818
+and
+<var>y</var>&nbsp;=&nbsp;270738550<wbr>114484064<wbr>931822528<wbr>722565878<wbr>893680426<wbr>757531351<wbr>946374360<wbr>975030340<wbr>2022.
+
+We can instead reduce the pre-computed table to only 3 field elements:
+<var>x</var>, <var>y</var>, and &radic;&minus;1.
+First, we need a selection function:
+
+    select(x, k, i)
+      r = 0
+      CMOVE(r,  k, (i / 2) % 2 == 1)  # bit 1
+      CMOVE(r,  x, (i / 1) % 2 == 1)  # bit 0
+      CMOVE(r, -r, (i / 4) % 2 == 1)  # bit 2
+      return r
+
+Finally, we can compute the scalar multiplication
+<var>i</var>.<var>H</var> by selecting the right low order point:
+
+    select_lop(i):
+      lx = select(x, sqrt_m1, i  )
+      ly = select(y, 1      , i+2)
+      return (lx, ly)
+
+
+### Curve448
+
+Curve 448 has 4 low order points:
+(0,&nbsp;1), (1,&nbsp;0), (0,&nbsp;-1), (-1,&nbsp;0).
+Among them (1,&nbsp;0) and (-1,&nbsp;0) have order 4.
+Let&#8217;s (somewhat arbitrarily) decide that
+<var>H</var>&nbsp;=&nbsp;(1,&nbsp;0).
+Here we don&#8217;t even need a clever way to compute
+<var>i</var>.<var>H</var>,
+because:
+
+- (<var>x</var>,&nbsp;<var>y</var>)&nbsp;+&nbsp;<var>0</var>.<var>H</var>&nbsp;=&nbsp;(<var>x</var>,&nbsp;<var>y</var>)
+- (<var>x</var>,&nbsp;<var>y</var>)&nbsp;+&nbsp;<var>1</var>.<var>H</var>&nbsp;=&nbsp;(<var>y</var>,&nbsp;<var>&minus;x</var>)
+- (<var>x</var>,&nbsp;<var>y</var>)&nbsp;+&nbsp;<var>2</var>.<var>H</var>&nbsp;=&nbsp;(<var>&minus;x</var>,&nbsp;<var>&minus;y</var>)
+- (<var>x</var>,&nbsp;<var>y</var>)&nbsp;+&nbsp;<var>3</var>.<var>H</var>&nbsp;=&nbsp;(<var>&minus;y</var>,&nbsp;<var>x</var>)
+
+All we have to do is conditionally negate and swap <var>x</var> and
+<var>y</var>:
+
+    add_lop(x, y, i):
+      l = (i//1) % 2 == 1  # bit 0
+      h = (i//2) % 2 == 1  # bit 1
+      CSWAP(x,  y, l)
+      CMOVE(x, -x, h)
+      CMOVE(y, -y, l XOR h)
+      return x, y
