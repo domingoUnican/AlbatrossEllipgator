@@ -205,8 +205,11 @@ class ALBATROSS:
 
         for lista in self.__T:
             for i in range(len(lista)):
-                lista[i] = pow(self.__network.h, lista[i], self.__network.p)
-        
+                if self.__network.EC:
+                    lista[i]= lista[i]*self.__network.h
+                else:
+                    lista[i] = pow(self.__network.h, lista[i], self.__network.p)
+
         t = self.__num_participants // 3 #5
         l = self.__num_participants - 2 * t #15-2*5=5
         r = self.__num_participants - t #10

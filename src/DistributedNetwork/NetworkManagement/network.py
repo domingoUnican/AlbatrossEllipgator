@@ -33,10 +33,11 @@ class Network:
         for i in range(self.n):
             # Type selection
             r = random.random()
-            if r < 0.8:
+            if r < 0.6:
                 node_type = "HONEST"
             else:
                 node_type = "MALICIOUS"
+                print(i,node_type)
             if self.EC:
                 self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))
             else:

@@ -48,7 +48,7 @@ class Node_EC:
         ledger: Ledger = self.ledgers[poly_id]
         # 2- Each node checks that the polynomial is correct.
         evaluations = [gf_multi_eval(ledger.P, [i % ledger.q], ledger.q, ZZ)[0] for i in range(-ledger.l + 1, ledger.n + 1)]
-        encrypted_fragments = [pow(ledger.pk[i], evaluations[i + ledger.l], ledger.p) for i in range(ledger.n)]
+        encrypted_fragments = [evaluations[i + ledger.l]*ledger.pk[i] for i in range(ledger.n)]
         for i in range(ledger.n):
             if not (encrypted_fragments[i] == ledger.encrypted_fragments[i]):
                 print("The polynomial published by node {node_id} is not correct.")
@@ -82,7 +82,7 @@ class Node_EC:
         else:
             ledger.P = self.P
         # Uncomment to make all nodes honest.
-        ledger.P = self.P
+        #ledger.P = self.P
 
         self.sync_all_nodes()
 

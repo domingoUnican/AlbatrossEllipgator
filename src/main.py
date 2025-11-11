@@ -68,7 +68,7 @@ if __name__ == '__main__':
     sys.stderr = sys.stdout
 
     #num_participants = manage_terminal_input()
-    num_participants = 15
+    num_participants = 10
     network = create_network(num_participants)
 
     start_flask_server(network)
