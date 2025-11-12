@@ -20,8 +20,8 @@ class Network:
             self.q = self.EC._domain["order"]
             self.h = self.EC._domain["generator"]
         else:           
-            k = 8
-            size = 128
+            k = 128
+            size =1024
             self.q, self.p = Utils.findprime(k, size - k)  # Generated q and p
             gen = Utils.generator(self.p)
             self.h = pow(gen, 2, self.p)  # Group generator
