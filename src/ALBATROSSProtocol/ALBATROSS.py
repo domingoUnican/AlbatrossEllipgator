@@ -13,11 +13,12 @@ class ALBATROSS:
         """Initializes ALBATROSS protocol with given network and number of participants."""
         self.__network = network
         self.__num_participants = num_participants
-        self.__t = num_participants // 3
+        self.__t = num_participants // 3 # t es el Umbral máximo de participantes maliciosos / maliciosos: la mitad deben ser buenos para soportarlos (Caso peor: 51%buenos), caso mejor 100% buenos
         self.__successful_commit_ids = set()
         self.__successful_reveal_ids = set()
         self.__successful_recovery_ids = set()
         self.__T = []
+        sys.set_int_max_str_digits(0)
 
     def __request_commit(self, node_id):
         """Sends a commit request to the node and adds the node to successful commits if successful."""
@@ -85,16 +86,11 @@ class ALBATROSS:
                 self.__T.append(numbers)
                 print("Number of secrets post-add:", len(self.__T))
 
-
-
                 print(f"Reconstruction successful for node {node_id}")
             else:
                 print(f"Reconstruction failed for node {node_id}: {response.status_code}")
         except requests.exceptions.RequestException as e:
             print(f"Error during reconstruction request on node {node_id}: {e}")
-
-
-
 
     def execute_commit_phase(self):
         """Executes the commit phase by sending commit requests to all participants."""
@@ -152,7 +148,7 @@ class ALBATROSS:
     def __process_final_output(self):
         """Processes the final output by reconstructing the secret using Vandermonde matrix and randomness."""
         w = Utils.rootunity(len(self.__T[0]), self.__network.get_q()) 
-        t = self.__num_participants // 3
+        t = self.__num_participants // 3 # Umbral máximo de participantes maliciosos
         l = self.__num_participants - 2 * t
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
@@ -203,18 +199,16 @@ class ALBATROSS:
         # Convert the matrix to h^s elements
         print("Number of secrets:", len(self.__T))
 
+        # Interpolación en el exponente: reconstrucción segura sin revelar valores intermedios.
         for lista in self.__T:
             for i in range(len(lista)):
-                if self.__network.EC:
-                    lista[i]= lista[i]*self.__network.h
-                else:
-                    lista[i] = pow(self.__network.h, lista[i], self.__network.p)
-
-        t = self.__num_participants // 3 #5
-        l = self.__num_participants - 2 * t #15-2*5=5
-        r = self.__num_participants - t #10
+                lista[i] = pow(self.__network.h, lista[i], self.__network.p)
+        
+        t = self.__t # // umbral de número de participantes maliciosos
+        l = self.__num_participants - 2 * t
+        r = self.__num_participants - t # número de nodos que se seleccionarán como “parties” para la reconstrucción del secreto
         threads = []
-        participantes = list(range(0,self.__num_participants))
+        participantes = list(range(self.__num_participants))
         for node_id in failed_nodes:
             # Remove the node to be reconstructed
             if node_id in participantes:
@@ -233,13 +227,11 @@ class ALBATROSS:
        
         # Create Vandermonde matrix with w.
         w = Utils.rootunity(len(self.__T[0]), self.__network.get_q())
-
+        
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
-        print(self.__T)
-        Tprima=[[a if isinstance(a,int) else a.x for a in i] for i in self.__T]
-        #matriz_T = np.array(self.__T)
-        matriz_T=np.array(Tprima)
+
+        matriz_T = np.array(self.__T)
         print("Matrix T size:", matriz_T.shape)
 
         # Transpose matrix T
@@ -247,7 +239,6 @@ class ALBATROSS:
         print("Transposed T matrix size:", matriz_T_transpuesta.shape)
 
         # Calculate output by multiplying M * T in the exponent.
-        aleatoriedad_final = self.__multiplicar_matrices(matriz_vander, matriz_T_transpuesta)
         aleatoriedad_final = self.__multiplicar_matrices(matriz_vander, matriz_T_transpuesta)
 
         # Guardar el contenido de aleatoriedad_final en un archivo .txt

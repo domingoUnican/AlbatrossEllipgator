@@ -2,46 +2,42 @@ import math
 import random
 import matplotlib.pyplot as plt
 import networkx as nx
-import sys
-from pathlib import Path
-sys.path[0] = str(Path(sys.path[0]).parent)
-from DistributedNetwork.NetworkManagement.node import Node
-from DistributedNetwork.NetworkManagement.node_EC import Node_EC
-from ecpy.curves import Curve, Point
+from .node import Node
 from ALBATROSSProtocol.PPVSSProtocol.utils import Utils
 
 class Network:
-    def __init__(self, num_nodes,EC=True):
+    def __init__(self, num_nodes):
         self.__nodes: list[Node] = []
         self.n = num_nodes
-        self.EC = EC
-        if EC:
-            self.EC = Curve.get_curve('Curve25519')
-            self.q = self.EC._domain["order"]
-            self.h = self.EC._domain["generator"]
-        else:           
-            k = 128
-            size =1024
-            self.q, self.p = Utils.findprime(k, size - k)  # Generated q and p
-            gen = Utils.generator(self.p)
-            self.h = pow(gen, 2, self.p)  # Group generator
-            
+        self.q = 0
+        self.p = 0
+        self.h = 0
 
 
-    def create_nodes(self):
+    def create_nodes(self, malicious_participants):
         # Initialization data
+        k = 128
+        size = 1024
+        self.q, self.p = Utils.findprime(k, size - k)  # Generated q and p
+        gen = Utils.generator(self.p)
+        self.h = pow(gen, 2, self.p)  # Group generator
+
         for i in range(self.n):
             # Type selection
+            if i < malicious_participants:
+                node_type = "MALICIOUS"
+            else:
+                node_type = "HONEST"
+
+            self.__nodes.append(Node(i, node_type, self.n, self.q, self.p, self.h))
+    """for i in range(self.n):
+            # Type selection
             r = random.random()
-            if r < 0.6:
+            if r < 0.85: 
                 node_type = "HONEST"
             else:
                 node_type = "MALICIOUS"
-                print(i,node_type)
-            if self.EC:
-                self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))
-            else:
-                self.__nodes.append(Node(i, node_type, self.n, self.q, self.p, self.h))
+        """
 
 
     def get_q(self):
@@ -50,7 +46,7 @@ class Network:
 
     def get_p(self):
         return self.p
-
+    
 
     def get_h(self):
         return self.h
@@ -109,16 +105,3 @@ class Network:
         nx.draw_networkx_labels(G, pos, labels=node_labels, font_size=8)
         plt.title("Network Visualization")
         plt.show()
-
-
-if __name__ == '__main__':
-    myred = Network(4,EC=True)
-    myred.create_nodes()
-    myred.assign_neighbors()
-    myred.pk_to_ledger()
-
-    minodo =myred.get_nodes()[0]
-    print(minodo.node_type)
-    print(minodo.ledgers)
-    print(minodo.pk)
-    minodo.commit()

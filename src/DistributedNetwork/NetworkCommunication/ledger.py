@@ -3,9 +3,9 @@ from ALBATROSSProtocol.Proofs.DLEQ import DLEQ
 
 
 class Ledger:
-    def __init__(self, n, q, p, h, pk=None):
+    def __init__(self, n, q, p, h, pk=None): # def __init__(self, n, q, p, h, pk=None):
         self.n = n
-        self.t = round(n // 3) 
+        self.t = round(n // 3) # Umbral máximo de participantes maliciosos
         self.l = n - (2 * self.t) 
         self.q = q  
         self.p = p  
@@ -19,7 +19,7 @@ class Ledger:
         self.encrypted_fragments = []  
         self.revealed_fragments = [0] * n  
         self.ld = None  
-        self.dl: list[DLEQ] = [0] * (self.n) 
+        self.dl: list[DLEQ] = [0] * self.n
 
 
     def new_ld(self):
