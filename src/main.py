@@ -10,6 +10,10 @@ from DistributedNetwork.NetworkManagement.network import Network
 from DistributedNetwork.NetworkCommunication.flask_server import FlaskServer
 from ALBATROSSProtocol.ALBATROSS import ALBATROSS
 
+
+BYZANTINE = 0
+ABSOLUTE_MAJORITY = 1
+
 # Class that redirects output to both file and terminal
 class Logger:
     def __init__(self, filename):
@@ -63,15 +67,31 @@ def start_flask_server(network):
     time.sleep(2)  # Give time for the server to start
     return server_thread
 
-def test(participants, num_malicious_participants):
+def test(participants, num_malicious_participants, system):
+    """
+    system: BYZANTINE (2/3) o ABSOLUTE_MAJORITY (50%+1)
+    """
     #num_participants = manage_terminal_input() # solo si uso entrada por teclado para arrancarlo
 
     # Byzantine Fault Tolerance: esto significa que necesita n>=3t+1, donde n es nodos y t nodos maliciosos, luego, el m´niimo de nodos para ejecutar albatros es 4, ¿no?
     #if participants < 3*num_malicious_participants+1:
-    if participants < 2 * num_malicious_participants + 1:
-        print("Error: No hay suficientes nodos honestos para reconstruir el secreto")
-        return 0, 0, 0, participants, num_malicious_participants, 0
+    if system == BYZANTINE:
+        if participants // 3 < num_malicious_participants:
+            #20
+            #20//3=6
+            print("Error: No hay suficientes nodos honestos para reconstruir el secreto por método bizantino")
+            print(f"part: {participants}, bizantino, honest_needed_min {participants - participants // 3} maliciosos {num_malicious_participants}, resultado {participants / 2 < participants // 3}")
+            return 0, 0, 0, participants, num_malicious_participants, 0
+    elif system == ABSOLUTE_MAJORITY:
+        if participants/2 <= num_malicious_participants:
+            print("Error: No hay suficientes nodos honestos para reconstruir el secreto por mayoría absoluta")
+            print(f"part: {participants}, ABSOLUTE_MAJORITY, honest_needed_min {int(participants / 2 + 1)} maliciosos {num_malicious_participants} resultado {participants / 2 < num_malicious_participants + 1}")
+            return 0, 0, 0, participants, num_malicious_participants, 0
+    elif system != ABSOLUTE_MAJORITY and system != BYZANTINE:
+        print("Error: No se especificó el sistema de reconstrucción de secretos: falta el número de nodos honestos mínimos")
+        exit(0)
 
+    exit(0)
     network = create_network(participants, num_malicious_participants)
 
     start_flask_server(network)
@@ -180,8 +200,8 @@ if __name__ == '__main__':
     #print(f"3//1 {3 // 1}") # 3
     #print(f"3//0 {3 // 0}") # error
 
-    # test_time = test(6, 0)
-    # print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
+    test_time = test(6, 2, BYZANTINE)
+    print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
     # 6-0: 32 secs
     # 6-1: 32 secs
     #Deberían fallar y decir "No hay suficientes nodos honestos para reconstruir el secreto":
@@ -205,8 +225,8 @@ if __name__ == '__main__':
     #test_time = test(18)
     #print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4])
 
-    test_time = test(24, 9)
-    print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
+    # test_time = test(24, 9)
+    # print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
     # 24-0: 243 secs
     # 24-8: 338 secs
     # 24-10: no permite por mi if, o peta con ValueError("Sample larger than population or is negative")
