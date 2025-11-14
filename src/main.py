@@ -81,22 +81,21 @@ def test(participants, num_malicious_participants, system):
             #20//3=6
             print("Error: No hay suficientes nodos honestos para reconstruir el secreto por método bizantino")
             print(f"part: {participants}, bizantino, honest_needed_min {participants - participants // 3} maliciosos {num_malicious_participants}, resultado {participants / 2 < participants // 3}")
-            return 0, 0, 0, participants, num_malicious_participants, 0
+            exit(0)
     elif system == ABSOLUTE_MAJORITY:
         if participants/2 <= num_malicious_participants:
             print("Error: No hay suficientes nodos honestos para reconstruir el secreto por mayoría absoluta")
             print(f"part: {participants}, ABSOLUTE_MAJORITY, honest_needed_min {int(participants / 2 + 1)} maliciosos {num_malicious_participants} resultado {participants / 2 < num_malicious_participants + 1}")
-            return 0, 0, 0, participants, num_malicious_participants, 0
+            exit(0)
     elif system != ABSOLUTE_MAJORITY and system != BYZANTINE:
-        print("Error: No se especificó el sistema de reconstrucción de secretos: falta el número de nodos honestos mínimos")
+        print("Error: No se especificó el sistema de reconstrucción de secretos: falta elegir el número de nodos honestos mínimos")
         exit(0)
 
-    exit(0)
     network = create_network(participants, num_malicious_participants)
 
     start_flask_server(network)
     start_time = time.time()
-    protocol = ALBATROSS(network, participants)
+    protocol = ALBATROSS(network, participants, system)
     commit_time = protocol.execute_commit_phase()
     reveal_time = protocol.execute_reveal_phase()
     output_time = protocol.handle_output_phase()
@@ -200,7 +199,7 @@ if __name__ == '__main__':
     #print(f"3//1 {3 // 1}") # 3
     #print(f"3//0 {3 // 0}") # error
 
-    test_time = test(6, 2, BYZANTINE)
+    test_time = test(6, 1, BYZANTINE)
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
     # 6-0: 32 secs
     # 6-1: 32 secs
