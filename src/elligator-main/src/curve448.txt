@@ -1,7 +1,0 @@
-{
-    title: curve448.py
-    description: Curve448 specific code & parameters
-}
-
-curve448.py
-===========

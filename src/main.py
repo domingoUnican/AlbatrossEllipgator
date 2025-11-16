@@ -42,7 +42,7 @@ def manage_terminal_input():
 
 # Create the network
 def create_network(num_participants):
-    network = Network(num_participants,True)
+    network = Network(num_participants,EC=True)
     network.create_nodes()
     network.assign_neighbors()
     network.pk_to_ledger()

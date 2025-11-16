@@ -30,13 +30,15 @@ class Network:
 
     def create_nodes(self):
         # Initialization data
+        count_mal=0
         for i in range(self.n):
             # Type selection
             r = random.random()
-            if r < 0.6:
+            if r < 0.8 or count_mal>self.n//3: #Aquí comprobamos que no se nos descontrolen los maliciosos.
                 node_type = "HONEST"
             else:
                 node_type = "MALICIOUS"
+                count_mal+=1
                 print(i,node_type)
             if self.EC:
                 self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))

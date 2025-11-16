@@ -4,7 +4,7 @@ import time
 import numpy as np
 import requests
 import sys
-
+from .Elliga.ellifun import CurvetoNumber
 from .PPVSSProtocol.utils import Utils
 
 
@@ -237,7 +237,8 @@ class ALBATROSS:
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
         print(self.__T)
-        Tprima=[[a if isinstance(a,int) else a.x for a in i] for i in self.__T]
+        #Tprima=[[a if isinstance(a,int) else a.x for a in i] for i in self.__T]
+        Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in self.__T]
         #matriz_T = np.array(self.__T)
         matriz_T=np.array(Tprima)
         print("Matrix T size:", matriz_T.shape)

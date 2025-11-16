@@ -1,7 +1,0 @@
-{
-    title: hash_to_curve25519.py
-    description: Map random numbers to a Curve25519 points
-}
-
-hash_to_curve25519.py
-=====================
