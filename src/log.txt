@@ -1,312 +1,342 @@
+0 MALICIOUS
 1 MALICIOUS
-4 MALICIOUS
-8 MALICIOUS
+3 MALICIOUS
+5 MALICIOUS
  * Serving Flask app 'DistributedNetwork.NetworkCommunication.flask_server'
  * Debug mode: off
 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://10.0.82.104:5000
+ * Running on http://192.168.1.48:5000
 [33mPress CTRL+C to quit[0m
 Executing commit requests...
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /node/0/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /node/0/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:10] "GET /node/0/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/0/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/0/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/0/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/0/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/0/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/0/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/1/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/4/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/3/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/3/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/3/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/3/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/3/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:11] "GET /node/2/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/3/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/2/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/3/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/3/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/3/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/7/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/4/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/7/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/6/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:12] "GET /node/5/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/5/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/6/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/3/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/8 HTTP/1.1" 200 -
-Commit successful on node 3: Commit completed.
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/0 HTTP/1.1" 200 -
-Commit successful on node 8: Commit completed.
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/5/commit HTTP/1.1" 200 -
-Commit successful on node 9: Commit completed.
-Commit successful on node 5: Commit completed.
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/8/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/2/commit HTTP/1.1" 200 -
-Commit successful on node 2: Commit completed.
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/1/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/0 HTTP/1.1" 200 -
-Commit successful on node 1: Commit completed.
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/7/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/0/commit HTTP/1.1" 200 -
-Commit successful on node 7: Commit completed.
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/4 HTTP/1.1" 200 -
-Commit failed on node 0: 200
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/4/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/9/verify_lde/6 HTTP/1.1" 200 -
-Commit failed on node 4: 200
-127.0.0.1 - - [12/Nov/2025 11:50:13] "GET /node/6/commit HTTP/1.1" 200 -
-Commit failed on node 6: 200
-Executing reveal requests...
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/0/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/0/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/0/verify_polynomial/7 HTTP/1.1" 200 -
-The polynomial published by node {node_id} is not correct.
-127.0.0.1 - - [12/Nov/2025 11:50:14] "[31m[1mGET /node/0/verify_polynomial/1 HTTP/1.1[0m" 400 -
-The polynomial verification uploaded by node 1 was incorrect: 400
-127.0.0.1 - - [12/Nov/2025 11:50:14] "[31m[1mGET /node/1/reveal HTTP/1.1[0m" 400 -
-Reveal failed on node 1: 400
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/0/verify_polynomial/5 HTTP/1.1" 200 -
-The polynomial published by node {node_id} is not correct.
-127.0.0.1 - - [12/Nov/2025 11:50:14] "[31m[1mGET /node/0/verify_polynomial/8 HTTP/1.1[0m" 400 -
-The polynomial verification uploaded by node 8 was incorrect: 400
-127.0.0.1 - - [12/Nov/2025 11:50:14] "[31m[1mGET /node/8/reveal HTTP/1.1[0m" 400 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/0/verify_polynomial/9 HTTP/1.1" 200 -
-Reveal failed on node 8: 400
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/1/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/1/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/1/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/1/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/1/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/2/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/3/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/2/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/2/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/2/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/4/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/4/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/3/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/3/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/3/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/5/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/5/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/4/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/4/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/4/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/6/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/5/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/6/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/5/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/6/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/7/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/7/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/6/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:14] "GET /node/6/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/9/verify_polynomial/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/reveal HTTP/1.1" 200 -
-Reveal successful on node 2: <Response [200]>
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/9/verify_polynomial/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/9/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/reveal HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/reveal HTTP/1.1" 200 -
-Reveal successful on node 7: <Response [200]>
-Reveal successful on node 3: <Response [200]>
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/9/verify_polynomial/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/9/reveal HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/reveal HTTP/1.1" 200 -
-Reveal successful on node 9: <Response [200]>
-Reveal successful on node 5: <Response [200]>
-Some reveals failed. Proceeding with alternative action.
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+[2025-11-15 23:32:25,855] ERROR in app: Exception on /node/9/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/9/commit HTTP/1.1[0m" 500 -
+Commit failed on node 9: 500
+[2025-11-15 23:32:25,858] ERROR in app: Exception on /node/2/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/2/commit HTTP/1.1[0m" 500 -
+Commit failed on node 2: 500[2025-11-15 23:32:25,858] ERROR in app: Exception on /node/1/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
 
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/1/commit HTTP/1.1[0m" 500 -
+Commit failed on node 1: 500
+[2025-11-15 23:32:25,859] ERROR in app: Exception on /node/7/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/7/commit HTTP/1.1[0m" 500 -
+Commit failed on node 7: 500[2025-11-15 23:32:25,859] ERROR in app: Exception on /node/8/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
 
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/8/commit HTTP/1.1[0m" 500 -
+[2025-11-15 23:32:25,860] ERROR in app: Exception on /node/5/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/5/commit HTTP/1.1[0m" 500 -
+Commit failed on node 8: 500
+Commit failed on node 5: 500[2025-11-15 23:32:25,861] ERROR in app: Exception on /node/3/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
 
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/3/commit HTTP/1.1[0m" 500 -
+Commit failed on node 3: 500[2025-11-15 23:32:25,861] ERROR in app: Exception on /node/6/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
 
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
-
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
-
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
-
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
-
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
-
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "[35m[1mGET /sync_nodes HTTP/1.1[0m" 500 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
-
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/0/verify_dleq/0?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/1/verify_dleq/0?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/2/verify_dleq/0?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/3/verify_dleq/0?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/4/verify_dleq/0?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/9?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/5/verify_dleq/0?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/8?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/6/verify_dleq/6?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_dleq/3?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_dleq/7?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_dleq/5?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_dleq/2?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/7/verify_dleq/4?failed_nodes=8,1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 11:50:15] "GET /node/8/verify_dleq/1?failed_nodes=8,1 HTTP/1.1" 200 -
+127.0.0.1 - - [15/Nov/2025 23:32:25] "[35m[1mGET /node/6/commit HTTP/1.1[0m" 500 -
+[2025-11-15 23:32:25,861] ERROR in app: Exception on /node/0/commit [GET]
+Traceback (most recent call last):
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkCommunication/controller.py", line 18, in commit
+    result = self.__nodes[node_id].commit()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/DistributedNetwork/NetworkManagement/node_EC.py", line 62, in commit
+    self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 16, in distribute
+    return self.distribute_new() if isinstance(self.__ledger, Ledger_EC) else self.distribute_old()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in distribute_new
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/Git_Repositories/Colaboracion/AlbatrossEllipgator/src/ALBATROSSProtocol/PPVSSProtocol/PPVSS.py", line 34, in <listcomp>
+    self.__ledger.encrypted_fragments = [evaluation[i + l]*pk[i] for i in range(n)]
+                                         ~~~~~~~~~~~~~~~~~^~~~~~
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1109, in __rmul__
+    return self.__mul__(scal)
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/krauser/miniconda3/envs/py311/lib/python3.11/site-packages/ecpy/curves.py", line 1106, in __mul__
+    raise ECPyException('__mul__: type not supported: %s'%type(scal))
+ecpy.curves.ECPyException: <exception str() failed>
