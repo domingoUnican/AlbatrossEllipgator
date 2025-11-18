@@ -285,3 +285,10 @@ class ALBATROSS:
         Multiplies two matrices of the same size.
         """
         return np.multiply(matriz_a, matriz_b)
+
+    def clear(self):
+        self.__successful_commit_ids.clear()
+        self.__successful_reveal_ids.clear()
+        self.__successful_recovery_ids.clear()
+        self.__T.clear()
+        self.__num_participants = 0

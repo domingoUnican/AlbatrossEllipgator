@@ -2,6 +2,8 @@ import math
 import random
 import matplotlib.pyplot as plt
 import networkx as nx
+
+from . import node
 from .node import Node
 from ALBATROSSProtocol.PPVSSProtocol.utils import Utils
 
@@ -39,6 +41,11 @@ class Network:
                 node_type = "MALICIOUS"
         """
 
+    def clear_nodes(self):
+        """
+        Liberamos memoria al borrar los nodos
+        """
+        self.__nodes.clear()
 
     def get_q(self):
         return self.q
@@ -105,3 +112,14 @@ class Network:
         nx.draw_networkx_labels(G, pos, labels=node_labels, font_size=8)
         plt.title("Network Visualization")
         plt.show()
+
+    def clear(self):
+        for i in range(len(self.__nodes) - 1):
+            self.__nodes.remove(self.__nodes[i].get_id())
+
+        self.clear_nodes()
+        self.__nodes: list[Node] = []
+        self.n = 0
+        self.q = 0
+        self.p = 0
+        self.h = 0

@@ -66,8 +66,6 @@ class PPVSS:
         q = self.__ledger.q
         t = self.__ledger.n - self.__ledger.t
 
-        
-
         lambs = self.__lambdas(reco_parties, t)
         Sec = [0] * l
         for j in range(l):
