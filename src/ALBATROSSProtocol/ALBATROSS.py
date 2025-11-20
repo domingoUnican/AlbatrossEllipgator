@@ -7,13 +7,24 @@ import sys
 from .Elliga.ellifun import CurvetoNumber
 from .PPVSSProtocol.utils import Utils
 
+BYZANTINE = 0
+ABSOLUTE_MAJORITY = 1
 
 class ALBATROSS:
-    def __init__(self, network, num_participants):
+    def __init__(self, network, num_participants, system):
         """Initializes ALBATROSS protocol with given network and number of participants."""
         self.__network = network
         self.__num_participants = num_participants
-        self.__t = num_participants // 3
+        # t es el umbral máximo de participantes maliciosos: bizantino max 1/3, mayoría (Caso peor: 51%buenos), caso mejor 100% buenos
+        if system == BYZANTINE:
+            self.__t = num_participants // 3
+            self.system = BYZANTINE
+        elif system == ABSOLUTE_MAJORITY:
+            self.__t = num_participants // 2
+            self.system = ABSOLUTE_MAJORITY
+        else:
+            print("Error al inicializar el umbral máximo __t en Albatross")
+            exit(0)
         self.__successful_commit_ids = set()
         self.__successful_reveal_ids = set()
         self.__successful_recovery_ids = set()
@@ -153,7 +164,13 @@ class ALBATROSS:
         """Processes the final output by reconstructing the secret using Vandermonde matrix and randomness."""
         w = Utils.rootunity(len(self.__T[0]), self.__network.get_q()) 
         t = self.__num_participants // 3
-        l = self.__num_participants - 2 * t
+
+        if self.system == BYZANTINE:
+            l = self.__num_participants - 2 * t
+        elif self.system == ABSOLUTE_MAJORITY:
+            # TODO: revisar que pueda ser así, pq el problema es que esto cambia el tamaño de las matrices, lo que implicarái multiplciar matrices de otra manera, como con .dot, que hace el hace el producto matricial estándar... pero ¿esto sería válido para bizantinso y mayorái absoluta y Albatross?
+            l = max(1, self.__num_participants - t)
+
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
 
