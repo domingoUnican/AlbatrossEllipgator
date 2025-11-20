@@ -18,8 +18,9 @@ class Network:
 
     def create_nodes(self, malicious_participants):
         # Initialization data
-        k = 128
-        size = 1024
+        # Ojo, tarda mucho en generar los primos
+        k = 128 #258
+        size = 1024 #3072
         self.q, self.p = Utils.findprime(k, size - k)  # Generated q and p
         gen = Utils.generator(self.p)
         self.h = pow(gen, 2, self.p)  # Group generator
