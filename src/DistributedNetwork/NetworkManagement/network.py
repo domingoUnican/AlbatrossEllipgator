@@ -11,12 +11,12 @@ from ecpy.curves import Curve, Point
 from ALBATROSSProtocol.PPVSSProtocol.utils import Utils
 
 class Network:
-    def __init__(self, num_nodes,EC=True):
+    def __init__(self, num_nodes, EC=True):
         self.__nodes: list[Node] = []
         self.n = num_nodes
         self.EC = EC
         if EC:
-            self.EC = Curve.get_curve('Curve25519')
+            self.EC = Curve.get_curve('Curve25519') # es de 256
             self.q = self.EC._domain["order"]
             self.h = self.EC._domain["generator"]
         else:           
@@ -25,14 +25,22 @@ class Network:
             self.q, self.p = Utils.findprime(k, size - k)  # Generated q and p
             gen = Utils.generator(self.p)
             self.h = pow(gen, 2, self.p)  # Group generator
-            
 
-
-    def create_nodes(self):
+    def create_nodes(self, malicious_participants):
         # Initialization data
         count_mal=0
         for i in range(self.n):
             # Type selection
+            if i < malicious_participants:
+                node_type = "MALICIOUS"
+            else:
+                node_type = "HONEST"
+
+            if self.EC:
+                self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))
+            else:
+                self.__nodes.append(Node(i, node_type, self.n, self.q, self.p, self.h))
+            """
             r = random.random()
             if r < 0.8 or count_mal>self.n//3: #Aquí comprobamos que no se nos descontrolen los maliciosos.
                 node_type = "HONEST"
@@ -44,7 +52,7 @@ class Network:
                 self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))
             else:
                 self.__nodes.append(Node(i, node_type, self.n, self.q, self.p, self.h))
-
+            """
 
     def get_q(self):
         return self.q

@@ -1,359 +1,112 @@
-1 MALICIOUS
-4 MALICIOUS
-7 MALICIOUS
  * Serving Flask app 'DistributedNetwork.NetworkCommunication.flask_server'
  * Debug mode: off
-[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://10.0.82.104:5000
-[33mPress CTRL+C to quit[0m
+ * Running on http://192.168.1.129:5000
+Press CTRL+C to quit
 Executing commit requests...
-127.0.0.1 - - [12/Nov/2025 15:37:57] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/1/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:58] "GET /node/0/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/0/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/0/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/1/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/2/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/1/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/1/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/1/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/1/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/1/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:37:59] "GET /node/2/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/1/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/1/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/3/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/3/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/3/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/2/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:00] "GET /node/4/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/3/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/3/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/3/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/3/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/3/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/3/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/4/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/4/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/4/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/4/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:01] "GET /node/4/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/4/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/4/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/4/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:02] "GET /node/5/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/5/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/5/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/7/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:03] "GET /node/6/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/6/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/8/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/8/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:04] "GET /node/7/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/0 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/2 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/9/verify_lde/1 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/1/commit HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:14] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:14] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:14] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:14] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:14] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:16] "GET /node/0/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:16] "GET /node/0/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:16] "GET /node/0/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:16] "GET /node/1/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:16] "GET /node/0/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:18] "GET /node/2/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:18] "GET /node/1/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:18] "GET /node/1/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:18] "GET /node/2/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:18] "GET /node/1/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:20] "GET /node/3/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:21] "GET /node/2/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:21] "GET /node/3/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:21] "GET /node/3/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:21] "GET /node/2/verify_lde/3 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:22] "GET /node/4/verify_lde/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:22] "GET /node/1/commit HTTP/1.1" 200 -
 Commit successful on node 1: Commit completed.
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/verify_lde/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/9/verify_lde/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/9/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/9/verify_lde/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/6/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/9/verify_lde/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/8/commit HTTP/1.1" 200 -
-Commit successful on node 9: Commit completed.
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/7/commit HTTP/1.1" 200 -
-Commit successful on node 8: Commit completed.
-127.0.0.1 - - [12/Nov/2025 15:38:05] "GET /node/3/commit HTTP/1.1" 200 -
-Commit successful on node 6: Commit completed.
-Commit successful on node 7: Commit completed.
-Commit successful on node 3: Commit completed.
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/9/verify_lde/4 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/4/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/9/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/3/verify_lde/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/4/commit HTTP/1.1" 200 -
 Commit successful on node 4: Commit completed.
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/0/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/9/verify_lde/2 HTTP/1.1" 200 -
-Commit failed on node 0: 200
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/9/verify_lde/5 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/5/commit HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/2/commit HTTP/1.1" 200 -
-Commit failed on node 5: 200
-Commit failed on node 2: 200
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/4/verify_lde/0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/4/verify_lde/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/0/commit HTTP/1.1" 200 -
+Commit successful on node 0: Commit completed.
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/2/commit HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/4/verify_lde/3 HTTP/1.1" 200 -
+Commit successful on node 2: Commit completed.
+127.0.0.1 - - [19/Nov/2025 21:46:23] "GET /node/3/commit HTTP/1.1" 200 -
+Commit failed on node 3: 200
 Executing reveal requests...
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:27] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:27] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:27] "GET /sync_nodes HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:27] "GET /sync_nodes HTTP/1.1" 200 -
 The polynomial published by node {node_id} is not correct.
-127.0.0.1 - - [12/Nov/2025 15:38:06] "[31m[1mGET /node/0/verify_polynomial/7 HTTP/1.1[0m" 400 -
-The polynomial published by node {node_id} is not correct.
-127.0.0.1 - - [12/Nov/2025 15:38:06] "[31m[1mGET /node/0/verify_polynomial/4 HTTP/1.1[0m" 400 -
-The polynomial published by node {node_id} is not correct.
-127.0.0.1 - - [12/Nov/2025 15:38:06] "[31m[1mGET /node/0/verify_polynomial/1 HTTP/1.1[0m" 400 -
-The polynomial verification uploaded by node 4 was incorrect: 400
-127.0.0.1 - - [12/Nov/2025 15:38:06] "[31m[1mGET /node/4/reveal HTTP/1.1[0m" 400 -
-The polynomial verification uploaded by node 1 was incorrect: 400
-127.0.0.1 - - [12/Nov/2025 15:38:06] "[31m[1mGET /node/1/reveal HTTP/1.1[0m" 400 -
-Reveal failed on node 4: 400Reveal failed on node 1: 400
-The polynomial verification uploaded by node 7 was incorrect: 400
-127.0.0.1 - - [12/Nov/2025 15:38:06] "[31m[1mGET /node/7/reveal HTTP/1.1[0m" 400 -
-
-Reveal failed on node 7: 400
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/0/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/0/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/0/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/0/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/1/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/1/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/1/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/1/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/2/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/2/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/2/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/2/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:06] "GET /node/3/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/4/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/3/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/3/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/4/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/5/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/4/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/4/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/5/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/6/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/5/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/6/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/5/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/7/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/7/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/7/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/6/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/8/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/8/verify_polynomial/3 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/9/verify_polynomial/8 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/8/reveal HTTP/1.1" 200 -
-Reveal successful on node 8: <Response [200]>
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/7/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/9/verify_polynomial/6 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/6/reveal HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/9/verify_polynomial/3 HTTP/1.1" 200 -
-Reveal successful on node 6: <Response [200]>
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/3/reveal HTTP/1.1" 200 -
-Reveal successful on node 3: <Response [200]>
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/8/verify_polynomial/9 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:07] "GET /node/9/reveal HTTP/1.1" 200 -
-Reveal successful on node 9: <Response [200]>
+127.0.0.1 - - [19/Nov/2025 21:46:29] "GET /node/1/verify_polynomial/0 HTTP/1.1" 400 -
+The polynomial verification uploaded by node 0 was incorrect: 400
+127.0.0.1 - - [19/Nov/2025 21:46:29] "GET /node/0/reveal HTTP/1.1" 400 -
+Reveal failed on node 0: 400
+127.0.0.1 - - [19/Nov/2025 21:46:29] "GET /node/0/verify_polynomial/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:29] "GET /node/0/verify_polynomial/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:29] "GET /node/0/verify_polynomial/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:31] "GET /node/1/verify_polynomial/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:31] "GET /node/2/verify_polynomial/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:31] "GET /node/1/verify_polynomial/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:33] "GET /node/3/verify_polynomial/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:33] "GET /node/2/verify_polynomial/4 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:33] "GET /node/3/verify_polynomial/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:35] "GET /node/4/verify_polynomial/1 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:35] "GET /node/1/reveal HTTP/1.1" 200 -
+Reveal successful on node 1: <Response [200]>
+127.0.0.1 - - [19/Nov/2025 21:46:35] "GET /node/4/verify_polynomial/2 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:35] "GET /node/2/reveal HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:35] "GET /node/3/verify_polynomial/4 HTTP/1.1" 200 -
+Reveal successful on node 2: <Response [200]>
+127.0.0.1 - - [19/Nov/2025 21:46:35] "GET /node/4/reveal HTTP/1.1" 200 -
+Reveal successful on node 4: <Response [200]>
 Some reveals failed. Proceeding with alternative action.
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /sync_nodes HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/0/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-2994124731442889549831612996629395513498263351909450800458449131166398928071391127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/2/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/1/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/2/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/2/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/2/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:08] "GET /node/2/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/2/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/2/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/2/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/2/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/2/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/3/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/4/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/5/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/6/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/8/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/7/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:09] "GET /node/8/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/7/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/7/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/7/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/1?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/1/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-Recovery successful on node 1
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/5?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/5/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-Recovery successful on node 5
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/2?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/8?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/2/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-Recovery successful on node 2
-Recovery successful on node 8
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/6?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/3?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/6/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/7?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/7/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/3/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/4?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/0?failed_nodes=1,4,7 HTTP/1.1" 200 -
-Recovery successful on node 3
-Recovery successful on node 6
-Recovery successful on node 7
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/4/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/0/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-Recovery successful on node 4
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/verify_dleq/9?failed_nodes=1,4,7 HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/recovery?failed_nodes=1,4,7 HTTP/1.1" 200 -
-Recovery successful on node 9
-Recovery successful on node 0
-Proceeding with secret reconstruction.
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/9/output HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/6/output HTTP/1.1" 200 -
-Number of secrets post-add: 1
-Randomness extraction successful on node 6
-Number of secrets post-add: 2
-Randomness extraction successful on node 9
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/3/output HTTP/1.1" 200 -
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/8/output HTTP/1.1" 200 -
-Number of secrets post-add: Number of secrets post-add: 4
-Randomness extraction successful on node 83
-Randomness extraction successful on node 3
+127.0.0.1 - - [19/Nov/2025 21:46:39] "GET /sync_nodes HTTP/1.1" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
 
-Number of secrets: 4
-reco_parties:  [9, 3, 5, 7, 4, 1, 10]
-reco_parties:  [10, 4, 6, 3, 1, 7, 9]
-reco_parties:  [10, 8, 4, 3, 1, 9, 7]
-xverif:  11
-xverif:  11
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/7/reconstruction/9?reco_parties=9,3,5,2,0,6,8 HTTP/1.1" 200 -
-xverif: 127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/1/reconstruction/8?reco_parties=8,2,4,6,3,0,9 HTTP/1.1" 200 -
- 11
-Number of secrets post-add: 5
-Reconstruction successful for node 9
-Number of secrets post-add: 6
-Reconstruction successful for node 8
-127.0.0.1 - - [12/Nov/2025 15:38:10] "GET /node/4/reconstruction/9?reco_parties=9,7,3,2,0,8,6 HTTP/1.1" 200 -
-Number of secrets post-add: 7
-Reconstruction successful for node 9
-Vandermonde matrix size: (4, 7)
-[[235580082365851189001193564923985749579236312726654437639501195936007452606620155041856545695301242907491248279571122542859122362567121820894327510583349501143897949805126695709290681047621866580116902873426096730115434372123130007483626521930517676141495522539018543762271311132687391660421862345075439123533, 245990974352272348064377813349173721440613314770249589482610036206603906381971564883576967129128145681288695414508602534341993030459419330898629038553538270169997935322826546182322839996630856089872422221774368793002637515876692472625079667563132015049028375900751136482598349587035801847539817201326984977326, 138848331027822603669770958509575327275347242206015293456412785806016024366106774797927507617023270287882053017203383031159921114692899507282070846164177101662567714643343767194622679893444218348059103063325933654561848452994618899253619456734537233056201807282609789599449892788594203078571316634867927236734, 196900422071813142871737725639685338479505864775125418903045417600953503100715504718388534607867180518753305028715852293593960973154735359365873601344575188695254456784502812341646289410920944414937870353377623088957256746151416324942967611291413610818489963983133619940106520397973740532507251998649227222449], [348048993975689482678815645052569535609833864657716508114958651808936641630767363521529922438969410869274211947292880873110813327330813979137639438929429337912887239838343196164332557130794246144085158243478478598136439259367607469150486636524929762424856463027740099318280685788984341257905564446108355955508, 342061714093409195049905544439567152359849223717495117687060783132754701551287646463830426363485298719898365908002671520571362601279980612684806665585525903359350692257340830140212529179334154949707580095950952589812248642708325529394561395398125769482758338202232929109155508946059694860082201674574971552536, 209271863264048031958526517571495719662569292217557781074949393038192913348802797232721287931584247982099934821067051401581323927758897196651206895833119459759576559585062484498683014102546698438528657649281554281322525217819760207597855094610582987335778999953086440010848176390664458066998341013646736013336, 282234929809836666001284848422475972823122334823258866193802528571104240206519492157391716658828197665001515363836918686652931717590931838403780697186642372767333916100285871769861553976611001255982122866227848494769524531409799293633676888629025527573250156365241127105545586829972128388358895042926826665094], [272921160666371179971753861605075652304473274057663104622212993373898077197167007116628156182479427576422511976138633457919046055208239642819557163995158876013841045251503242084758307358551636628466698319350438591192499533401778056894269803577722236138842273279834313352363458619946285326389885347631725157911, 241649860780750110021384947987121857542781917221592341836739985499766802066249780625323795183119522398516636971474326089257296345700252325148765359247043053625374439998387453576198670539976487972650696945312992797742116838701297541837770077843138384549062161875445921985302661862883915668451570313779419375436, 273077787746873000909391671444991676830687803380410805841170031607684478467976172729020271551763944361385607578448067674652556132912265917403815699356510328046218238651915479410339095687918054360328599171293102416882422822731892637016752848870237373887087080180575038456489770016985548758545580918353710386108, 322415078492431729564830968014752875589982644612006067919083766451475765172367556454047360454456999683824741938972566351521090253174361912587396171380907487400389550561895418032741013177274940959144639496372690927789672896850671720365246853344590822152506393306314616874277397869995449817490433118891999666086], [107570035655872514087571051751168046280087387668017254764613810185203247990704759636722418859605429253879754970362076383445043097210973064657849165581435127135376188330525908587278377400639996110308455474467522675743032236012987075752336752079247529485905972884870899015065723295929564070452250107514285851474, 176288991695772421573930595499581701746790069018799061696817623747750550945648319009425473788707870693147793269772297098773053017038054682891303148225837041822519628076121507474841193451268474879505618452683297473936273869071631426126094366117292013052550081116378212493133408885101962323042202526571151571653, 259136146015980286983880072189536571972272755472086758268789374957766905029423100623669089170168634891697578586372075082811124025100386805407906634037101213029060397203283875253120713930499198816412716308885548951794402278368293024847870419684912848447223369212638437905119353133741218807474752615656874059333, 42950248622992230258858324978889841181154102219647289597424546532195931941392508319137668569795587833080731311696681217654937022910139928274290726342270945116613726228599511713361003615974300798704031564086636991745792858054916276689690036654315428135119958045546836645849435019150167227397708696969203324983], [80103743456671454057700031279488822901284345428361120215090814556622612254775852557364876470095940437473576917200081046733331428117074602484511527869107337932339698650024676055810164195228515415647132030288561219719012999523438643103697838581902285510592095651182606664184370592738288209989174558976559579338, 346711241756721559642684312846217632461845530075824060111017865686635459212768464379940539167985301995168705245123310952428503597376044941024817744144316463528063744579345936356066272051094516494972879098065031066571585649546033280632766247954674760642994799423894519487257976392071723373447304529933540805634, 355028208429691672513405518007487343470431581044405632572692646431832587711038250824253107622462387501257475991457966230507743692049776747968891050548234226725289734141597049452947714495767359911399100881680765032913808966337171993915496951052383605721197008855802839855788576579212686713506163031440552780528, 168107734611158055008899328328606385909136318607141790673492967741019955626702397973094119317270340000469532405339037099696126656124225926781966261537953573406840169362328118961677819084453235009745938305106098035006509388474533625462532302724008434460908642497844282057381433804274016527781340869561902984709], [108884576742344804747820222979990857121802054118731102895218490839441496946126384658329452289665295819224334927425915388179959887367924749274673537974593998178252435488603797275710035877608093007351230249897572884136950259517612658179253269386047604496464482184657839562229777993642881075877593037232100041689, 260954148387873493102909826384816512713382917600683750926025606702735820167581496304144495334249285137166139268075429095552882737783603186259215533855000725002277430258397725718450534222604017334004976449552088417896564713271904347333898296372768340414714806172346365344275746071113455852894114806823376276187, 91245188113940392080311996646805392561159573888865835487602136615403018561977388127389859062101912421169229769492014244596517622393935676342197664888598456058898098174525757469611173486054110966766549388293892734904594736436766019100409985431710541380447516416677345494493333636069479231376475204337453511536, 221018138816806843372966423793545034935130810523637464028085440395541546732073427095406033853636088981290692362710525959583332807933077103239766756215136398965605376778030194264746790763270970937111646572212050446524037803603527306922781159463843792040332799565683249052145445160391167607182589222195877270431], [296157802685412789988773738236375880055584887259330684725471842860792908068576624776644414101136763048699184595428820694831863597196003549637749905665408510850034442886347921864496459476194510063537511866988950444538846567323139233801087053876256992775604587973114085798482146534950659179180143651347969826139, 279974407859091963256654518602668714762346767250090106584678624268505573716982135150732264702634614614534391574737561237791404220539196374961165748684284861275962624541017071909954449671400634753539984554523940056495644581387312325137229674793612437495725632770509177563825668454811923368525706495778584661337, 294017050722135339869686188296968320630148204079934936247605487170951518845597604142749229581968367439583193115916871215389544262522234403767273467880731277257974402557354869259557148436129258302018669417387909004231020417675500664401633000318752505944475710151070004597077413235019298108191236941409653264641, 240168299462688386141144176456457876564248053126387932276305286690252857684484579154200378322624711658822749808216516858989523857276063105694298131490574939769027066025766368832065153946131417787453221108091493115183436744167722120538032417560528036215859366211141886647080106624542842859360525905752267976049]]
+127.0.0.1 - - [19/Nov/2025 21:46:39] "GET /sync_nodes HTTP/1.1" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [19/Nov/2025 21:46:39] "GET /sync_nodes HTTP/1.1" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [19/Nov/2025 21:46:39] "GET /sync_nodes HTTP/1.1" 500 -
+127.0.0.1 - - [19/Nov/2025 21:46:39] "GET /sync_nodes HTTP/1.1" 500 -
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+127.0.0.1 - - [19/Nov/2025 21:46:42] "GET /node/0/verify_dleq/1?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:42] "GET /node/0/verify_dleq/3?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:42] "GET /node/0/verify_dleq/0?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:42] "GET /node/0/verify_dleq/4?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:42] "GET /node/0/verify_dleq/2?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:44] "GET /node/1/verify_dleq/1?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:44] "GET /node/1/verify_dleq/3?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:44] "GET /node/1/verify_dleq/2?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:44] "GET /node/1/verify_dleq/0?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:44] "GET /node/1/verify_dleq/4?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:46] "GET /node/2/verify_dleq/1?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:46] "GET /node/2/verify_dleq/3?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:46] "GET /node/2/verify_dleq/2?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:46] "GET /node/2/verify_dleq/4?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:46] "GET /node/2/verify_dleq/0?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:48] "GET /node/3/verify_dleq/1?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:48] "GET /node/3/verify_dleq/3?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:48] "GET /node/3/verify_dleq/0?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:48] "GET /node/3/verify_dleq/2?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:48] "GET /node/3/verify_dleq/4?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:50] "GET /node/4/verify_dleq/1?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:50] "GET /node/1/recovery?failed_nodes=0 HTTP/1.1" 200 -
+Recovery successful on node 1
+127.0.0.1 - - [19/Nov/2025 21:46:50] "GET /node/4/verify_dleq/3?failed_nodes=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Nov/2025 21:46:50] "GET /node/3/recovery?failed_nodes=0 HTTP/1.1" 200 -
