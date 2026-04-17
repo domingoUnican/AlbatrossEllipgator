@@ -45,7 +45,7 @@ def manage_terminal_input():
 
 # Create the network
 def create_network(num_participants, num_malicious_participants):
-    network = Network(num_participants,EC=True)
+    network = Network(num_participants,True)
     network.create_nodes(num_malicious_participants)
     network.assign_neighbors()
     network.pk_to_ledger()
@@ -64,7 +64,11 @@ def start_flask_server(network):
     time.sleep(2)  # Give time for the server to start
     return flask_server, server_thread
 
-
+# Main function
+if __name__ == '__main__':
+    # Redirect standard output and errors to both log.txt and terminal
+    sys.stdout = Logger("log.txt")
+    sys.stderr = sys.stdout
 
 def test(participants, num_malicious_participants, system):
     """
@@ -110,14 +114,24 @@ def test(participants, num_malicious_participants, system):
     return commit_time, execution_time, output_time, participants, num_malicious_participants, reveal_time
 
 
-def test_elligator():
-    test_time = test(5, 0, BYZANTINE)
+def print_time(commit_time: float, execution_time: float, output_time: float, participants, num_malicious_participants, reveal_time: float):
+    print("########################### EXECUTION TIMES ###########################")
+    print(f"N: {participants} participants")
+    print(f"N: {num_malicious_participants} malicious participants")
+    print(f"Total: {execution_time} seconds")
+    print(f"Commit: {commit_time} seconds")
+    print(f"Reveal: {reveal_time} seconds")
+    print(f"Output: {output_time} seconds")
+
+
+def test_ec_simple():
+    test_time = test(40, 13, BYZANTINE)
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
 
     """
     test_time = test(5, 0, BYZANTINE)
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
-
+    
     test_time = test(5, 1, BYZANTINE)
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
 
@@ -146,15 +160,6 @@ def test_elligator():
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
     """
 
-def print_time(commit_time: float, execution_time: float, output_time: float, participants, num_malicious_participants, reveal_time: float):
-    print("########################### EXECUTION TIMES ###########################")
-    print(f"N: {participants} participants")
-    print(f"N: {num_malicious_participants} malicious participants")
-    print(f"Total: {execution_time} seconds")
-    print(f"Commit: {commit_time} seconds")
-    print(f"Reveal: {reveal_time} seconds")
-    print(f"Output: {output_time} seconds")
-
 def console_mode():
     # Keep the main thread active
     try:
@@ -169,6 +174,7 @@ if __name__ == '__main__':
     sys.stdout = Logger("log.txt")
     sys.stderr = sys.stdout
 
-    test_elligator()
+    test_ec_simple()
 
     exit(0)
+

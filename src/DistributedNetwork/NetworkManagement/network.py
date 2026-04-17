@@ -11,24 +11,24 @@ from ecpy.curves import Curve, Point
 from ALBATROSSProtocol.PPVSSProtocol.utils import Utils
 
 class Network:
-    def __init__(self, num_nodes, EC=True):
+    def __init__(self, malicious_participants,EC=True):
         self.__nodes: list[Node] = []
-        self.n = num_nodes
+        self.n = malicious_participants
         self.EC = EC
-        if EC:
+
+    def create_nodes(self, malicious_participants):
+        if self.EC:
             self.EC = Curve.get_curve('Curve25519')
             self.q = self.EC._domain["order"]
             self.h = self.EC._domain["generator"]
-        else:           
+        else:
             k = 128
             size =1024
             self.q, self.p = Utils.findprime(k, size - k)  # Generated q and p
             gen = Utils.generator(self.p)
             self.h = pow(gen, 2, self.p)  # Group generator
 
-    def create_nodes(self, malicious_participants):
         # Initialization data
-        count_mal=0
         for i in range(self.n):
             # Type selection
             if i < malicious_participants:
@@ -42,11 +42,10 @@ class Network:
                 self.__nodes.append(Node(i, node_type, self.n, self.q, self.p, self.h))
             """
             r = random.random()
-            if r < 0.8 or count_mal>self.n//3: #Aquí comprobamos que no se nos descontrolen los maliciosos.
+            if r < 0.6:
                 node_type = "HONEST"
             else:
                 node_type = "MALICIOUS"
-                count_mal+=1
                 print(i,node_type)
             if self.EC:
                 self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))
