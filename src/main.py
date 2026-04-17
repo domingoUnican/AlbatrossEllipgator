@@ -125,7 +125,7 @@ def print_time(commit_time: float, execution_time: float, output_time: float, pa
 
 
 def test_ec_simple():
-    test_time = test(40, 13, BYZANTINE)
+    test_time = test(5, 1, BYZANTINE)
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
 
     """
