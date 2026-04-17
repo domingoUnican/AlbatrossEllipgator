@@ -51,8 +51,8 @@
 # with this software.  If not, see
 # <https://creativecommons.org/publicdomain/zero/1.0/>
 
-import core
-from core import *
+import ALBATROSSProtocol.Elliga.core as core
+from ALBATROSSProtocol.Elliga.core import *
 
 ####################
 # field parameters #

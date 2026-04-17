@@ -1,5 +1,6 @@
-from curve25519 import *
-from elligator import *
+'''
+from .curve25519 import *
+from .elligator import *
 
 u = GF(9)
 p = 2**255 - 19
@@ -9,3 +10,4 @@ is_negative = v > (p - 1) // 2
 print(is_negative)
 
 r = rev_map(u, v_is_negative)
+'''

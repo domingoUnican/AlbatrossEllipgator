@@ -52,7 +52,7 @@
 # with this software.  If not, see
 # <https://creativecommons.org/publicdomain/zero/1.0/>
 
-from core import *
+from ALBATROSSProtocol.Elliga.core import *
 
 A = Mt.A
 B = GF(1)

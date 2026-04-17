@@ -102,6 +102,7 @@ class PPVSS:
         if EC:
             Sec = [Curve.get_curve('Curve25519')._domain["generator"]]*l
             for j in range(l):
+                Sec[l - j - 1] =  Curve.get_curve('Curve25519')._domain["generator"]*0
                 for i in range(t):
                     tmp=lambs[i][j]*sigtilde[i]
                     Sec[l-j-1] = Sec[l-j-1] + tmp
