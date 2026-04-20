@@ -1,0 +1,192 @@
+Executing commit requests...
+Commit successful on node 0: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit failed on node 3: 200
+Commit failed on node 5: 200
+Commit failed on node 9: 200
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 0: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Some reveals failed. Proceeding with alternative action.
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Recovery successful on node 7
+Recovery successful on node 6
+Recovery successful on node 9
+Recovery successful on node 5
+Recovery successful on node 3
+Recovery successful on node 0
+Recovery successful on node 8
+Recovery successful on node 1Recovery successful on node 4
+
+Recovery successful on node 2
+Proceeding with secret reconstruction.
+Number of secrets post-add: 1
+Randomness extraction successful on node 7
+Number of secrets post-add: 2
+Randomness extraction successful on node 8
+Number of secrets post-add: 3
+Randomness extraction successful on node 6
+Number of secrets post-add: 4
+Randomness extraction successful on node 4
+Number of secrets: 4
+reco_parties:  [3, 6, 4, 9, 5, 8, 2]
+reco_parties:  [4, 8, 3, 5, 10, 7, 9]
+reco_parties:  [9, 10, 8, 4, 7, 5, 6]
+xverif:  11
+xverif:  11
+xverif:  Number of secrets post-add: 115
+Reconstruction successful for node 2
+
+Number of secrets post-add: 6
+Reconstruction successful for node 3
+Number of secrets post-add: 7
+Reconstruction successful for node 8
+Vandermonde matrix size: (4, 7)
+[[<ecpy.curves.Point object at 0x0000020F8476AA00>, <ecpy.curves.Point object at 0x0000020F870C1700>, <ecpy.curves.Point object at 0x0000020F88240580>, <ecpy.curves.Point object at 0x0000020F8884AA80>], [<ecpy.curves.Point object at 0x0000020F885F07C0>, <ecpy.curves.Point object at 0x0000020F88625A80>, <ecpy.curves.Point object at 0x0000020F885716C0>, <ecpy.curves.Point object at 0x0000020F87055940>], [<ecpy.curves.Point object at 0x0000020F8885A540>, <ecpy.curves.Point object at 0x0000020F86A5E600>, <ecpy.curves.Point object at 0x0000020F88E7E340>, <ecpy.curves.Point object at 0x0000020F88DD8740>], [<ecpy.curves.Point object at 0x0000020F88660080>, <ecpy.curves.Point object at 0x0000020F8812A200>, <ecpy.curves.Point object at 0x0000020F87055440>, <ecpy.curves.Point object at 0x0000020F87054BC0>], [6133575103589044274139749865756846781187378898080262553726553076881680932902, 38112081702247179035768011644173366547865394313181709927006551905823272546963, 52468437632940571167889806527200367542852867412636328936624316425506458955966, 25700264725224910388756565640152695786505212078272805058978503293569794591472], [2729001603738664997280247375606336589358378087637821482004024994972824618214, 7790665500798946207264205598973426487942727247565613934054597727912077427470, 43082060143947117229211794056928288002699406765537903294921559958021273145523, 3301110903433825626714723713956964189386023330369041886469929693148924042536], [36689897077373224707744774959954773372770264088596781370554639797116510646651, 45033333259370648957820043069846578247981833368008442579250467179267729031834, 46389307355018359922983866912651730310655372608494888362690680616717045113383, 90378702610445497467990462040723245981150109201171455958312059052931001037]]
+Matrix T size: (7, 4)
+Transposed T matrix size: (4, 7)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 3 malicious participants
+Total: 81.00222253799438 seconds
+Commit: 26.38361144065857 seconds
+Reveal: 24.885285139083862 seconds
+Output: 29.73323345184326 seconds
+#######################################################################
+
+
+
+
+
+Executing commit requests...
+Commit successful on node 0: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit failed on node 4: 200
+Executing reveal requests...
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 0
+Number of secrets post-add: 2
+Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 3
+Number of secrets post-add: 4
+Randomness extraction successful on node 1
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Transposed T matrix size: (3, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 0 malicious participants
+Total: 27.763359546661377 seconds
+Commit: 13.137603521347046 seconds
+Reveal: 12.546374797821045 seconds
+Output: 2.079299211502075 seconds
+#######################################################################
+
+
+
+
+
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.Commit successful on node 0: Commit completed.
+
+Commit failed on node 4: 200
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 1: <Response [200]>Reveal successful on node 2: <Response [200]>
+
+Some reveals failed. Proceeding with alternative action.
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Error en la sincronización: 500 - {"message":"eq: type not supported: <class 'int'>","status":"error"}
+
+Recovery successful on node 3
+Recovery successful on node 0
+Recovery successful on node 1
+Recovery successful on node 4
+Recovery successful on node 2
+Proceeding with secret reconstruction.
+Number of secrets post-add: 1
+Randomness extraction successful on node 3
+Number of secrets post-add: 2
+Randomness extraction successful on node 1
+Number of secrets post-add: 3
+Randomness extraction successful on node 2
+Number of secrets: 3
+reco_parties:  [2, 3, 4, 5]
+xverif:  7
+Number of secrets post-add: 4
+Reconstruction successful for node 1
+Vandermonde matrix size: (3, 4)
+[[<ecpy.curves.Point object at 0x0000020F89412AC0>, <ecpy.curves.Point object at 0x0000020F89413A40>, <ecpy.curves.Point object at 0x0000020F88220BC0>], [<ecpy.curves.Point object at 0x0000020F894125C0>, <ecpy.curves.Point object at 0x0000020F894475C0>, <ecpy.curves.Point object at 0x0000020F89410440>], [<ecpy.curves.Point object at 0x0000020F89447540>, <ecpy.curves.Point object at 0x0000020F85AAC0C0>, <ecpy.curves.Point object at 0x0000020F87055F00>], [14139480098502594961087470177421538194656601341207265718209429771005133460390, 32359145265538904578395575256551520128107459005982949351323238877095831301691, 3718692456734690191035835814619187248287678115706761127504831360372743855502]]
+Matrix T size: (4, 3)
+Transposed T matrix size: (3, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 1 malicious participants
+Total: 44.718913078308105 seconds
+Commit: 13.01322889328003 seconds
+Reveal: 12.677998304367065 seconds
+Output: 19.027628898620605 seconds
+#######################################################################
+
+
+
+
+

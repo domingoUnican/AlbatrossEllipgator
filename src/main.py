@@ -3,10 +3,13 @@ import sys
 import threading
 import time
 import signal
+import logging
 
 from DistributedNetwork.NetworkManagement.network import Network
 from DistributedNetwork.NetworkCommunication.flask_server import FlaskServer
 from ALBATROSSProtocol.ALBATROSS import ALBATROSS
+
+from multiprocessing import Process
 
 BYZANTINE = 0
 ABSOLUTE_MAJORITY = 1
@@ -54,21 +57,12 @@ def create_network(num_participants, num_malicious_participants):
  
 # Start the Flask server
 def start_flask_server(network):
-    flask_server = FlaskServer(network)
-    def run_server():
-        flask_server.run()
-
-    server_thread = threading.Thread(target=run_server)
+    # FlaskServer ahora hereda de Thread, no de process
+    server_thread = FlaskServer(network)
     server_thread.daemon = True
     server_thread.start()
-    time.sleep(2)  # Give time for the server to start
-    return flask_server, server_thread
-
-# Main function
-if __name__ == '__main__':
-    # Redirect standard output and errors to both log.txt and terminal
-    sys.stdout = Logger("log.txt")
-    sys.stderr = sys.stdout
+    time.sleep(2)  # Tiempo a que levante el puerto
+    return server_thread
 
 def test(participants, num_malicious_participants, system):
     """
@@ -95,8 +89,7 @@ def test(participants, num_malicious_participants, system):
         exit(0)
 
     network = create_network(participants, num_malicious_participants)
-    server, threads = start_flask_server(network)
-    #server.change_network(network)
+    server_thread = start_flask_server(network)
 
     start_time = time.time()
     protocol = ALBATROSS(network, participants, system)
@@ -111,6 +104,10 @@ def test(participants, num_malicious_participants, system):
     #protocol.clear()
     #shutdown_and_reset(server, network, threads) # si lo descomento, se cuelga y no continua el proceso y no muestra los tiempos
 
+    # Apagamos el hilo de Flask limpiamente
+    server_thread.shutdown()
+    server_thread.join()
+
     return commit_time, execution_time, output_time, participants, num_malicious_participants, reveal_time
 
 
@@ -122,9 +119,14 @@ def print_time(commit_time: float, execution_time: float, output_time: float, pa
     print(f"Commit: {commit_time} seconds")
     print(f"Reveal: {reveal_time} seconds")
     print(f"Output: {output_time} seconds")
+    print("#######################################################################")
+    print("\n"*4)
 
 
 def test_ec_simple():
+    test_time = test(5, 0, BYZANTINE)
+    print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
+
     test_time = test(5, 1, BYZANTINE)
     print_time(test_time[0], test_time[1], test_time[2], test_time[3], test_time[4], test_time[5])
 
