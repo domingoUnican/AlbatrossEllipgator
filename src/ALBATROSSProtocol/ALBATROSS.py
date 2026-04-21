@@ -10,9 +10,6 @@ import config
 from .Elliga.ellifun import CurvetoNumber
 from .PPVSSProtocol.utils import Utils
 
-BYZANTINE = 0
-ABSOLUTE_MAJORITY = 1
-
 class ALBATROSS:
     def __init__(self, network, num_participants, system, mode):
         """Initializes ALBATROSS protocol with given network and number of participants."""
@@ -20,12 +17,12 @@ class ALBATROSS:
         self.__num_participants = num_participants
         self.mode = mode  # Guardamos el modo ("classic", "ec" o "elligator")
         # t es el umbral máximo de participantes maliciosos: bizantino max 1/3, mayoría (Caso peor: 51%buenos), caso mejor 100% buenos
-        if system == BYZANTINE:
+        if system == config.BYZANTINE:
             self.__t = num_participants // 3
-            self.system = BYZANTINE
-        elif system == ABSOLUTE_MAJORITY:
+            self.system = config.BYZANTINE
+        elif system == config.ABSOLUTE_MAJORITY:
             self.__t = num_participants // 2
-            self.system = ABSOLUTE_MAJORITY
+            self.system = config.ABSOLUTE_MAJORITY
         else:
             print("Error al inicializar el umbral máximo __t en Albatross")
             exit(0)
@@ -169,9 +166,9 @@ class ALBATROSS:
         w = Utils.rootunity(len(self.__T[0]), self.__network.get_q()) 
         t = self.__num_participants // 3
 
-        if self.system == BYZANTINE:
+        if self.system == config.BYZANTINE:
             l = self.__num_participants - 2 * t
-        elif self.system == ABSOLUTE_MAJORITY:
+        elif self.system == config.ABSOLUTE_MAJORITY:
             # TODO: revisar que pueda ser así, pq el problema es que esto cambia el tamaño de las matrices, lo que implicarái multiplciar matrices de otra manera, como con .dot, que hace el hace el producto matricial estándar... pero ¿esto sería válido para bizantinso y mayorái absoluta y Albatross?
             l = max(1, self.__num_participants - t)
         else:
