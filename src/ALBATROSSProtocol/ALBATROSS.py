@@ -4,6 +4,9 @@ import time
 import numpy as np
 import requests
 import sys
+
+import config
+
 from .Elliga.ellifun import CurvetoNumber
 from .PPVSSProtocol.utils import Utils
 
@@ -11,10 +14,11 @@ BYZANTINE = 0
 ABSOLUTE_MAJORITY = 1
 
 class ALBATROSS:
-    def __init__(self, network, num_participants, system):
+    def __init__(self, network, num_participants, system, mode):
         """Initializes ALBATROSS protocol with given network and number of participants."""
         self.__network = network
         self.__num_participants = num_participants
+        self.mode = mode  # Guardamos el modo ("classic", "ec" o "elligator")
         # t es el umbral máximo de participantes maliciosos: bizantino max 1/3, mayoría (Caso peor: 51%buenos), caso mejor 100% buenos
         if system == BYZANTINE:
             self.__t = num_participants // 3
@@ -170,6 +174,11 @@ class ALBATROSS:
         elif self.system == ABSOLUTE_MAJORITY:
             # TODO: revisar que pueda ser así, pq el problema es que esto cambia el tamaño de las matrices, lo que implicarái multiplciar matrices de otra manera, como con .dot, que hace el hace el producto matricial estándar... pero ¿esto sería válido para bizantinso y mayorái absoluta y Albatross?
             l = max(1, self.__num_participants - t)
+        else:
+            raise ValueError("Modo inválido. Usa 'bizantino' o 'mayoria'.")
+
+        if l <= 0:
+            raise ValueError(f"Parámetros inválidos: l={l}. Ajusta t para que l > 0.")
 
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
@@ -254,10 +263,25 @@ class ALBATROSS:
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
         print(self.__T)
-        #Tprima=[[a if isinstance(a,int) else a.x for a in i] for i in self.__T]
-        Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in self.__T]
-        #matriz_T = np.array(self.__T)
-        matriz_T=np.array(Tprima)
+
+        if self.mode == config.ELLIGATOR_MODE:
+            print(self.__T)
+            Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in self.__T]
+            matriz_T = np.array(Tprima)
+
+        elif self.mode == config.EC_MODE:
+            print(self.__T)
+            # Para EC Simple: Extrae la coordenada X (a.x)
+            Tprima = [[a if isinstance(a, int) else a.x for a in i] for i in self.__T]
+            matriz_T = np.array(Tprima)
+
+        elif self.mode == config.CLASSIC_MODE:
+            # Para Clásico: Usa la matriz tal cual
+            matriz_T = np.array(self.__T)
+
+        else:
+            raise ValueError("Modo inválido. Usa 'ec', 'elligator' o 'classic'.")
+
         print("Matrix T size:", matriz_T.shape)
 
         # Transpose matrix T
@@ -265,7 +289,6 @@ class ALBATROSS:
         print("Transposed T matrix size:", matriz_T_transpuesta.shape)
 
         # Calculate output by multiplying M * T in the exponent.
-        aleatoriedad_final = self.__multiplicar_matrices(matriz_vander, matriz_T_transpuesta)
         aleatoriedad_final = self.__multiplicar_matrices(matriz_vander, matriz_T_transpuesta)
 
         # Guardar el contenido de aleatoriedad_final en un archivo .txt
