@@ -218,11 +218,18 @@ class ALBATROSS:
 
     def __execute_reconstruction_phase(self, failed_nodes):
         """Executes the reconstruction phase by gathering output from successfully revealed nodes and calculating the final output."""
+        if len(failed_nodes) > self.__t:
+            raise ValueError(
+                f"Fallo crítico: Hay {len(failed_nodes)} nodos caídos, pero el umbral máximo es {self.__t}. Imposible recuperar.")
+
         threads = []
+
+        # Pedir el output a los nodos que se revelaron correctamente
         for node_id in self.__successful_reveal_ids:
             thread = threading.Thread(target=self.__request_output, args=(node_id,))
             threads.append(thread)
             thread.start()
+
         for thread in threads:
             thread.join()
 
