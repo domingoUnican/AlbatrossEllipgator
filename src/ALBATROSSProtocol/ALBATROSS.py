@@ -230,16 +230,6 @@ class ALBATROSS:
         for thread in threads:
             thread.join()
 
-        # Convert the matrix to h^s elements
-        print("Number of secrets:", len(self.__T))
-
-        for lista in self.__T:
-            for i in range(len(lista)):
-                if self.__network.EC:
-                    lista[i]= lista[i]*self.__network.h
-                else:
-                    lista[i] = pow(self.__network.h, lista[i], self.__network.p)
-
         t = self.__num_participants // 3 #5
         l = self.__num_participants - 2 * t #15-2*5=5
         r = self.__num_participants - t #10
@@ -260,6 +250,14 @@ class ALBATROSS:
         for thread in threads:
             thread.join()
 
+        # Convert the matrix to h^s elements
+        print("Number of secrets:", len(self.__T))
+        for lista in self.__T:
+            for i in range(len(lista)):
+                if self.__network.EC:
+                    lista[i]= lista[i]*self.__network.h
+                else:
+                    lista[i] = pow(self.__network.h, lista[i], self.__network.p)
        
         # Create Vandermonde matrix with w.
         w = Utils.rootunity(len(self.__T[0]), self.__network.get_q())
