@@ -35,7 +35,7 @@ class ALBATROSS:
         """Sends a commit request to the node and adds the node to successful commits if successful."""
         try:
             response = requests.get(f"http://localhost:5000/node/{node_id}/commit")
-            if (response.status_code == 200) and (len(self.__successful_commit_ids) < (self.__num_participants - self.__t)):
+            if response.status_code == 200:
                 self.__successful_commit_ids.add(node_id)
                 print(f"Commit successful on node {node_id}: {response.text}")
             else:
@@ -139,7 +139,7 @@ class ALBATROSS:
     def handle_output_phase(self):
         """Handles the output phase by either processing the output or executing the recovery phase."""
         start_time = time.time()
-        if len(self.__successful_reveal_ids) == (self.__num_participants - self.__t):
+        if len(self.__successful_reveal_ids) >= (self.__num_participants - self.__t):
             print("All reveals were successful.")
             self.__process_output()
             end_time = time.time()
@@ -153,12 +153,20 @@ class ALBATROSS:
     def __process_output(self):
         """Processes the output by sending output requests to all successfully revealed nodes."""
         threads = []
+
+        r = self.__num_participants - self.__t
+
+        # Cogemos solo los primeros 'r' nodos sanos
+        nodos_necesarios = list(self.__successful_reveal_ids)[:r]
+
         for node_id in self.__successful_reveal_ids:
             thread = threading.Thread(target=self.__request_output, args=(node_id,))
             threads.append(thread)
             thread.start()
+
         for thread in threads:
             thread.join()
+
         self.__process_final_output()
 
     def __process_final_output(self):
