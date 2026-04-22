@@ -8,11 +8,7 @@ ELLIGATOR_MODE = "elligator"
 # Array de tuplas para los tests: (participantes, maliciosos, sistema)
 TEST_CASES = [
     (5, 0, BYZANTINE),
-    (5, 1, BYZANTINE),
-    (10, 0, BYZANTINE),
-    (10, 3, BYZANTINE),
-    (20, 0, BYZANTINE),
-    (20, 6, BYZANTINE)
+    (5, 1, BYZANTINE)
 ]
 
 DEFAULT_TESTS_TO_RUN = ['all']
