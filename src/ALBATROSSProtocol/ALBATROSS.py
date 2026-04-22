@@ -176,9 +176,10 @@ class ALBATROSS:
 
         if self.system == config.BYZANTINE:
             l = self.__num_participants - 2 * t
+            r = self.__num_participants - t
         elif self.system == config.ABSOLUTE_MAJORITY:
-            # TODO: revisar que pueda ser así, pq el problema es que esto cambia el tamaño de las matrices, lo que implicarái multiplciar matrices de otra manera, como con .dot, que hace el hace el producto matricial estándar... pero ¿esto sería válido para bizantinso y mayorái absoluta y Albatross?
             l = max(1, self.__num_participants - t)
+            r = t + 1
         else:
             raise ValueError("Modo inválido. Usa 'bizantino' o 'mayoria'.")
 
@@ -188,17 +189,32 @@ class ALBATROSS:
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
 
-        matriz_T = np.array(self.__T)
+        # Comprobamos el tamaño de la matriz de Vandermore para si hace falta, parar ya y que no haga algo incorrecto
+        if len(self.__T) < r:
+            raise ValueError(f"No hay suficientes fragmentos ({len(self.__T)}) para reconstruir (se necesitan {r}).")
+
+        # Cogemos exactamente los primeros 'r' fragmentos: más rápido que cogerlos aleatorios e igual de válido
+        T_recortada = self.__T[:r]
+
+        if self.mode == config.ELLIGATOR_MODE:
+            Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in T_recortada]
+            matriz_T = np.array(Tprima)
+        elif self.mode == config.EC_MODE:
+            Tprima = [[a if isinstance(a, int) else a.x for a in i] for i in T_recortada]
+            matriz_T = np.array(Tprima)
+        else:
+            matriz_T = np.array(T_recortada)
+
         print("Matrix T size:", matriz_T.shape)
 
-        matriz_T_transpuesta = matriz_T.T
-        print("Transposed T matrix size:", matriz_T_transpuesta.shape)
-
         sys.set_int_max_str_digits(10_000_000)
-        aleatoriedad_final = self.__multiplicar_matrices(matriz_vander, matriz_T_transpuesta)
+        aleatoriedad_final = np.dot(matriz_vander, matriz_T)
+
+        print("Final output size:", aleatoriedad_final.shape)
         print("Secret reconstruction completed.")
+
         with open('aleatoriedad_final.txt', 'w') as archivo:
-            archivo.write(str(aleatoriedad_final))  
+            archivo.write(str(aleatoriedad_final))
         return
 
     def __execute_recovery_phase(self):

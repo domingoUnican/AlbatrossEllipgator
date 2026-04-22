@@ -26,8 +26,8 @@ class TestProtocolTheory(unittest.TestCase):
 
         self.albatross.execute_commit_phase()
 
-        # N=10, t=3. El límite de éxito está en N - t = 7: aunque 10 respondan, el conjunto de 'successful_commit_ids' no debe superar 7
-        self.assertEqual(len(self.albatross._ALBATROSS__successful_commit_ids), 7)
+        # Como quitamos el tope para evitar timeouts, ahora sí se guardan los 10
+        self.assertEqual(len(self.albatross._ALBATROSS__successful_commit_ids), 10)
 
     @patch('requests.get')
     def test_reveal_phase_triggers_recovery(self, mock_get):
