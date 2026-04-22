@@ -230,18 +230,26 @@ class ALBATROSS:
         for thread in threads:
             thread.join()
 
-        t = self.__num_participants // 3 #5
-        l = self.__num_participants - 2 * t #15-2*5=5
-        r = self.__num_participants - t #10
-        threads = []
-        participantes = list(range(0,self.__num_participants))
-        for node_id in failed_nodes:
-            # Remove the node to be reconstructed
-            if node_id in participantes:
-                participantes.remove(node_id)
+        t = self.__t
 
+        if self.system == config.BYZANTINE:
+            l = self.__num_participants - 2 * t
+            r = self.__num_participants - t
+        elif self.system == config.ABSOLUTE_MAJORITY:
+            l = max(1, self.__num_participants - t)
+            r = t + 1
+        else:
+            raise ValueError("Sistema no reconocido")
+
+        # Solo cogemos nodos que sabemos 100% que están vivos y revelaron bien
+        successful_reveal_participants = list(self.__successful_reveal_ids.copy())
+        if len(successful_reveal_participants) < r:
+            raise ValueError(
+                f"No hay suficientes nodos sanos ({len(successful_reveal_participants)}) para pedir reconstrucción (se necesitan {r}).")
+
+        for node_id in failed_nodes:
             # Choose reconstruction parties
-            subgrupo = random.sample(participantes, r)
+            subgrupo = random.sample(successful_reveal_participants, r)
 
             thread = threading.Thread(target=self.__request_reconstruction, args=(node_id, subgrupo[0], subgrupo))
             threads.append(thread)
@@ -270,17 +278,14 @@ class ALBATROSS:
             print(self.__T)
             Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in self.__T]
             matriz_T = np.array(Tprima)
-
         elif self.mode == config.EC_MODE:
             print(self.__T)
             # Para EC Simple: Extrae la coordenada X (a.x)
             Tprima = [[a if isinstance(a, int) else a.x for a in i] for i in self.__T]
             matriz_T = np.array(Tprima)
-
         elif self.mode == config.CLASSIC_MODE:
             # Para Clásico: Usa la matriz tal cual
             matriz_T = np.array(self.__T)
-
         else:
             raise ValueError("Modo inválido. Usa 'ec', 'elligator' o 'classic'.")
 
