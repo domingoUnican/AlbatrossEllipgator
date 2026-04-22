@@ -323,4 +323,4 @@ class ALBATROSS:
         """
         Multiplies two matrices of the same size.
         """
-        return np.multiply(matriz_a, matriz_b)
+        return np.dot(matriz_a, matriz_b)
