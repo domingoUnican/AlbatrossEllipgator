@@ -317,7 +317,7 @@ class ALBATROSS:
         Creates a Vandermonde matrix of size (l, t + l).
         """
         n_columnas = t + l
-        return np.array([[omega**j for j in range(n_columnas)] for i in range(l)])
+        return np.array([[omega**(i * j) for j in range(n_columnas)] for i in range(l)])
 
     def __multiplicar_matrices(self, matriz_a, matriz_b):
         """
