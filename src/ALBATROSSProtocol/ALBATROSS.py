@@ -35,6 +35,7 @@ class ALBATROSS:
         """Sends a commit request to the node and adds the node to successful commits if successful."""
         try:
             response = requests.get(f"http://localhost:5000/node/{node_id}/commit")
+            # Cogemos todos pq un malicioso va a dar también 200
             if response.status_code == 200:
                 self.__successful_commit_ids.add(node_id)
                 print(f"Commit successful on node {node_id}: {response.text}")
@@ -47,6 +48,7 @@ class ALBATROSS:
         """Sends a reveal request to the node and adds the node to successful reveals if successful."""
         try:
             response = requests.get(f"http://localhost:5000/node/{node_id}/reveal")
+            # Cogemos todos pq un malicioso va a dar también 200
             if response.status_code == 200:
                 self.__successful_reveal_ids.add(node_id)
                 print(f"Reveal successful on node {node_id}: {response}")
@@ -59,6 +61,7 @@ class ALBATROSS:
         """Sends a request to extract randomness from the node and appends the result."""
         try:
             response = requests.get(f"http://localhost:5000/node/{node_id}/output")
+            # Cogemos todos pq un malicioso va a dar también 200
             if response.status_code == 200:
                 json_response = response.json()
                 decoded_response = json_response.get('result', [])
@@ -76,6 +79,7 @@ class ALBATROSS:
         try:
             failed_nodes_str = ','.join(map(str, failed_nodes))
             response = requests.get(f"http://localhost:5000/node/{node_id}/recovery?failed_nodes={failed_nodes_str}")
+            # Cogemos todos pq un malicioso va a dar también 200
             if response.status_code == 200:
                 self.__successful_recovery_ids.add(node_id)
                 print(f"Recovery successful on node {node_id}")
@@ -89,8 +93,8 @@ class ALBATROSS:
         try:
             reco_part = ','.join(map(str, reco_parties))
             response = requests.get(f"http://localhost:5000/node/{reco_id}/reconstruction/{node_id}?reco_parties={reco_part}")
+            # Cogemos todos pq un malicioso va a dar también 200
             if response.status_code == 200:
-                
                 json_response = response.json()
                 decoded_response = json_response.get('result', [])
                 numbers = [int(x) for x in decoded_response]
@@ -203,6 +207,7 @@ class ALBATROSS:
             Tprima = [[a if isinstance(a, int) else a.x for a in i] for i in T_recortada]
             matriz_T = np.array(Tprima)
         else:
+            # No necesitamos la conversion de Tprima para NumPy pq los números ya son enteros
             matriz_T = np.array(T_recortada)
 
         print("Matrix T size:", matriz_T.shape)

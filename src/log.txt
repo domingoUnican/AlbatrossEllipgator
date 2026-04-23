@@ -1,0 +1,3105 @@
+
+
+
+
+
+########################################################################################
+########################### Ejecutando Clásica sin EC... ###############################
+########################################################################################
+Executing commit requests...
+Commit successful on node 3: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 4: Commit completed.
+Executing reveal requests...
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 4
+Number of secrets post-add: 2
+Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 0
+Number of secrets post-add: 4
+Randomness extraction successful on node 3
+Number of secrets post-add: 5
+Randomness extraction successful on node 1
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Final output size: (3, 3)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 0 malicious participants
+Total: 28.203500032424927 seconds
+Commit: 13.270977020263672 seconds
+Reveal: 12.846599340438843 seconds
+Output: 2.08579421043396 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 0: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 2
+Number of secrets post-add: 2
+Randomness extraction successful on node 4
+Number of secrets post-add: 3
+Randomness extraction successful on node 1
+Number of secrets post-add: 4
+Randomness extraction successful on node 3
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Final output size: (3, 3)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 1 malicious participants
+Total: 28.030548095703125 seconds
+Commit: 13.189091444015503 seconds
+Reveal: 12.757456064224243 seconds
+Output: 2.083911180496216 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 0: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 9: Commit completed.
+Executing reveal requests...
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 8
+Number of secrets post-add: 2
+Randomness extraction successful on node 5
+Number of secrets post-add: 3
+Randomness extraction successful on node 6
+Number of secrets post-add: 4
+Randomness extraction successful on node 7Number of secrets post-add: 5
+Randomness extraction successful on node 2
+
+Number of secrets post-add: 6
+Randomness extraction successful on node 0
+Number of secrets post-add: 7
+Randomness extraction successful on node 3
+Number of secrets post-add: 8
+Randomness extraction successful on node 1
+Number of secrets post-add: 9
+Randomness extraction successful on node 9
+Number of secrets post-add: 10
+Randomness extraction successful on node 4
+Vandermonde matrix size: (4, 7)
+Matrix T size: (7, 4)
+Final output size: (4, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 0 malicious participants
+Total: 52.966484785079956 seconds
+Commit: 26.50683856010437 seconds
+Reveal: 24.337955474853516 seconds
+Output: 2.1215903759002686 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 5: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 3: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+The polynomial published by node {node_id} is not correct.
+Reveal failed on node 1: 400
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 8
+Number of secrets post-add: 2
+Randomness extraction successful on node 3
+Number of secrets post-add: 3
+Randomness extraction successful on node 7
+Number of secrets post-add: 4
+Randomness extraction successful on node 4
+Number of secrets post-add: 5
+Randomness extraction successful on node 6
+Number of secrets post-add: 6
+Number of secrets post-add:Randomness extraction successful on node 9
+ 7
+Randomness extraction successful on node 5
+Vandermonde matrix size: (4, 7)
+Matrix T size: (7, 4)
+Final output size: (4, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 3 malicious participants
+Total: 52.840452671051025 seconds
+Commit: 26.400153636932373 seconds
+Reveal: 24.32569980621338 seconds
+Output: 2.114499807357788 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 5: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 19: Commit completed.
+Executing reveal requests...
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 4
+Number of secrets post-add: 2
+Randomness extraction successful on node 1
+Number of secrets post-add: 3
+Randomness extraction successful on node 5
+Number of secrets post-add: 4
+Randomness extraction successful on node 6
+Number of secrets post-add: 5
+Randomness extraction successful on node 8
+Number of secrets post-add: 6
+Randomness extraction successful on node 9
+Number of secrets post-add: 7
+Randomness extraction successful on node 0
+Number of secrets post-add: Number of secrets post-add: 9
+Randomness extraction successful on node 3
+8
+Randomness extraction successful on node 7
+Number of secrets post-add: 10
+Randomness extraction successful on node 2
+Number of secrets post-add: 11
+Randomness extraction successful on node 12
+Number of secrets post-add: 12
+Randomness extraction successful on node 11
+Number of secrets post-add: 13
+Randomness extraction successful on node 13
+Number of secrets post-add: 14
+Randomness extraction successful on node 10
+Number of secrets post-add: 15
+Randomness extraction successful on node 14
+Number of secrets post-add: 16
+Randomness extraction successful on node 19
+Number of secrets post-add: 17
+Randomness extraction successful on node 17
+Number of secrets post-add: 18
+Randomness extraction successful on node 18
+Number of secrets post-add: 19
+Randomness extraction successful on node 16
+Number of secrets post-add: 20
+Randomness extraction successful on node 15
+Vandermonde matrix size: (8, 14)
+Matrix T size: (14, 8)
+Final output size: (8, 8)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 20 participants
+N: 0 malicious participants
+Total: 136.53086137771606 seconds
+Commit: 74.4191312789917 seconds
+Reveal: 59.779542207717896 seconds
+Output: 2.3320343494415283 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 5: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 16: Commit completed.Commit successful on node 19: Commit completed.
+
+Commit successful on node 2: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 15: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 10
+Number of secrets post-add: 2
+Randomness extraction successful on node 8
+Number of secrets post-add: 3
+Randomness extraction successful on node 7
+Number of secrets post-add: Number of secrets post-add: 5Number of secrets post-add: 6
+Randomness extraction successful on node 11
+4
+Randomness extraction successful on node 9
+
+Randomness extraction successful on node 6
+Number of secrets post-add: Number of secrets post-add: 8
+Randomness extraction successful on node 14
+7
+Randomness extraction successful on node 12
+Number of secrets post-add: 9
+Randomness extraction successful on node 15
+Number of secrets post-add: 10
+Number of secrets post-add: 11
+Randomness extraction successful on node 17Randomness extraction successful on node 18
+
+Number of secrets post-add: 12
+Randomness extraction successful on node 19
+Number of secrets post-add: 13
+Randomness extraction successful on node 16Number of secrets post-add: 
+14
+Randomness extraction successful on node 13
+Vandermonde matrix size: (8, 14)
+Matrix T size: (14, 8)
+Final output size: (8, 8)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 20 participants
+N: 6 malicious participants
+Total: 135.61076593399048 seconds
+Commit: 74.96012043952942 seconds
+Reveal: 58.36198592185974 seconds
+Output: 2.2884654998779297 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 1: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 11: Commit completed.Commit successful on node 4: Commit completed.
+
+Commit successful on node 10: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 23: Commit completed.
+Executing reveal requests...
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Number of secrets post-add: 2
+Randomness extraction successful on node 13
+Randomness extraction successful on node 9
+Number of secrets post-add: 3
+Randomness extraction successful on node 6
+Number of secrets post-add: 4
+Randomness extraction successful on node 8
+Number of secrets post-add: 5
+Randomness extraction successful on node 14
+Number of secrets post-add: Number of secrets post-add: 67
+Randomness extraction successful on node 3
+Number of secrets post-add: 8
+Randomness extraction successful on node 5
+
+Randomness extraction successful on node 16
+Number of secrets post-add: 9
+Randomness extraction successful on node 10
+Number of secrets post-add: 10
+Randomness extraction successful on node 15
+Number of secrets post-add: 11
+Randomness extraction successful on node 7
+Number of secrets post-add: 12
+Randomness extraction successful on node 0
+Number of secrets post-add: 13
+Randomness extraction successful on node 1
+Number of secrets post-add: 14
+Randomness extraction successful on node 11Number of secrets post-add: 15
+
+Randomness extraction successful on node 12
+Number of secrets post-add: 16
+Randomness extraction successful on node 2
+Number of secrets post-add: 17
+Randomness extraction successful on node 4
+Number of secrets post-add: 18Number of secrets post-add: 19
+
+Randomness extraction successful on node 19
+Randomness extraction successful on node 27
+Number of secrets post-add: 20
+Number of secrets post-add: 21Randomness extraction successful on node 29
+
+Randomness extraction successful on node 18
+Number of secrets post-add: 22
+Randomness extraction successful on node 17
+Number of secrets post-add: 23
+Randomness extraction successful on node 20
+Number of secrets post-add: 24
+Randomness extraction successful on node 23
+Number of secrets post-add: Number of secrets post-add: 2526
+Randomness extraction successful on node 21
+
+Randomness extraction successful on node 22
+Number of secrets post-add: 27
+Randomness extraction successful on node 24
+Number of secrets post-add: 28
+Randomness extraction successful on node 25
+Number of secrets post-add: 29
+Randomness extraction successful on node 26
+Number of secrets post-add: 30
+Randomness extraction successful on node 28
+Vandermonde matrix size: (10, 20)
+Matrix T size: (20, 10)
+Final output size: (10, 10)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 30 participants
+N: 0 malicious participants
+Total: 446.7163360118866 seconds
+Commit: 273.45333886146545 seconds
+Reveal: 170.35615396499634 seconds
+Output: 2.906639814376831 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 7: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 12: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial published by node {node_id} is not correct.
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400The polynomial verification uploaded by node 6 was incorrect: 400
+
+Reveal failed on node 6: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 8 was incorrect: 400
+Reveal failed on node 8: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 7 was incorrect: 400
+Reveal failed on node 7: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 9 was incorrect: 400
+Reveal failed on node 9: 400
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 12
+Number of secrets post-add: 2
+Randomness extraction successful on node 11
+Number of secrets post-add: 3Number of secrets post-add: 4
+Randomness extraction successful on node 10
+
+Randomness extraction successful on node 13
+Number of secrets post-add: 5
+Randomness extraction successful on node 14
+Number of secrets post-add: 6
+Randomness extraction successful on node 21
+Number of secrets post-add: 7
+Randomness extraction successful on node 22
+Number of secrets post-add: 8
+Randomness extraction successful on node 17
+Number of secrets post-add: 9
+Number of secrets post-add: 10
+Randomness extraction successful on node 25
+Number of secrets post-add: 11Randomness extraction successful on node 20
+
+Randomness extraction successful on node 18
+Number of secrets post-add: 12
+Randomness extraction successful on node 26
+Number of secrets post-add: 13
+Randomness extraction successful on node 15
+Number of secrets post-add: 14
+Randomness extraction successful on node 29
+Number of secrets post-add: 15
+Randomness extraction successful on node 19
+Number of secrets post-add: 17
+Randomness extraction successful on node 23Number of secrets post-add: 
+16
+Randomness extraction successful on node 28
+Number of secrets post-add: 18
+Randomness extraction successful on node 27
+Number of secrets post-add: 19
+Randomness extraction successful on node 16
+Number of secrets post-add: 20
+Randomness extraction successful on node 24
+Vandermonde matrix size: (10, 20)
+Matrix T size: (20, 10)
+Final output size: (10, 10)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 30 participants
+N: 10 malicious participants
+Total: 416.4844241142273 seconds
+Commit: 272.4646987915039 seconds
+Reveal: 141.13531517982483 seconds
+Output: 2.884209156036377 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 10: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 39: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 35: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 30: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 33: Commit completed.
+Commit successful on node 36: Commit completed.
+Commit successful on node 32: Commit completed.
+Commit successful on node 37: Commit completed.
+Commit successful on node 38: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 34: Commit completed.
+Commit successful on node 31: Commit completed.
+Executing reveal requests...
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 30: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 32: <Response [200]>
+Reveal successful on node 38: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 35: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 31: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 36: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 39: <Response [200]>
+Reveal successful on node 34: <Response [200]>
+Reveal successful on node 37: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 33: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 1Number of secrets post-add: 
+2
+Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 0
+Number of secrets post-add: 4
+Randomness extraction successful on node 8
+Number of secrets post-add: 5Number of secrets post-add: 
+Randomness extraction successful on node 10
+6
+Number of secrets post-add: 7
+Randomness extraction successful on node 3
+Randomness extraction successful on node 11
+Number of secrets post-add: 8
+Number of secrets post-add: 9Randomness extraction successful on node 12
+Randomness extraction successful on node 15
+
+Number of secrets post-add: 10
+Randomness extraction successful on node 7Number of secrets post-add: 
+11
+Randomness extraction successful on node 6
+Number of secrets post-add: 12
+Randomness extraction successful on node 4
+Number of secrets post-add: 13
+Randomness extraction successful on node 19
+Number of secrets post-add: 14
+Randomness extraction successful on node 16
+Number of secrets post-add: 15
+Randomness extraction successful on node 20
+Number of secrets post-add: 16
+Randomness extraction successful on node 5
+Number of secrets post-add: 17
+Randomness extraction successful on node 17
+Number of secrets post-add: 18
+Randomness extraction successful on node 9
+Number of secrets post-add: 19
+Randomness extraction successful on node 13
+Number of secrets post-add: 20
+Randomness extraction successful on node 14
+Number of secrets post-add: 21
+Randomness extraction successful on node 18
+Number of secrets post-add: 22
+Randomness extraction successful on node 26
+Number of secrets post-add: 23
+Randomness extraction successful on node 35
+Number of secrets post-add: 24
+Randomness extraction successful on node 21
+Number of secrets post-add: 25
+Randomness extraction successful on node 22
+Number of secrets post-add: 26
+Randomness extraction successful on node 25
+Number of secrets post-add: 27Number of secrets post-add: 
+Randomness extraction successful on node 33
+28
+Randomness extraction successful on node 23
+Number of secrets post-add: 29
+Randomness extraction successful on node 24Number of secrets post-add: 30
+
+Randomness extraction successful on node 30
+Number of secrets post-add: 31
+Number of secrets post-add: 32
+Randomness extraction successful on node 31
+Randomness extraction successful on node 34
+Number of secrets post-add: 33
+Randomness extraction successful on node 32
+Number of secrets post-add: 34
+Randomness extraction successful on node 27
+Number of secrets post-add: 35Number of secrets post-add: 36
+Randomness extraction successful on node 38
+Randomness extraction successful on node 28
+
+Number of secrets post-add: Number of secrets post-add: 38
+Randomness extraction successful on node 37
+37Number of secrets post-add: 
+Randomness extraction successful on node 29
+39
+Randomness extraction successful on node 39
+Number of secrets post-add: 40
+Randomness extraction successful on node 36
+Vandermonde matrix size: (14, 27)
+Matrix T size: (27, 14)
+Final output size: (14, 14)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 40 participants
+N: 0 malicious participants
+Total: 1206.9204862117767 seconds
+Commit: 722.7358343601227 seconds
+Reveal: 478.1431703567505 seconds
+Output: 6.041083574295044 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 14: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 36: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 34: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 33: Commit completed.
+Commit successful on node 31: Commit completed.
+Commit successful on node 25: Commit completed.Commit successful on node 20: Commit completed.
+
+Commit successful on node 37: Commit completed.
+Commit successful on node 38: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 35: Commit completed.
+Commit successful on node 32: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 23: Commit completed.Commit successful on node 13: Commit completed.
+
+Commit successful on node 26: Commit completed.
+Commit successful on node 39: Commit completed.
+Commit successful on node 30: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+The polynomial published by node {node_id} is not correct.
+Reveal failed on node 0: 400
+The polynomial verification uploaded by node 7 was incorrect: 400
+Reveal failed on node 7: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 1: 400
+Reveal failed on node 4: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 6 was incorrect: 400
+Reveal failed on node 6: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 8 was incorrect: 400
+Reveal failed on node 8: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 9 was incorrect: 400
+Reveal failed on node 9: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 12 was incorrect: 400
+Reveal failed on node 12: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+The polynomial verification uploaded by node 10 was incorrect: 400
+Reveal failed on node 10: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 11 was incorrect: 400
+Reveal failed on node 11: 400
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 33: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 30: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 38: <Response [200]>
+Reveal successful on node 37: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 35: <Response [200]>
+Reveal successful on node 31: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 34: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 36: <Response [200]>
+Reveal successful on node 32: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 39: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 14
+Number of secrets post-add: 2
+Number of secrets post-add: Randomness extraction successful on node 18
+3
+Randomness extraction successful on node 13Number of secrets post-add: 4
+Randomness extraction successful on node 17
+
+Number of secrets post-add: 5
+Randomness extraction successful on node 16
+Number of secrets post-add: 6
+Randomness extraction successful on node 15
+Number of secrets post-add: 7
+Randomness extraction successful on node 19
+Number of secrets post-add: 8
+Randomness extraction successful on node 32
+Number of secrets post-add: Number of secrets post-add: 10
+9
+Randomness extraction successful on node 29
+Randomness extraction successful on node 24
+Number of secrets post-add: 11
+Randomness extraction successful on node 21
+Number of secrets post-add: 12
+Randomness extraction successful on node 36
+Number of secrets post-add: 13
+Randomness extraction successful on node 30
+Number of secrets post-add: 14
+Randomness extraction successful on node 31
+Number of secrets post-add: 15
+Randomness extraction successful on node 25
+Number of secrets post-add: 16
+Randomness extraction successful on node 38
+Number of secrets post-add: 17
+Randomness extraction successful on node 34
+Number of secrets post-add: 18
+Randomness extraction successful on node 22
+Number of secrets post-add: 19
+Randomness extraction successful on node 23
+Number of secrets post-add: 20
+Randomness extraction successful on node 20
+Number of secrets post-add: 21
+Randomness extraction successful on node 27
+Number of secrets post-add: 22
+Randomness extraction successful on node 33
+Number of secrets post-add: 23
+Randomness extraction successful on node 28
+Number of secrets post-add: 24
+Randomness extraction successful on node 37
+Number of secrets post-add: 25
+Randomness extraction successful on node 35
+Number of secrets post-add: Number of secrets post-add: 26
+Randomness extraction successful on node 3927
+
+Randomness extraction successful on node 26
+Vandermonde matrix size: (14, 27)
+Matrix T size: (27, 14)
+Final output size: (14, 14)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 40 participants
+N: 13 malicious participants
+Total: 1128.8044605255127 seconds
+Commit: 722.3227372169495 seconds
+Reveal: 400.69160509109497 seconds
+Output: 5.789893627166748 seconds
+#######################################################################
+
+
+
+
+
+
+
+
+########################################################################################
+########################### Ejecutando EC Simple... ####################################
+########################################################################################
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 3: Commit completed.
+Executing reveal requests...
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 3
+Number of secrets post-add: 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 4Number of secrets post-add: 
+4
+Randomness extraction successful on node 2
+Randomness extraction successful on node 1
+Number of secrets post-add: 5
+Randomness extraction successful on node 0
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Final output size: (3, 3)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 0 malicious participants
+Total: 27.59796404838562 seconds
+Commit: 12.922993659973145 seconds
+Reveal: 12.601313352584839 seconds
+Output: 2.073582649230957 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 4: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 2: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Number of secrets post-add: Randomness extraction successful on node 42
+Randomness extraction successful on node 1
+
+Number of secrets post-add: 3
+Randomness extraction successful on node 2
+Number of secrets post-add: 4
+Randomness extraction successful on node 3
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Final output size: (3, 3)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 1 malicious participants
+Total: 27.943535804748535 seconds
+Commit: 13.156786918640137 seconds
+Reveal: 12.725972652435303 seconds
+Output: 2.0607097148895264 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 0: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 6: Commit completed.
+Executing reveal requests...
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 1
+Number of secrets post-add: 2
+Number of secrets post-add: Randomness extraction successful on node 2
+3
+Randomness extraction successful on node 0
+Number of secrets post-add: 4
+Randomness extraction successful on node 6
+Number of secrets post-add: 5
+Randomness extraction successful on node 9
+Number of secrets post-add: 6
+Randomness extraction successful on node 3Number of secrets post-add: 
+7
+Randomness extraction successful on node 8
+Number of secrets post-add: 8
+Randomness extraction successful on node 4
+Number of secrets post-add: 9
+Randomness extraction successful on node 7
+Number of secrets post-add: 10
+Randomness extraction successful on node 5
+Vandermonde matrix size: (4, 7)
+Matrix T size: (7, 4)
+Final output size: (4, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 0 malicious participants
+Total: 53.905722856521606 seconds
+Commit: 26.270358562469482 seconds
+Reveal: 25.533461809158325 seconds
+Output: 2.101745367050171 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 3: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 1: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 3
+Number of secrets post-add: 2
+Randomness extraction successful on node 8
+Number of secrets post-add: 3
+Randomness extraction successful on node 7
+Number of secrets post-add: 4
+Randomness extraction successful on node 6
+Number of secrets post-add: 5
+Randomness extraction successful on node 9
+Number of secrets post-add: 6
+Randomness extraction successful on node 5
+Number of secrets post-add: 7
+Randomness extraction successful on node 4
+Vandermonde matrix size: (4, 7)
+Matrix T size: (7, 4)
+Final output size: (4, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 3 malicious participants
+Total: 53.84791922569275 seconds
+Commit: 26.347660779953003 seconds
+Reveal: 25.422037601470947 seconds
+Output: 2.0781097412109375 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 16: Commit completed.
+Executing reveal requests...
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 1
+Number of secrets post-add: 2
+Randomness extraction successful on node 0
+Number of secrets post-add: 3
+Randomness extraction successful on node 18Number of secrets post-add:
+ 4
+Randomness extraction successful on node 11
+Number of secrets post-add: 5
+Randomness extraction successful on node 5
+Number of secrets post-add: 6
+Randomness extraction successful on node 16
+Number of secrets post-add: 7
+Randomness extraction successful on node 7
+Number of secrets post-add: 8
+Randomness extraction successful on node 10Number of secrets post-add: 
+9
+Number of secrets post-add: Randomness extraction successful on node 12
+10
+Randomness extraction successful on node 9
+Number of secrets post-add: 11
+Randomness extraction successful on node 8
+Number of secrets post-add: 12
+Randomness extraction successful on node 15
+Number of secrets post-add: 13
+Randomness extraction successful on node 4
+Number of secrets post-add: 14
+Randomness extraction successful on node 14
+Number of secrets post-add: 16
+Randomness extraction successful on node 17Number of secrets post-add:
+ 15
+Randomness extraction successful on node 3
+Number of secrets post-add: 17
+Randomness extraction successful on node 6
+Number of secrets post-add: Number of secrets post-add: 1918
+Randomness extraction successful on node 2
+
+Randomness extraction successful on node 13
+Number of secrets post-add: 20
+Randomness extraction successful on node 19
+Vandermonde matrix size: (8, 14)
+Matrix T size: (14, 8)
+Final output size: (8, 8)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 20 participants
+N: 0 malicious participants
+Total: 194.78313398361206 seconds
+Commit: 98.0652060508728 seconds
+Reveal: 94.55420398712158 seconds
+Output: 2.16357684135437 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 8: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 11: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 10
+Number of secrets post-add: 2
+Randomness extraction successful on node 18
+Number of secrets post-add: 3
+Randomness extraction successful on node 16
+Number of secrets post-add: 4
+Randomness extraction successful on node 14
+Number of secrets post-add: 5
+Randomness extraction successful on node 9
+Number of secrets post-add: 6
+Randomness extraction successful on node 17
+Number of secrets post-add: 7
+Randomness extraction successful on node 13
+Number of secrets post-add: 8
+Randomness extraction successful on node 8
+Number of secrets post-add: 9
+Randomness extraction successful on node 12
+Number of secrets post-add: 10
+Randomness extraction successful on node 6
+Number of secrets post-add: 11
+Randomness extraction successful on node 15
+Number of secrets post-add: 12
+Randomness extraction successful on node 11
+Number of secrets post-add: 13
+Randomness extraction successful on node 7
+Number of secrets post-add: 14
+Randomness extraction successful on node 19
+Vandermonde matrix size: (8, 14)
+Matrix T size: (14, 8)
+Final output size: (8, 8)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 20 participants
+N: 6 malicious participants
+Total: 196.46532940864563 seconds
+Commit: 99.65396785736084 seconds
+Reveal: 94.65839123725891 seconds
+Output: 2.1527960300445557 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 5: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 9: Commit completed.
+Executing reveal requests...
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 3
+Number of secrets post-add: 2
+Randomness extraction successful on node 15
+Number of secrets post-add: 3
+Randomness extraction successful on node 7
+Number of secrets post-add: 4
+Randomness extraction successful on node 0
+Number of secrets post-add: 5
+Randomness extraction successful on node 4
+Number of secrets post-add: 6
+Randomness extraction successful on node 14
+Number of secrets post-add: 7
+Randomness extraction successful on node 2
+Number of secrets post-add: 8
+Randomness extraction successful on node 11
+Number of secrets post-add: 9
+Randomness extraction successful on node 8
+Number of secrets post-add: 10Number of secrets post-add: 
+Randomness extraction successful on node 6
+11Number of secrets post-add: 12
+Randomness extraction successful on node 1
+
+Randomness extraction successful on node 9
+Number of secrets post-add: 13
+Randomness extraction successful on node 5
+Number of secrets post-add: 14
+Randomness extraction successful on node 12
+Number of secrets post-add: 15
+Randomness extraction successful on node 10
+Number of secrets post-add: 16
+Randomness extraction successful on node 19
+Number of secrets post-add: 17
+Randomness extraction successful on node 26
+Number of secrets post-add: 18
+Randomness extraction successful on node 21
+Number of secrets post-add: 19
+Randomness extraction successful on node 13
+Number of secrets post-add: 20
+Randomness extraction successful on node 27
+Number of secrets post-add: 21
+Randomness extraction successful on node 25
+Number of secrets post-add: 22
+Randomness extraction successful on node 29
+Number of secrets post-add: 23Number of secrets post-add: 
+Randomness extraction successful on node 23
+24
+Randomness extraction successful on node 16
+Number of secrets post-add: 25
+Randomness extraction successful on node 17Number of secrets post-add: 
+26
+Randomness extraction successful on node 28
+Number of secrets post-add: 27
+Randomness extraction successful on node 18
+Number of secrets post-add: 28
+Randomness extraction successful on node 24Number of secrets post-add: 
+29
+Randomness extraction successful on node 20
+Number of secrets post-add: 30
+Randomness extraction successful on node 22
+Vandermonde matrix size: (10, 20)
+Matrix T size: (20, 10)
+Final output size: (10, 10)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 30 participants
+N: 0 malicious participants
+Total: 801.4098520278931 seconds
+Commit: 422.94438123703003 seconds
+Reveal: 376.21342253685 seconds
+Output: 2.251833200454712 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 5: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 12: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 7 was incorrect: 400
+Reveal failed on node 7: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 8 was incorrect: 400
+The polynomial verification uploaded by node 6 was incorrect: 400
+Reveal failed on node 8: 400
+Reveal failed on node 6: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+The polynomial published by node {node_id} is not correct.
+Reveal failed on node 4: 400
+The polynomial verification uploaded by node 9 was incorrect: 400
+Reveal failed on node 9: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 13Number of secrets post-add: 
+2
+Randomness extraction successful on node 14
+Number of secrets post-add: 3Number of secrets post-add: 4
+Randomness extraction successful on node 21
+
+Randomness extraction successful on node 12
+Number of secrets post-add: 5
+Randomness extraction successful on node 16
+Number of secrets post-add: 6
+Randomness extraction successful on node 11
+Number of secrets post-add: 7
+Randomness extraction successful on node 18
+Number of secrets post-add: 8
+Randomness extraction successful on node 10
+Number of secrets post-add: 9
+Randomness extraction successful on node 20Number of secrets post-add: 10
+Randomness extraction successful on node 17
+
+Number of secrets post-add: 11
+Randomness extraction successful on node 15
+Number of secrets post-add: 12
+Randomness extraction successful on node 28
+Number of secrets post-add: 13
+Randomness extraction successful on node 27Number of secrets post-add: 14
+Randomness extraction successful on node 25
+
+Number of secrets post-add: 15
+Randomness extraction successful on node 26
+Number of secrets post-add: 16
+Randomness extraction successful on node 23
+Number of secrets post-add: 17
+Randomness extraction successful on node 29
+Number of secrets post-add: 18
+Randomness extraction successful on node 24
+Number of secrets post-add: Number of secrets post-add: 2019
+Randomness extraction successful on node 19
+
+Randomness extraction successful on node 22
+Vandermonde matrix size: (10, 20)
+Matrix T size: (20, 10)
+Final output size: (10, 10)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 30 participants
+N: 10 malicious participants
+Total: 803.780590057373 seconds
+Commit: 424.7654981613159 seconds
+Reveal: 376.787691116333 seconds
+Output: 2.227214813232422 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 31: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 30: Commit completed.
+Commit successful on node 37: Commit completed.
+Commit successful on node 34: Commit completed.
+Commit successful on node 35: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 38: Commit completed.
+Commit successful on node 33: Commit completed.Commit successful on node 5: Commit completed.
+
+Commit successful on node 32: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 36: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 39: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 24: Commit completed.
+Executing reveal requests...
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 32: <Response [200]>
+Reveal successful on node 35: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 34: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 33: <Response [200]>
+Reveal successful on node 30: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 38: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 37: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 31: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 39: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 36: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 0
+Number of secrets post-add: 2
+Randomness extraction successful on node 2Number of secrets post-add: 3
+
+Randomness extraction successful on node 1
+Number of secrets post-add: 4
+Randomness extraction successful on node 4
+Number of secrets post-add: 5
+Randomness extraction successful on node 7
+Number of secrets post-add: 6
+Randomness extraction successful on node 8
+Number of secrets post-add: 7
+Randomness extraction successful on node 10
+Number of secrets post-add: 8
+Randomness extraction successful on node 9
+Number of secrets post-add: Number of secrets post-add: 9
+Randomness extraction successful on node 3
+10
+Randomness extraction successful on node 6
+Number of secrets post-add: 11
+Randomness extraction successful on node 5
+Number of secrets post-add: 12
+Randomness extraction successful on node 17
+Number of secrets post-add: 13
+Randomness extraction successful on node 16
+Number of secrets post-add: 14
+Randomness extraction successful on node 13
+Number of secrets post-add: 15
+Randomness extraction successful on node 15
+Number of secrets post-add: 16
+Randomness extraction successful on node 14
+Number of secrets post-add: 17
+Randomness extraction successful on node 11
+Number of secrets post-add: Number of secrets post-add: 18
+Randomness extraction successful on node 18
+19
+Randomness extraction successful on node 12
+Number of secrets post-add: 20
+Randomness extraction successful on node 22
+Number of secrets post-add: 21
+Randomness extraction successful on node 24
+Number of secrets post-add: 22
+Randomness extraction successful on node 36
+Number of secrets post-add: 23
+Randomness extraction successful on node 25
+Number of secrets post-add: 24
+Randomness extraction successful on node 38
+Number of secrets post-add: 25
+Number of secrets post-add: 26
+Randomness extraction successful on node 26
+Randomness extraction successful on node 21
+Number of secrets post-add: 27
+Randomness extraction successful on node 30
+Number of secrets post-add: 28
+Randomness extraction successful on node 20
+Number of secrets post-add: 29
+Randomness extraction successful on node 28
+Number of secrets post-add: 30
+Randomness extraction successful on node 39
+Number of secrets post-add: 31
+Randomness extraction successful on node 35
+Number of secrets post-add: 32
+Randomness extraction successful on node 37
+Number of secrets post-add: 33
+Randomness extraction successful on node 31
+Number of secrets post-add: 34
+Randomness extraction successful on node 23
+Number of secrets post-add: 35
+Randomness extraction successful on node 27
+Number of secrets post-add: 36
+Randomness extraction successful on node 29
+Number of secrets post-add: Number of secrets post-add: 38
+Randomness extraction successful on node 3337
+Randomness extraction successful on node 19
+
+Number of secrets post-add: 39
+Randomness extraction successful on node 32
+Number of secrets post-add: 40
+Randomness extraction successful on node 34
+Vandermonde matrix size: (14, 27)
+Matrix T size: (27, 14)
+Final output size: (14, 14)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 40 participants
+N: 0 malicious participants
+Total: 2723.9978799819946 seconds
+Commit: 1433.4550247192383 seconds
+Reveal: 1287.8466806411743 seconds
+Output: 2.6959073543548584 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 11: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 32: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 35: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 31: Commit completed.
+Commit successful on node 34: Commit completed.
+Commit successful on node 33: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 21: Commit completed.Commit successful on node 1: Commit completed.
+
+Commit successful on node 13: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 4: Commit completed.Commit successful on node 17: Commit completed.Commit successful on node 5: Commit completed.
+
+
+Commit successful on node 25: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 39: Commit completed.
+Commit successful on node 30: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 37: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 36: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 38: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 11 was incorrect: 400
+Reveal failed on node 11: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 8 was incorrect: 400
+Reveal failed on node 8: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 6 was incorrect: 400
+Reveal failed on node 6: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 9 was incorrect: 400
+Reveal failed on node 9: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400The polynomial published by node {node_id} is not correct.
+
+The polynomial verification uploaded by node 10 was incorrect: 400
+Reveal failed on node 10: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 7 was incorrect: 400
+Reveal failed on node 7: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 12 was incorrect: 400
+Reveal failed on node 12: 400
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 33: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 32: <Response [200]>Reveal successful on node 22: <Response [200]>
+
+Reveal successful on node 39: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 37: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 36: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 30: <Response [200]>
+Reveal successful on node 34: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 38: <Response [200]>
+Reveal successful on node 35: <Response [200]>
+Reveal successful on node 31: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 23
+Number of secrets post-add: 2
+Randomness extraction successful on node 21
+Number of secrets post-add: 3Number of secrets post-add: 4
+Randomness extraction successful on node 25
+
+Randomness extraction successful on node 28
+Number of secrets post-add: 5
+Randomness extraction successful on node 18Number of secrets post-add: 6
+
+Randomness extraction successful on node 26
+Number of secrets post-add: 7
+Randomness extraction successful on node 13Number of secrets post-add: 
+8
+Randomness extraction successful on node 19
+Number of secrets post-add: 9
+Randomness extraction successful on node 22
+Number of secrets post-add: 10
+Randomness extraction successful on node 16
+Number of secrets post-add: 11
+Randomness extraction successful on node 24
+Number of secrets post-add: 12
+Randomness extraction successful on node 17
+Number of secrets post-add: 13
+Randomness extraction successful on node 20
+Number of secrets post-add: 14
+Number of secrets post-add: Randomness extraction successful on node 1415
+
+Randomness extraction successful on node 15
+Number of secrets post-add: 16
+Randomness extraction successful on node 27Number of secrets post-add:
+ 17
+Randomness extraction successful on node 39
+Number of secrets post-add: 18
+Randomness extraction successful on node 29
+Number of secrets post-add: 19
+Randomness extraction successful on node 30
+Number of secrets post-add: 20
+Randomness extraction successful on node 33
+Number of secrets post-add: 21
+Randomness extraction successful on node 35
+Number of secrets post-add: 22
+Randomness extraction successful on node 34
+Number of secrets post-add: 23
+Randomness extraction successful on node 36
+Number of secrets post-add: Number of secrets post-add: 25
+Randomness extraction successful on node 3724
+
+Randomness extraction successful on node 31
+Number of secrets post-add: 26Number of secrets post-add:
+Randomness extraction successful on node 32 27
+
+Randomness extraction successful on node 38
+Vandermonde matrix size: (14, 27)
+Matrix T size: (27, 14)
+Final output size: (14, 14)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 40 participants
+N: 13 malicious participants
+Total: 2696.689024448395 seconds
+Commit: 1432.9308321475983 seconds
+Reveal: 1261.216126203537 seconds
+Output: 2.5418217182159424 seconds
+#######################################################################
+
+
+
+
+
+
+
+
+########################################################################################
+########################### Ejecutando Elligator... ###################################
+########################################################################################
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 4: Commit completed.
+Executing reveal requests...
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 0
+Number of secrets post-add: 2
+Randomness extraction successful on node 3
+Number of secrets post-add: 3
+Randomness extraction successful on node 2
+Number of secrets post-add: 4
+Randomness extraction successful on node 1
+Number of secrets post-add: 5
+Randomness extraction successful on node 4
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Final output size: (3, 3)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 0 malicious participants
+Total: 27.308693647384644 seconds
+Commit: 12.686275243759155 seconds
+Reveal: 12.562154769897461 seconds
+Output: 2.0601797103881836 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 2: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 3: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 4
+Number of secrets post-add: 2
+Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 3
+Number of secrets post-add: 4
+Randomness extraction successful on node 1
+Vandermonde matrix size: (3, 4)
+Matrix T size: (4, 3)
+Final output size: (3, 3)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 5 participants
+N: 1 malicious participants
+Total: 27.319594144821167 seconds
+Commit: 12.809363842010498 seconds
+Reveal: 12.458123207092285 seconds
+Output: 2.052051067352295 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 1: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 5: Commit completed.
+Executing reveal requests...
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 0
+Number of secrets post-add: 2
+Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 1
+Number of secrets post-add: 4
+Randomness extraction successful on node 6
+Number of secrets post-add: 5
+Number of secrets post-add: 6
+Randomness extraction successful on node 5
+Randomness extraction successful on node 7
+Number of secrets post-add: 7
+Randomness extraction successful on node 8
+Number of secrets post-add: 8
+Randomness extraction successful on node 9
+Number of secrets post-add: 9
+Randomness extraction successful on node 4
+Number of secrets post-add: 10
+Randomness extraction successful on node 3
+Vandermonde matrix size: (4, 7)
+Matrix T size: (7, 4)
+Final output size: (4, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 0 malicious participants
+Total: 53.62436246871948 seconds
+Commit: 26.07184600830078 seconds
+Reveal: 25.483405828475952 seconds
+Output: 2.069028377532959 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 4: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 7: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 5
+Number of secrets post-add: 2
+Randomness extraction successful on node 6
+Number of secrets post-add: 3
+Randomness extraction successful on node 4
+Number of secrets post-add: Number of secrets post-add: 5
+Randomness extraction successful on node 74
+Randomness extraction successful on node 3
+
+Number of secrets post-add: 6
+Randomness extraction successful on node 9
+Number of secrets post-add: 7
+Randomness extraction successful on node 8
+Vandermonde matrix size: (4, 7)
+Matrix T size: (7, 4)
+Final output size: (4, 4)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 10 participants
+N: 3 malicious participants
+Total: 56.98249316215515 seconds
+Commit: 26.364269018173218 seconds
+Reveal: 28.531895637512207 seconds
+Output: 2.0862135887145996 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 4: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 10: Commit completed.
+Executing reveal requests...
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 1
+Number of secrets post-add: 2
+Number of secrets post-add: Randomness extraction successful on node 3
+3
+Randomness extraction successful on node 0
+Number of secrets post-add: 4
+Randomness extraction successful on node 4
+Number of secrets post-add: 5
+Randomness extraction successful on node 2
+Number of secrets post-add: 6
+Randomness extraction successful on node 15
+Number of secrets post-add: 7
+Randomness extraction successful on node 12
+Number of secrets post-add: 8
+Randomness extraction successful on node 13
+Number of secrets post-add: 9
+Randomness extraction successful on node 11
+Number of secrets post-add: 10
+Randomness extraction successful on node 10
+Number of secrets post-add: 11
+Randomness extraction successful on node 7
+Number of secrets post-add: 12
+Randomness extraction successful on node 6
+Number of secrets post-add: 13
+Randomness extraction successful on node 18
+Number of secrets post-add: 14
+Randomness extraction successful on node 17
+Number of secrets post-add: 15
+Randomness extraction successful on node 14
+Number of secrets post-add: 16
+Randomness extraction successful on node 19
+Number of secrets post-add: 17
+Randomness extraction successful on node 9
+Number of secrets post-add: 18
+Randomness extraction successful on node 16
+Number of secrets post-add: 19
+Randomness extraction successful on node 5
+Number of secrets post-add: 20
+Randomness extraction successful on node 8
+Vandermonde matrix size: (8, 14)
+Matrix T size: (14, 8)
+Final output size: (8, 8)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 20 participants
+N: 0 malicious participants
+Total: 199.0437445640564 seconds
+Commit: 101.8868408203125 seconds
+Reveal: 94.9947669506073 seconds
+Output: 2.1620116233825684 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 16: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 5: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1Number of secrets post-add:
+Randomness extraction successful on node 6
+ 2
+Randomness extraction successful on node 8
+Number of secrets post-add: 3
+Randomness extraction successful on node 7
+Number of secrets post-add: 4
+Randomness extraction successful on node 19
+Number of secrets post-add: 5
+Randomness extraction successful on node 13
+Number of secrets post-add: 6
+Randomness extraction successful on node 12
+Number of secrets post-add: 7
+Randomness extraction successful on node 14
+Number of secrets post-add: 8
+Randomness extraction successful on node 11
+Number of secrets post-add: 9
+Randomness extraction successful on node 15
+Number of secrets post-add: 10Number of secrets post-add:
+Randomness extraction successful on node 16 11
+Randomness extraction successful on node 9
+
+Number of secrets post-add: 12
+Randomness extraction successful on node 10
+Number of secrets post-add: 13Number of secrets post-add: 14
+Randomness extraction successful on node 17
+
+Randomness extraction successful on node 18
+Vandermonde matrix size: (8, 14)
+Matrix T size: (14, 8)
+Final output size: (8, 8)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 20 participants
+N: 6 malicious participants
+Total: 195.30774331092834 seconds
+Commit: 99.42617321014404 seconds
+Reveal: 93.70219254493713 seconds
+Output: 2.179229736328125 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 0: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 14: Commit completed.
+Executing reveal requests...
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 1
+Number of secrets post-add: 2
+Randomness extraction successful on node 10
+Number of secrets post-add: 3
+Randomness extraction successful on node 14
+Number of secrets post-add: 4
+Randomness extraction successful on node 6
+Number of secrets post-add: 5
+Randomness extraction successful on node 9
+Number of secrets post-add: 6
+Randomness extraction successful on node 16
+Number of secrets post-add: 7Number of secrets post-add: 
+8
+Randomness extraction successful on node 2
+Randomness extraction successful on node 5
+Number of secrets post-add: 9
+Randomness extraction successful on node 7
+Number of secrets post-add: 10
+Randomness extraction successful on node 12
+Number of secrets post-add: 11
+Randomness extraction successful on node 3
+Number of secrets post-add: 12
+Randomness extraction successful on node 4
+Number of secrets post-add: 13
+Randomness extraction successful on node 11
+Number of secrets post-add: 14
+Randomness extraction successful on node 13
+Number of secrets post-add: Number of secrets post-add: 16
+15
+Randomness extraction successful on node 8
+Randomness extraction successful on node 0
+Number of secrets post-add: 17
+Randomness extraction successful on node 15
+Number of secrets post-add: 18
+Randomness extraction successful on node 24
+Number of secrets post-add: 19
+Randomness extraction successful on node 18
+Number of secrets post-add: 20
+Randomness extraction successful on node 27
+Number of secrets post-add: 21
+Randomness extraction successful on node 23
+Number of secrets post-add: 22
+Randomness extraction successful on node 17
+Number of secrets post-add: 23
+Randomness extraction successful on node 21
+Number of secrets post-add: 24
+Randomness extraction successful on node 29
+Number of secrets post-add: 25
+Randomness extraction successful on node 26
+Number of secrets post-add: 26
+Randomness extraction successful on node 25
+Number of secrets post-add: 27
+Randomness extraction successful on node 19
+Number of secrets post-add: 28
+Randomness extraction successful on node 28
+Number of secrets post-add: 29
+Randomness extraction successful on node 22
+Number of secrets post-add: 30
+Randomness extraction successful on node 20
+Vandermonde matrix size: (10, 20)
+Matrix T size: (20, 10)
+Final output size: (10, 10)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 30 participants
+N: 0 malicious participants
+Total: 800.9023880958557 seconds
+Commit: 421.9840974807739 seconds
+Reveal: 376.6279807090759 seconds
+Output: 2.29011869430542 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 0: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 21: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 7 was incorrect: 400
+Reveal failed on node 7: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+The polynomial verification uploaded by node 6 was incorrect: 400
+Reveal failed on node 5: 400
+Reveal failed on node 6: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 9 was incorrect: 400
+Reveal failed on node 9: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 8 was incorrect: 400
+Reveal failed on node 8: 400
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 13
+Number of secrets post-add: 2
+Randomness extraction successful on node 17
+Number of secrets post-add: 3
+Randomness extraction successful on node 11
+Number of secrets post-add: 4
+Randomness extraction successful on node 10
+Number of secrets post-add: 5
+Randomness extraction successful on node 18
+Number of secrets post-add: Number of secrets post-add: 7
+Randomness extraction successful on node 126
+Randomness extraction successful on node 15
+
+Number of secrets post-add: 8
+Randomness extraction successful on node 16
+Number of secrets post-add: 9
+Randomness extraction successful on node 19
+Number of secrets post-add: 10
+Randomness extraction successful on node 14
+Number of secrets post-add: 11
+Randomness extraction successful on node 20
+Number of secrets post-add: 12
+Randomness extraction successful on node 26
+Number of secrets post-add: 13
+Randomness extraction successful on node 27
+Number of secrets post-add: 14
+Randomness extraction successful on node 24
+Number of secrets post-add: 15
+Randomness extraction successful on node 28
+Number of secrets post-add: 16
+Randomness extraction successful on node 23
+Number of secrets post-add: 17
+Randomness extraction successful on node 22
+Number of secrets post-add: 18
+Randomness extraction successful on node 29Number of secrets post-add: 19
+Randomness extraction successful on node 21
+Number of secrets post-add:
+ 20
+Randomness extraction successful on node 25
+Vandermonde matrix size: (10, 20)
+Matrix T size: (20, 10)
+Final output size: (10, 10)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 30 participants
+N: 10 malicious participants
+Total: 798.3843162059784 seconds
+Commit: 422.1312212944031 seconds
+Reveal: 374.02238607406616 seconds
+Output: 2.230515956878662 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 3: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 28: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 35: Commit completed.
+Commit successful on node 39: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 31: Commit completed.
+Commit successful on node 36: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 32: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 34: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 38: Commit completed.
+Commit successful on node 33: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 30: Commit completed.
+Commit successful on node 37: Commit completed.
+Executing reveal requests...
+Reveal successful on node 7: <Response [200]>
+Reveal successful on node 2: <Response [200]>
+Reveal successful on node 6: <Response [200]>
+Reveal successful on node 10: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 4: <Response [200]>
+Reveal successful on node 26: <Response [200]>
+Reveal successful on node 24: <Response [200]>
+Reveal successful on node 11: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 32: <Response [200]>
+Reveal successful on node 8: <Response [200]>
+Reveal successful on node 37: <Response [200]>
+Reveal successful on node 12: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 35: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 34: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 1: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 3: <Response [200]>
+Reveal successful on node 9: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 39: <Response [200]>
+Reveal successful on node 36: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 5: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 0: <Response [200]>
+Reveal successful on node 31: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 38: <Response [200]>
+Reveal successful on node 33: <Response [200]>
+Reveal successful on node 30: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Number of secrets post-add: 2
+Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 1Number of secrets post-add: Randomness extraction successful on node 3
+
+4
+Randomness extraction successful on node 4
+Number of secrets post-add: 5
+Randomness extraction successful on node 6
+Number of secrets post-add: 6
+Randomness extraction successful on node 9
+Number of secrets post-add: 7
+Randomness extraction successful on node 0
+Number of secrets post-add: 8
+Randomness extraction successful on node 5
+Number of secrets post-add: 9
+Randomness extraction successful on node 13
+Number of secrets post-add: 10
+Randomness extraction successful on node 11
+Number of secrets post-add: Number of secrets post-add: 11
+Randomness extraction successful on node 10
+12
+Randomness extraction successful on node 7
+Number of secrets post-add: 13
+Randomness extraction successful on node 12
+Number of secrets post-add: 14
+Randomness extraction successful on node 8
+Number of secrets post-add: 15
+Randomness extraction successful on node 19
+Number of secrets post-add: 16
+Randomness extraction successful on node 24
+Number of secrets post-add: 17
+Randomness extraction successful on node 18Number of secrets post-add: 18
+
+Randomness extraction successful on node 17
+Number of secrets post-add: 19
+Randomness extraction successful on node 16
+Number of secrets post-add: 20
+Randomness extraction successful on node 14
+Number of secrets post-add: 21
+Randomness extraction successful on node 22
+Number of secrets post-add: 22
+Randomness extraction successful on node 28
+Number of secrets post-add: 23
+Randomness extraction successful on node 15
+Number of secrets post-add: 24
+Randomness extraction successful on node 23Number of secrets post-add: 25
+Randomness extraction successful on node 31
+
+Number of secrets post-add: 26
+Randomness extraction successful on node 30
+Number of secrets post-add: 27
+Randomness extraction successful on node 20
+Number of secrets post-add: 28
+Randomness extraction successful on node 21
+Number of secrets post-add: 29
+Number of secrets post-add: 30Randomness extraction successful on node 25
+
+Randomness extraction successful on node 38
+Number of secrets post-add: 31
+Randomness extraction successful on node 26
+Number of secrets post-add: 32
+Randomness extraction successful on node 39
+Number of secrets post-add: 33
+Randomness extraction successful on node 35
+Number of secrets post-add: 34
+Randomness extraction successful on node 37
+Number of secrets post-add: 35
+Randomness extraction successful on node 29
+Number of secrets post-add: 36
+Randomness extraction successful on node 33
+Number of secrets post-add: 37
+Randomness extraction successful on node 36
+Number of secrets post-add: 38
+Randomness extraction successful on node 32
+Number of secrets post-add: 39
+Randomness extraction successful on node 27
+Number of secrets post-add: 40
+Randomness extraction successful on node 34
+Vandermonde matrix size: (14, 27)
+Matrix T size: (27, 14)
+Final output size: (14, 14)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 40 participants
+N: 0 malicious participants
+Total: 2723.595683336258 seconds
+Commit: 1434.627518415451 seconds
+Reveal: 1286.2623438835144 seconds
+Output: 2.705545663833618 seconds
+#######################################################################
+
+
+
+Executing commit requests...
+Commit successful on node 3: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 18: Commit completed.
+Commit successful on node 4: Commit completed.
+Commit successful on node 25: Commit completed.
+Commit successful on node 10: Commit completed.
+Commit successful on node 5: Commit completed.
+Commit successful on node 7: Commit completed.
+Commit successful on node 30: Commit completed.
+Commit successful on node 34: Commit completed.
+Commit successful on node 13: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 8: Commit completed.
+Commit successful on node 16: Commit completed.
+Commit successful on node 32: Commit completed.
+Commit successful on node 20: Commit completed.
+Commit successful on node 33: Commit completed.
+Commit successful on node 29: Commit completed.
+Commit successful on node 36: Commit completed.
+Commit successful on node 27: Commit completed.
+Commit successful on node 19: Commit completed.
+Commit successful on node 12: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 11: Commit completed.
+Commit successful on node 14: Commit completed.
+Commit successful on node 38: Commit completed.
+Commit successful on node 9: Commit completed.
+Commit successful on node 22: Commit completed.
+Commit successful on node 39: Commit completed.
+Commit successful on node 15: Commit completed.
+Commit successful on node 23: Commit completed.
+Commit successful on node 17: Commit completed.
+Commit successful on node 37: Commit completed.
+Commit successful on node 6: Commit completed.
+Commit successful on node 35: Commit completed.
+Commit successful on node 31: Commit completed.
+Commit successful on node 24: Commit completed.
+Commit successful on node 21: Commit completed.
+Commit successful on node 26: Commit completed.
+Commit successful on node 28: Commit completed.
+Executing reveal requests...
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 10 was incorrect: 400
+Reveal failed on node 10: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 11 was incorrect: 400
+The polynomial published by node {node_id} is not correct.
+Reveal failed on node 11: 400
+The polynomial verification uploaded by node 12 was incorrect: 400
+Reveal failed on node 12: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 1 was incorrect: 400
+Reveal failed on node 1: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 5 was incorrect: 400
+Reveal failed on node 5: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 6 was incorrect: 400
+Reveal failed on node 6: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 0 was incorrect: 400
+Reveal failed on node 0: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 8 was incorrect: 400
+Reveal failed on node 8: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 4 was incorrect: 400
+Reveal failed on node 4: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 9 was incorrect: 400
+Reveal failed on node 9: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 7 was incorrect: 400
+Reveal failed on node 7: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 3 was incorrect: 400
+Reveal failed on node 3: 400
+The polynomial published by node {node_id} is not correct.
+The polynomial verification uploaded by node 2 was incorrect: 400
+Reveal failed on node 2: 400
+Reveal successful on node 19: <Response [200]>
+Reveal successful on node 33: <Response [200]>
+Reveal successful on node 34: <Response [200]>
+Reveal successful on node 22: <Response [200]>
+Reveal successful on node 38: <Response [200]>
+Reveal successful on node 15: <Response [200]>
+Reveal successful on node 17: <Response [200]>
+Reveal successful on node 37: <Response [200]>
+Reveal successful on node 25: <Response [200]>
+Reveal successful on node 29: <Response [200]>
+Reveal successful on node 39: <Response [200]>
+Reveal successful on node 28: <Response [200]>
+Reveal successful on node 21: <Response [200]>
+Reveal successful on node 23: <Response [200]>
+Reveal successful on node 13: <Response [200]>
+Reveal successful on node 31: <Response [200]>
+Reveal successful on node 35: <Response [200]>
+Reveal successful on node 27: <Response [200]>
+Reveal successful on node 16: <Response [200]>
+Reveal successful on node 20: <Response [200]>
+Reveal successful on node 14: <Response [200]>
+Reveal successful on node 26: <Response [200]>Reveal successful on node 24: <Response [200]>
+
+Reveal successful on node 32: <Response [200]>
+Reveal successful on node 18: <Response [200]>
+Reveal successful on node 36: <Response [200]>
+Reveal successful on node 30: <Response [200]>
+All reveals were successful.
+Number of secrets post-add: 1
+Randomness extraction successful on node 15
+Number of secrets post-add: 2
+Randomness extraction successful on node 13
+Number of secrets post-add: 3
+Randomness extraction successful on node 20
+Number of secrets post-add: 4
+Randomness extraction successful on node 16
+Number of secrets post-add: 5
+Randomness extraction successful on node 28
+Number of secrets post-add: 6
+Randomness extraction successful on node 27
+Number of secrets post-add: 7
+Randomness extraction successful on node 19
+Number of secrets post-add: 8
+Randomness extraction successful on node 32
+Number of secrets post-add: 9
+Number of secrets post-add: 10
+Randomness extraction successful on node 30
+Randomness extraction successful on node 31
+Number of secrets post-add: 11
+Randomness extraction successful on node 26
+Number of secrets post-add: 12
+Randomness extraction successful on node 21
+Number of secrets post-add: 13
+Randomness extraction successful on node 24
+Number of secrets post-add: 14
+Randomness extraction successful on node 29
+Number of secrets post-add: 15
+Randomness extraction successful on node 18
+Number of secrets post-add: 16
+Randomness extraction successful on node 22
+Number of secrets post-add: 17
+Randomness extraction successful on node 23
+Number of secrets post-add: 18
+Randomness extraction successful on node 37
+Number of secrets post-add: 19
+Randomness extraction successful on node 25
+Number of secrets post-add: 20
+Randomness extraction successful on node 17
+Number of secrets post-add: 21
+Randomness extraction successful on node 33
+Number of secrets post-add: 22
+Randomness extraction successful on node 35
+Number of secrets post-add: Number of secrets post-add: 23
+Randomness extraction successful on node 34
+24
+Randomness extraction successful on node 36
+Number of secrets post-add: 25
+Randomness extraction successful on node 14
+Number of secrets post-add: 26
+Randomness extraction successful on node 38Number of secrets post-add: 27
+
+Randomness extraction successful on node 39
+Vandermonde matrix size: (14, 27)
+Matrix T size: (27, 14)
+Final output size: (14, 14)
+Secret reconstruction completed.
+########################### EXECUTION TIMES ###########################
+N: 40 participants
+N: 13 malicious participants
+Total: 2692.9121878147125 seconds
+Commit: 1433.0056273937225 seconds
+Reveal: 1257.3398582935333 seconds
+Output: 2.5664565563201904 seconds
+#######################################################################
+
+
+
+
+
+################################################################################
+### RESUMEN FINAL DE TIEMPOS DE OUTPUT (Segundos) ###
+################################################################################
+-----------------------------------------------------------------------------
+| Nodos (N)  | Maliciosos (t)  | Clásica      | EC Simple    | Elligator    |
+-----------------------------------------------------------------------------
+| 5          | 0               | 2.0858       | 2.0736       | 2.0602       |
+| 5          | 1               | 2.0839       | 2.0607       | 2.0521       |
+| 10         | 0               | 2.1216       | 2.1017       | 2.0690       |
+| 10         | 3               | 2.1145       | 2.0781       | 2.0862       |
+| 20         | 0               | 2.3320       | 2.1636       | 2.1620       |
+| 20         | 6               | 2.2885       | 2.1528       | 2.1792       |
+| 30         | 0               | 2.9066       | 2.2518       | 2.2901       |
+| 30         | 10              | 2.8842       | 2.2272       | 2.2305       |
+| 40         | 0               | 6.0411       | 2.6959       | 2.7055       |
+| 40         | 13              | 5.7899       | 2.5418       | 2.5665       |
+-----------------------------------------------------------------------------
+
+[+] Todas las pruebas finalizadas.
