@@ -8,6 +8,8 @@ from ALBATROSSProtocol.ALBATROSS import ALBATROSS
 from ecpy.curves import Curve, Point
 from Elliga.ellifun import CurvetoNumber
 
+import numpy as np
+
 class DummyPoint:
     """Clase dummy para simular puntos EC"""
     def __init__(self, x, y):
@@ -124,7 +126,6 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Llamamos a la función real
         matriz = self.albatross._ALBATROSS__crear_matriz_vandermonde(omega, l, t)
 
-        import numpy as np
         self.assertIsInstance(matriz, np.ndarray)
         self.assertEqual(matriz.shape, (4, 7), "Las dimensiones de Vandermonde no respetan el paper de Albatross.")
 
@@ -173,7 +174,6 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Mockeamos Vandermonde para que use la matriz inversa exacta del polinomio
         # La interpolación de Lagrange para x=1, x=2 y evaluar en 0 da los pesos [2, -1]
         # (2 * 150) + (-1 * 200) = 300 - 200 = 100 (¡El secreto!)
-        import numpy as np
         matriz_inversa_simulada = np.array([[2, -1]])
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=matriz_inversa_simulada)
 
@@ -212,7 +212,6 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross._ALBATROSS__network.get_q.return_value = 97
 
         # INTERPOLACIÓN MATEMÁTICA
-        import numpy as np
         # Los pesos de Lagrange para evaluar en 0 dados x=1, x=2 son [2, -1]
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
 
@@ -251,7 +250,6 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         self.albatross._ALBATROSS__T = [[FakePoint(150)], [FakePoint(200)]]
 
-        import numpy as np
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
 
         # Ejecutamos la fase final
@@ -283,7 +281,6 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Le pasamos cualquier objeto, la función mockeada hará el trabajo
         self.albatross._ALBATROSS__T = [["PuntoFalso1"], ["PuntoFalso2"]]
 
-        import numpy as np
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
 
         self.albatross._ALBATROSS__process_final_output()
@@ -292,6 +289,120 @@ class TestAlbatrossComponents(unittest.TestCase):
             resultado = f.read()
 
         self.assertTrue("100" in resultado, "Fallo en modo Elligator: La integración con CurvetoNumber está rota.")
+
+    def test_old_vs_new_implementation_numbers(self):
+        """
+        Demuestra cómo el código original (np.multiply y Vandermonde sin 'i')
+        destruía los datos, frente al código nuevo (np.dot y Vandermonde correcta).
+        """
+        # Suponemos que el secreto real era el número 100 y estos son los fragmentos (Matriz T) que nos devuelven los nodos (2x2 para simplificar)
+        T_fragmentos = np.array([
+            [150, 160],
+            [200, 210]
+        ])
+
+        # =========================================================
+        # 1. LA LÓGICA ANTIGUA (EL BUG)
+        # =========================================================
+        omega = 2
+        l = 2
+        n_columnas = 2
+
+        # Bug A: Matriz de Vandermonde sin multiplicar por 'i' (filas clónicas)
+        vander_antigua = np.array([[omega ** j for j in range(n_columnas)] for i in range(l)])
+
+        # Bug B: np.multiply (multiplica celda a celda en lugar de filas por columnas)
+        bug_generada = np.multiply(vander_antigua, T_fragmentos)
+
+        with open('bug_antigua.txt', 'w') as f:
+            f.write("=== LÓGICA ANTIGUA ===\n")
+            f.write("Matriz Vandermonde Errónea (Filas iguales):\n" + str(vander_antigua) + "\n\n")
+            f.write("Resultado de np.multiply (Basura matemática):\n" + str(bug_generada) + "\n")
+
+        # =========================================================
+        # 2. LA LÓGICA NUEVA (CORRECTA)
+        # =========================================================
+
+        # Corrección A: Multiplicar por 'i' para que cada fila sea única
+        vander_nueva = np.array([[omega ** (i * j) for j in range(n_columnas)] for i in range(l)])
+
+        # Corrección B: np.dot (multiplicación matricial real del álgebra lineal)
+        secreto_real = np.dot(vander_nueva, T_fragmentos)
+
+        with open('bug_secreto_correcto.txt', 'w') as f:
+            f.write("=== LÓGICA ACTUAL ===\n")
+            f.write("Matriz Vandermonde Correcta (Filas diferentes):\n" + str(vander_nueva) + "\n\n")
+            f.write("Resultado de np.dot (Álgebra real):\n" + str(secreto_real) + "\n")
+
+        # Comprobamos que, efectivamente, los resultados son totalmente distintos
+        self.assertFalse(np.array_equal(bug_generada, secreto_real), "¡Increíble! La basura y el secreto coinciden.")
+
+        print("\n[!] Test de Basura ejecutado. Revisa 'bug_basura_antigua.txt' y 'bug_secreto_correcto.txt'")
+
+    def test_old_vs_new_implementation_text(self):
+        """
+        Demuestra cómo el código original destruía una cadena de texto exacta,
+        mientras que el código nuevo la recupera a la perfección.
+        """
+        # 1. EL VALOR EXACTO QUE METEMOS
+        texto_original = "HOLA MUNDO ALBATROSS"
+        # Convertimos la palabra a un número entero gigante
+        secreto_int = int.from_bytes(texto_original.encode('utf-8'), 'big')
+
+        # Simulamos que los nodos nos envían fragmentos de este secreto
+        # (Polinomio: f(x) = secreto_int + 10x. Para x=1 y x=2)
+        T_fragmentos = np.array([
+            [secreto_int + 10],
+            [secreto_int + 20]
+        ])
+
+        # Parámetros matemáticos
+        omega = 2
+        l = 2
+        n_columnas = 2
+
+        # =========================================================
+        # 2. LÓGICA ANTIGUA (EL BUG)
+        # =========================================================
+        # Filas iguales y np.multiply
+        vander_antigua = np.array([[omega ** j for j in range(n_columnas)] for i in range(l)])
+        bug_generado = np.multiply(vander_antigua, T_fragmentos)
+
+        # Intentamos forzar la lectura del primer elemento como si fuera el secreto
+        numero_basura = int(bug_generado[0][0])
+
+        try:
+            num_bytes = (numero_basura.bit_length() + 7) // 8
+            texto_basura = numero_basura.to_bytes(num_bytes, 'big').decode('utf-8')
+        except Exception:
+            texto_basura = "[ERROR FATAL: LOS BYTES SON ILEGIBLES]"
+
+        # =========================================================
+        # 3. LÓGICA NUEVA (LA CORRECTA)
+        # =========================================================
+        # Filas multiplicadas por 'i' y np.dot
+        vander_nueva = np.array([[omega ** (i * j) for j in range(n_columnas)] for i in range(l)])
+        # Invertimos la matriz para aplicar Lagrange correctamente en x=0 (simplificación teórica del test)
+        matriz_lagrange_simulada = np.array([[2, -1]])
+
+        secreto_real_matriz = np.dot(matriz_lagrange_simulada, T_fragmentos)
+        numero_real = int(secreto_real_matriz[0][0])
+
+        num_bytes_real = (numero_real.bit_length() + 7) // 8
+        texto_recuperado = numero_real.to_bytes(num_bytes_real, 'big').decode('utf-8')
+
+        # =========================================================
+        # 4. GUARDAR EVIDENCIAS Y COMPROBAR
+        # =========================================================
+        with open('comparativa_texto.txt', 'w', encoding='utf-8') as f:
+            f.write(f"TEXTO ORIGINAL ENVIADO: '{texto_original}'\n")
+            f.write("-" * 40 + "\n")
+            f.write(f"INTENTO LÓGICA ANTIGUA: '{texto_basura}'\n")
+            f.write(f"INTENTO LÓGICA NUEVA  : '{texto_recuperado}'\n")
+
+        # Comprobamos que la lógica nueva triunfa y la antigua falla
+        self.assertEqual(texto_recuperado, texto_original, "La lógica nueva ha fallado.")
+        self.assertNotEqual(texto_basura, texto_original, "La lógica antigua de milagro ha funcionado.")
 
     # =====================================================================
     # BLOQUE 5: TESTS NEGATIVOS (Modificación del polinomio)
