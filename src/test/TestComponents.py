@@ -293,5 +293,32 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         self.assertTrue("100" in resultado, "Fallo en modo Elligator: La integración con CurvetoNumber está rota.")
 
+    # =====================================================================
+    # BLOQUE 5: TESTS NEGATIVOS (Modificación del polinomio)
+    # =====================================================================
+    @patch('requests.get')
+    def test_reveal_negative_testing_false_polynomial(self, mock_get):
+        """
+        PRUEBA NEGATIVA (Seguridad): Simula un ataque Bizantino activo en la fase Reveal.
+        Verifica que si un nodo devuelve un HTTP 400 (Fallo en la verificación VSS del polinomio),
+        Albatross NO lo añade a la lista de éxitos y entonces no usará su fragmento corrupto
+        """
+        # 1. Simulamos que el servidor Flask del nodo 3 detecta la mentira matemática y devuelve 400
+        mock_response = MagicMock()
+        mock_response.status_code = 400
+        mock_response.text = "The polynomial verification uploaded by node 3 was incorrect"
+        mock_get.return_value = mock_response
+
+        # 2. El orquestador ALBATROSS le pide que revele su polinomio
+        nodo_atacante_id = 3
+        self.albatross._ALBATROSS__request_reveal(node_id=nodo_atacante_id)
+
+        # 3. COMPROBACIÓN CRÍTICA: El nodo no debe estar en la lista de revelaciones exitosas
+        self.assertNotIn(
+            nodo_atacante_id,
+            self.albatross._ALBATROSS__successful_reveal_ids,
+            "¡Brecha de seguridad! El orquestador ha aceptado un polinomio falso."
+        )
+
 if __name__ == '__main__':
     unittest.main()
