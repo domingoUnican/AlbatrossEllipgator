@@ -56,7 +56,7 @@ class Network:
 
     def get_q(self):
         return self.q
-    
+
 
     def get_p(self):
         return self.p
@@ -86,7 +86,7 @@ class Network:
             self.__nodes[i + 1].set_neighbors([self.__nodes[i]])
 
         # Step 2: Add random additional neighbors
-        max_neighbors = int(math.sqrt(len(self.__nodes)))
+        max_neighbors = max(2, int(math.sqrt(len(self.__nodes))))
         for node in self.__nodes:
             additional_neighbors = random.sample(
                 [n for n in self.__nodes if n != node and n not in node.get_neighbors()],
