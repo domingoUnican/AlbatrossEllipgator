@@ -68,14 +68,14 @@ def test(participants, num_malicious_participants, system, EC, mode):
     # Byzantine Fault Tolerance: esto significa que necesita n>=3t+1, donde n es nodos y t nodos maliciosos, luego, el m´niimo de nodos para ejecutar albatros es 4, ¿no?
     #if participants < 3*num_malicious_participants+1:
     if system == config.BYZANTINE:
-        if participants // 3 < num_malicious_participants:
+        if (participants - 1) // 3 < num_malicious_participants:
             #20
             #20//3=6
             print("Error: No hay suficientes nodos honestos para reconstruir el secreto por método bizantino")
             print(f"part: {participants}, bizantino, honest_needed_min {participants - participants // 3} maliciosos {num_malicious_participants}, resultado {participants / 2 < participants // 3}")
             exit(0)
     elif system == config.ABSOLUTE_MAJORITY:
-        if participants/2 <= num_malicious_participants:
+        if (participants - 1) // 2 < num_malicious_participants:
             print("Error: No hay suficientes nodos honestos para reconstruir el secreto por mayoría absoluta")
             print(f"part: {participants}, ABSOLUTE_MAJORITY, honest_needed_min {int(participants / 2 + 1)} maliciosos {num_malicious_participants} resultado {participants / 2 < num_malicious_participants + 1}")
             exit(0)

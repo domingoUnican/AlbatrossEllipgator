@@ -18,10 +18,10 @@ class ALBATROSS:
         self.mode = mode  # Guardamos el modo ("classic", "ec" o "elligator")
         # t es el umbral máximo de participantes maliciosos: bizantino max 1/3, mayoría (Caso peor: 51%buenos), caso mejor 100% buenos
         if system == config.BYZANTINE:
-            self.__t = num_participants // 3
+            self.__t = (num_participants - 1) // 3
             self.system = config.BYZANTINE
         elif system == config.ABSOLUTE_MAJORITY:
-            self.__t = num_participants // 2
+            self.__t = (num_participants - 1) // 2
             self.system = config.ABSOLUTE_MAJORITY
         else:
             print("Error al inicializar el umbral máximo __t en Albatross")
