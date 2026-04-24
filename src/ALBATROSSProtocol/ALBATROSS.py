@@ -179,8 +179,8 @@ class ALBATROSS:
         t = self.__num_participants // 3
 
         if self.system == config.BYZANTINE:
-            l = self.__num_participants - 2 * t
-            r = self.__num_participants - t
+            l = self.__num_participants - 2 * t # Tamaño Matemático: número de coeficientes exactos que tiene tu matriz de Vandermonde
+            r = self.__num_participants - t # Mínimo de Supervivencia: número de fragmentos que necesitas como mínimo para que la red no aborte
         elif self.system == config.ABSOLUTE_MAJORITY:
             l = max(1, self.__num_participants - t)
             r = t + 1
@@ -198,24 +198,28 @@ class ALBATROSS:
             raise ValueError(f"No hay suficientes fragmentos ({len(self.__T)}) para reconstruir (se necesitan {r}).")
 
         # Cogemos exactamente los primeros 'r' fragmentos: más rápido que cogerlos aleatorios e igual de válido
-        T_recortada = self.__T[:r]
+        # de la matriz de Vandermonde (que dicta el tamaño) para que el np.dot encaje perfecto
+        T_recortada = self.__T[:l]
 
-        if self.mode == config.ELLIGATOR_MODE:
-            Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in T_recortada]
-            matriz_T = np.array(Tprima)
-        elif self.mode == config.EC_MODE:
-            Tprima = [[a if isinstance(a, int) else a.x for a in i] for i in T_recortada]
-            matriz_T = np.array(Tprima)
-        else:
-            # No necesitamos la conversion de Tprima para NumPy pq los números ya son enteros
-            matriz_T = np.array(T_recortada)
+        # dtype=object respeta tanto el álgebra lineal normal (enteros) como la geometría no lineal (Puntos de la curva)
+        matriz_T = np.array(T_recortada, dtype=object)
 
         print("Matrix T size:", matriz_T.shape)
 
         sys.set_int_max_str_digits(10_000_000)
-        aleatoriedad_final = np.dot(matriz_vander, matriz_T)
+        aleatoriedad = np.dot(matriz_vander, matriz_T)
 
-        print("Final output size:", aleatoriedad_final.shape)
+        # Extracción del valor final
+        aleatoriedad_final = []
+        for punto_reconstruido in aleatoriedad.flatten():
+            if self.mode == config.ELLIGATOR_MODE:
+                aleatoriedad_final.append(CurvetoNumber(punto_reconstruido))
+            elif self.mode == config.EC_MODE:
+                aleatoriedad_final.append(punto_reconstruido.x)
+            elif self.mode == config.CLASSIC_MODE:
+                aleatoriedad_final.append(punto_reconstruido)
+
+        print("Final output size:", len(aleatoriedad_final))
         print("Secret reconstruction completed.")
 
         with open('aleatoriedad_final.txt', 'w') as archivo:
