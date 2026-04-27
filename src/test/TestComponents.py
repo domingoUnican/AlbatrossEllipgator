@@ -1,14 +1,15 @@
+import threading
 import unittest
+import numpy as np
+
 from unittest.mock import patch, MagicMock
-import requests
-import config
-
 from ALBATROSSProtocol.ALBATROSS import ALBATROSS
-
 from ecpy.curves import Curve, Point
 from Elliga.ellifun import CurvetoNumber
+from http.server import BaseHTTPRequestHandler, HTTPServer
 
-import numpy as np
+import requests
+import config
 
 class DummyPoint:
     """Clase dummy para simular puntos EC"""
@@ -31,6 +32,45 @@ class MockECPoint:
     def __add__(self, otro_punto):
         # Simula una suma geométrica de puntos (No es lineal, sumamos +100)
         return MockECPoint(self.x + otro_punto.x + 100)
+
+class RealNodeHandler(BaseHTTPRequestHandler):
+    """Mini-Servidor para simular la red física"""
+    def log_message(self, format, *args):
+        pass  # Silenciamos los logs de red de la consola
+
+    def do_GET(self):
+        # Extraemos el ID del nodo de la URL (Ej: de "/node/3/commit" sacamos el 3)
+        try:
+            node_id = int(self.path.split('/')[2])
+        except (IndexError, ValueError):
+            node_id = 1
+
+        if "commit" in self.path:
+            self.send_response(200)
+            self.end_headers()
+            self.wfile.write(b"OK_COMMIT")
+        elif "reveal" in self.path:
+            self.send_response(200)
+            self.end_headers()
+            fragment = self.server.fragmentos_secretos.get(node_id, 999)
+            self.wfile.write(str(fragment).encode('utf-8'))
+        else:
+            self.send_response(404)
+            self.end_headers()
+
+def arrancar_red_nodos_reales(fragmentos):
+    # Levantamos UN SOLO servidor en el puerto 5000 simulando a Flask
+    server = HTTPServer(('localhost', 5000), RealNodeHandler)
+    server.fragmentos_secretos = fragmentos
+    t = threading.Thread(target=server.serve_forever)
+    t.daemon = True
+    t.start()
+    return [server]
+
+def apagar_red_nodos_reales(servers):
+    for s in servers:
+        s.shutdown()
+        s.server_close()
 
 class TestAlbatrossComponents(unittest.TestCase):
 
@@ -580,6 +620,117 @@ class TestAlbatrossComponents(unittest.TestCase):
         # El resultado debe ser idéntico, demostrando la optimización O(1)
         self.assertEqual(resultado_limite, resultado_perfecto,
                          "Fallo de Optimización: El resultado varió al recibir más nodos")
+
+    # =========================================================================
+    # BLOQUE 8: TESTS END-TO-END (Levantando Nodos HTTP TCP Reales)
+    # =========================================================================
+    def test_e2e_real_network_classic_holamundo(self):
+        """E2E Clásico: La red física TCP transmite y recupera 'Hola Mundo Cruel'"""
+        # El secreto que queremos recuperar
+        texto_secreto = "Hola Mundo Cruel"
+        secreto_int = int.from_bytes(texto_secreto.encode('utf-8'), 'big')
+
+        # Matemáticas para la matriz [2, 3] (2*T1 + 3*T2 = secreto_int)
+        T2 = 2 if secreto_int % 2 == 0 else 1
+        T1 = (secreto_int - (3 * T2)) // 2
+
+        fragmentos_red = {1: T1, 2: T2, 3: 999, 4: 999}
+        servidores_activos = arrancar_red_nodos_reales(fragmentos_red)
+
+        try:
+            self.albatross.mode = config.CLASSIC_MODE
+            self.albatross._ALBATROSS__num_participants = 4
+            self.albatross._ALBATROSS__t = 1
+
+            # Como la URL real es localhost:5000, ya no necesitamos mockear el endpoint
+            self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
+                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+            )
+
+            # 1. FASE COMMIT (TCP Real al puerto 5000)
+            for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
+
+            # 2. FASE REVEAL (Descarga TCP Real del puerto 5000)
+            self.albatross._ALBATROSS__T = []
+            for i in self.albatross._ALBATROSS__successful_commit_ids:
+                respuesta = requests.get(f"http://localhost:5000/node/{i}/reveal")
+                valor = int(respuesta.text.replace('[', '').replace(']', ''))
+                self.albatross._ALBATROSS__T.append([valor])
+
+            # 3. RECONSTRUCCIÓN FINAL
+            self.albatross._ALBATROSS__process_final_output()
+
+            with open('aleatoriedad_final.txt', 'r') as f:
+                resultado_str = f.read()
+
+            num = int(resultado_str.replace('[', '').replace(']', '').strip())
+            texto_recuperado = num.to_bytes((num.bit_length() + 7) // 8, 'big').decode('utf-8')
+
+            self.assertEqual(texto_recuperado, texto_secreto, "Fallo E2E: La red no pudo recuperar el texto.")
+
+        finally:
+            apagar_red_nodos_reales(servidores_activos)
+
+    def test_e2e_real_network_ec_mode(self):
+        """E2E Curvas Elípticas: Descarga JSON TCP y procesado geométrico"""
+        fragmentos_red = {1: 150, 2: 200, 3: 999, 4: 999}
+        servidores_activos = arrancar_red_nodos_reales(fragmentos_red)
+
+        try:
+            self.albatross.mode = config.EC_MODE
+            self.albatross._ALBATROSS__num_participants = 4
+            self.albatross._ALBATROSS__t = 1
+            self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
+                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+            )
+
+            for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
+
+            self.albatross._ALBATROSS__T = []
+            for i in self.albatross._ALBATROSS__successful_commit_ids:
+                respuesta = requests.get(f"http://localhost:5000/node/{i}/reveal")
+                punto_ec = MockECPoint(int(respuesta.text))
+                self.albatross._ALBATROSS__T.append([punto_ec])
+
+            self.albatross._ALBATROSS__process_final_output()
+
+            with open('aleatoriedad_final.txt', 'r') as f:
+                resultado = f.read()
+            self.assertTrue(len(resultado) > 0, "Fallo E2E EC: El secreto está vacío")
+
+        finally:
+            apagar_red_nodos_reales(servidores_activos)
+
+    @patch('ALBATROSSProtocol.ALBATROSS.CurvetoNumber')
+    def test_e2e_real_network_elligator_mode(self, mock_curvetonumber):
+        """E2E Elligator: Red TCP, geometría y ofuscación determinista final"""
+        fragmentos_red = {1: 150, 2: 200, 3: 999, 4: 999}
+        servidores_activos = arrancar_red_nodos_reales(fragmentos_red)
+
+        try:
+            self.albatross.mode = config.ELLIGATOR_MODE
+            self.albatross._ALBATROSS__num_participants = 4
+            self.albatross._ALBATROSS__t = 1
+            self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
+                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+            )
+            mock_curvetonumber.side_effect = lambda p: f"ELLIGATOR_{p}"
+
+            for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
+
+            self.albatross._ALBATROSS__T = []
+            for i in self.albatross._ALBATROSS__successful_commit_ids:
+                respuesta = requests.get(f"http://localhost:5000/node/{i}/reveal")
+                self.albatross._ALBATROSS__T.append([int(respuesta.text)])
+
+            self.albatross._ALBATROSS__process_final_output()
+
+            with open('aleatoriedad_final.txt', 'r') as f:
+                resultado = f.read()
+            self.assertTrue("ELLIGATOR_" in resultado, "Fallo E2E Elligator: La ofuscación ha fallado")
+
+        finally:
+            apagar_red_nodos_reales(servidores_activos)
 
 
 if __name__ == '__main__':
