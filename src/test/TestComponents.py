@@ -229,8 +229,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Mockeamos Vandermonde para que use la matriz inversa exacta del polinomio
         # La interpolación de Lagrange para x=1, x=2 y evaluar en 0 da los pesos [2, -1]
         # (2 * 150) + (-1 * 200) = 300 - 200 = 100 (¡El secreto!)
-        matriz_inversa_simulada = np.array([[2, -1]])
-        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=matriz_inversa_simulada)
+        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0]]))
 
         # Ejecutamos la fase final
         self.albatross._ALBATROSS__process_final_output()
@@ -268,7 +267,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # INTERPOLACIÓN MATEMÁTICA
         # Los pesos de Lagrange para evaluar en 0 dados x=1, x=2 son [2, -1]
-        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
+        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0]]))
 
         # Ejecutamos la fase final
         self.albatross._ALBATROSS__process_final_output()
@@ -300,7 +299,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         self.albatross._ALBATROSS__T = [[MockECPoint(150)], [MockECPoint(200)], [MockECPoint(999)]]
 
-        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
+        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0]]))
 
         # Ejecutamos la fase final
         self.albatross._ALBATROSS__process_final_output()
@@ -326,14 +325,16 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross.mode = config.ELLIGATOR_MODE  # Activamos modo Elligator
         self.albatross._ALBATROSS__network.get_q.return_value = 97
 
+        # Hacemos que el generador 'h' de la curva simulada sea un 1.
+        # Así, cuando Albatross haga (100 * h), el resultado seguirá siendo 100 puro.
+        self.albatross._ALBATROSS__network.get_h.return_value = 1
+
         # Le pasamos cualquier objeto, la función mockeada hará el trabajo
         self.albatross._ALBATROSS__T = [[150], [200], [999]]
-        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
+        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0]]))
 
         # Simulamos que Elligator coge el secreto matemático (que dará 100) y lo ofusca
         mock_curvetonumber.side_effect = lambda p: f"ELLIGATOR_{p}"
-
-        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1]]))
 
         self.albatross._ALBATROSS__process_final_output()
 
@@ -497,7 +498,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # El test se adapta dinámicamente al tamaño 'l' que pida el Orquestador
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
         )
 
         # Ejecutamos
@@ -522,7 +523,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Los nodos envían PUNTOS DE LA CURVA (Simulados)
         self.albatross._ALBATROSS__T = [[MockECPoint(10)], [MockECPoint(20)], [MockECPoint(30)], [MockECPoint(40)]]
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
         )
 
         self.albatross._ALBATROSS__process_final_output()
@@ -547,7 +548,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Los nodos envían NÚMEROS ofuscados (Ej: 10, 20, 30 y 40)
         self.albatross._ALBATROSS__T = [[MockECPoint(10)], [MockECPoint(20)], [MockECPoint(30)], [MockECPoint(40)]]
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
         )
 
         # Reemplazamos temporalmente la función en el módulo cargado
@@ -585,7 +586,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # Simulamos una Vandermonde que se adapta al tamaño 'l' pedido (1x4)
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7, 8, 9, 10]])[:, :l]
+            side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7, 8, 9, 10]])[:, :l+t]
         )
 
         # --- CASO EXTREMO 1: FALLO DE RED CRÍTICO (6 FRAGMENTOS) ---
@@ -644,7 +645,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
             # Como la URL real es localhost:5000, ya no necesitamos mockear el endpoint
             self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+                side_effect = lambda w, l, t: np.array([[2, 3, 0, 0, 0, 0]])[:, :l + t]
             )
 
             # 1. FASE COMMIT (TCP Real al puerto 5000)
@@ -681,7 +682,7 @@ class TestAlbatrossComponents(unittest.TestCase):
             self.albatross._ALBATROSS__num_participants = 4
             self.albatross._ALBATROSS__t = 1
             self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
             )
 
             for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
@@ -712,7 +713,7 @@ class TestAlbatrossComponents(unittest.TestCase):
             self.albatross._ALBATROSS__num_participants = 4
             self.albatross._ALBATROSS__t = 1
             self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5]])[:, :l]
+                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
             )
             mock_curvetonumber.side_effect = lambda p: f"ELLIGATOR_{p}"
 

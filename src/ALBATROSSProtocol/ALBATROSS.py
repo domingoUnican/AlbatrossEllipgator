@@ -198,26 +198,40 @@ class ALBATROSS:
             raise ValueError(f"No hay suficientes fragmentos ({len(self.__T)}) para reconstruir (se necesitan {r}).")
 
         # Cogemos exactamente los primeros 'r' fragmentos: más rápido que cogerlos aleatorios e igual de válido
-        # de la matriz de Vandermonde (que dicta el tamaño) para que el np.dot encaje perfecto
-        T_recortada = self.__T[:l]
+        # de la matriz de Vandermonde (que dicta el tamaño: (l, r)) para que el np.dot encaje perfecto
+        T_recortada = self.__T[:r]
 
         # dtype=object respeta tanto el álgebra lineal normal (enteros) como la geometría no lineal (Puntos de la curva)
-        matriz_T = np.array(T_recortada, dtype=object)
+        # Forzamos una matriz de tamaño (r, 1) y metemos los objetos uno a uno para que Numpy NO desempache las coordenadas (x, y) de los Puntos EC
+        matriz_T = np.empty((len(T_recortada), 1), dtype=object)
+        for i, fragmento in enumerate(T_recortada):
+            # Si el fragmento viene anidado en una lista [[Punto]], lo extraemos
+            item = fragmento[0] if isinstance(fragmento, list) else fragmento
+            matriz_T[i, 0] = item
 
         print("Matrix T size:", matriz_T.shape)
 
         sys.set_int_max_str_digits(10_000_000)
+        # Vandermonde (l, r) * matriz_T (r, 1) = Resultado (l, 1)
         aleatoriedad = np.dot(matriz_vander, matriz_T)
 
         # Extracción del valor final
         aleatoriedad_final = []
         for punto_reconstruido in aleatoriedad.flatten():
-            if self.mode == config.ELLIGATOR_MODE:
-                aleatoriedad_final.append(CurvetoNumber(punto_reconstruido))
-            elif self.mode == config.EC_MODE:
-                aleatoriedad_final.append(punto_reconstruido.x)
-            elif self.mode == config.CLASSIC_MODE:
+            if self.mode == config.CLASSIC_MODE:
                 aleatoriedad_final.append(punto_reconstruido)
+            else:
+                # El orquestador recibe escalares (ints)
+                # Para obtener el Punto Geométrico, multiplicamos el escalar por el generador de la curva
+                if isinstance(punto_reconstruido, int) or type(punto_reconstruido).__name__.startswith('int'):
+                    punto_EC = punto_reconstruido * self.__network.get_h()
+                else:
+                    punto_EC = punto_reconstruido
+
+                if self.mode == config.ELLIGATOR_MODE:
+                    aleatoriedad_final.append(CurvetoNumber(punto_EC))
+                elif self.mode == config.EC_MODE:
+                    aleatoriedad_final.append(punto_EC.x)
 
         print("Final output size:", len(aleatoriedad_final))
         print("Secret reconstruction completed.")
