@@ -65,7 +65,9 @@ class ALBATROSS:
             if response.status_code == 200:
                 json_response = response.json()
                 decoded_response = json_response.get('result', [])
-                numbers = [int(x) for x in decoded_response]
+                # Parseamos la base 16 (hexadecimal), el if para que sea compatible con test unitarios antiguos en base 10
+                numbers = [int(x, 16) if isinstance(x, str) and x.startswith('0x') else int(x) for x in
+                           decoded_response]
                 self.__T.append(numbers)
                 print("Number of secrets post-add:", len(self.__T))
                 print(f"Randomness extraction successful on node {node_id}")
@@ -97,7 +99,7 @@ class ALBATROSS:
             if response.status_code == 200:
                 json_response = response.json()
                 decoded_response = json_response.get('result', [])
-                numbers = [int(x) for x in decoded_response]
+                numbers = [int(x, 16) if isinstance(x, str) and x.startswith('0x') else int(x) for x in decoded_response]
                 self.__T.append(numbers)
                 print("Number of secrets post-add:", len(self.__T))
 
@@ -211,7 +213,6 @@ class ALBATROSS:
 
         print("Matrix T size:", matriz_T.shape)
 
-        sys.set_int_max_str_digits(10_000_000)
         # Vandermonde (l, r) * matriz_T (r, 1) = Resultado (l, 1)
         aleatoriedad = np.dot(matriz_vander, matriz_T)
 
@@ -237,7 +238,10 @@ class ALBATROSS:
         print("Secret reconstruction completed.")
 
         with open('aleatoriedad_final.txt', 'w') as archivo:
-            archivo.write(str(aleatoriedad_final))
+            # Convertimos cada número de la lista a hexadecimal si 'n' es un número entero. Si ya es string (Elligator), lo dejamos intacto.
+            lista_hex = [hex(n) if isinstance(n, int) else str(n) for n in aleatoriedad_final]
+            # Guardamos la lista de strings hexadecimales
+            archivo.write(str(lista_hex))
         return
 
     def __execute_recovery_phase(self):

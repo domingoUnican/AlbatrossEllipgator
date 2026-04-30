@@ -127,12 +127,14 @@ class Node:
             reco_parties[i] = e
 
         sec = PPVSS(ledger).reconstruct(reco_parties)
-        lista_sec = [int(x) for x in sec]
+        # Convertimos los enteros a cadenas hexadecimales (O(N))
+        lista_sec = [hex(int(x)) for x in sec]
         return lista_sec
 
     def output(self):
-        lista_int = [int(x) for x in self.S]
-        return lista_int
+        # Convertimos los shares a strings hexadecimales para la red
+        lista_hex = [hex(int(x)) for x in self.S]
+        return lista_hex
 
 
 

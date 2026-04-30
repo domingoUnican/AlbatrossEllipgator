@@ -1,7 +1,6 @@
 import random
 import requests
-from ecpy.curves import Curve, Point
-#from ecpy.keys import ECPrivateKey, ECPublicKey
+
 from ..NetworkCommunication.ledger_EC import Ledger_EC as Ledger
 from sympy.polys.galoistools import gf_multi_eval
 from sympy.polys.domains import ZZ 
@@ -129,12 +128,13 @@ class Node_EC:
             reco_parties[i] = e
 
         sec = PPVSS(ledger).reconstruct(reco_parties,True)
-        lista_sec = [int(x.x) for x in sec]
-        return lista_sec
+        lista_sec_hex = [hex(int(x.x)) for x in sec]
+        return lista_sec_hex
 
     def output(self):
-        lista_int = [int(x) for x in self.S]
-        return lista_int
+        # Convertimos los shares a strings hexadecimales para la red
+        lista_hex = [hex(int(x)) for x in self.S]
+        return lista_hex
 
 
 

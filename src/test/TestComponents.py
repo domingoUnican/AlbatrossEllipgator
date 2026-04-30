@@ -238,7 +238,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         with open('aleatoriedad_final.txt', 'r') as f:
             resultado = f.read()
 
-        self.assertTrue("100" in resultado,
+        self.assertTrue("0x64" in resultado,
                         f"Fallo matemático: El secreto reconstruido no es 100. Resultado fue: {resultado}")
 
     @patch('ALBATROSSProtocol.PPVSSProtocol.utils.Utils.rootunity')
@@ -276,7 +276,7 @@ class TestAlbatrossComponents(unittest.TestCase):
             resultado_str = f.read()
 
         # Numpy guarda el txt con corchetes "[[ numero ]]", los limpiamos
-        numero_recuperado = int(resultado_str.replace('[', '').replace(']', '').strip())
+        numero_recuperado = int(resultado_str.replace('[', '').replace(']', '').replace("'", "").strip(), 16)
 
         # TRADUCIR EL NÚMERO DE VUELTA A TEXTO
         # Calculamos los bytes necesarios para decodificar
@@ -341,7 +341,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         with open('aleatoriedad_final.txt', 'r') as f:
             resultado = f.read()
 
-        self.assertTrue("100" in resultado, "Fallo en modo Elligator: La integración con CurvetoNumber está rota.")
+        self.assertTrue("ELLIGATOR_100" in resultado, "Fallo en modo Elligator: La integración con CurvetoNumber está rota.")
 
     def test_old_vs_new_implementation_numbers(self):
         """
@@ -508,8 +508,8 @@ class TestAlbatrossComponents(unittest.TestCase):
         with open('aleatoriedad_final.txt', 'r') as f:
             resultado = f.read()
 
-        # Si l=3 (200), Si l=2 (80), Si l=4 (400)
-        self.assertTrue(any(x in resultado for x in ["80", "200", "400"]),
+        # Si l=3 (200), Si l=2 (80), Si l=4 (400), en hex son "0x50", "0xc8", "0x190"
+        self.assertTrue(any(x in resultado for x in ["0x50", "0xc8", "0x190"]),
                         "Fallo en Modo Clásico: El álgebra lineal se ha roto.")
 
     def test_ec_geometric_mode_reconstruction(self):
@@ -533,8 +533,8 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # Si sumara enteros, daría 80 o 200. ¡No debe dar eso!
         self.assertFalse(any(x in resultado for x in ["80", "200", "400"]), "¡ERROR CRÍTICO! Numpy está operando con enteros, destruyendo la geometría de la Curva Elíptica")
-        # Resultados geométricos válidos: l=2 (182), l=3 (403), l=4 (704)
-        self.assertTrue(any(x in resultado for x in ["182", "403", "704"]),
+        # Resultados geométricos válidos: l=2 (182), l=3 (403), l=4 (704), en hex son "0xb6", "0x193", "0x2c0"
+        self.assertTrue(any(x in resultado for x in ["0xb6", "0x193", "0x2c0"]),
                         "Fallo en Modo EC: No se ha aplicado la reconstrucción geométrica correcta")
 
     def test_elligator_geometric_mode_reconstruction(self):
@@ -664,7 +664,8 @@ class TestAlbatrossComponents(unittest.TestCase):
             with open('aleatoriedad_final.txt', 'r') as f:
                 resultado_str = f.read()
 
-            num = int(resultado_str.replace('[', '').replace(']', '').strip())
+            # Limpiamos corchetes, comillas y espacios, y leemos como hex (Base 16)
+            num = int(resultado_str.replace('[', '').replace(']', '').replace("'", "").strip(), 16)
             texto_recuperado = num.to_bytes((num.bit_length() + 7) // 8, 'big').decode('utf-8')
 
             self.assertEqual(texto_recuperado, texto_secreto, "Fallo E2E: La red no pudo recuperar el texto.")

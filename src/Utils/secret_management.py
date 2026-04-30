@@ -7,7 +7,7 @@ class SecretManagement:
         numero_gigante = int.from_bytes(texto.encode('utf-8'), 'big')
 
         # Simulamos el formato en el que lo guarda Numpy "[[ numero ]]"
-        formato_numpy = f"[[{numero_gigante}]]"
+        formato_numpy = f"[[{hex(numero_gigante)}]]"
 
         with open(nombre_archivo, 'w') as f:
             f.write(formato_numpy)
@@ -25,8 +25,8 @@ class SecretManagement:
             if not numero_str:
                 return "Error: El archivo está vacío"
 
-            # Convertimos el string numérico al int gigante
-            numero_gigante = int(numero_str)
+            # Convertimos el string numérico al int gigante, con 16 le indicamos que el texto es hexadecimal
+            numero_gigante = int(numero_str, 16)
 
             # Número gigante a bytes -> Bytes a texto
             num_bytes = (numero_gigante.bit_length() + 7) // 8
