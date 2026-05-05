@@ -1,5 +1,6 @@
 import random
 import requests
+import threading
 
 from ..NetworkCommunication.ledger import Ledger
 from sympy.polys.galoistools import gf_multi_eval
@@ -7,6 +8,8 @@ from sympy.polys.domains import ZZ
 from ALBATROSSProtocol.PPVSSProtocol.PPVSS import PPVSS
 from ALBATROSSProtocol.Proofs.DLEQ import DLEQ
 
+# Candado global para proteger la memoria compartida en la simulación
+_SIMULATION_SYNC_LOCK = threading.Lock()
 
 class Node: 
     def __init__(self, id, node_type, n, q, p, h):
@@ -61,7 +64,8 @@ class Node:
         ledger.P = self.P
         self.sync_all_nodes()
 
-        # LDEI
+        # LDEI (HTTP version: old)
+        """
         for node_id in range(ledger.n):
             if node_id != self.id: 
                 try:
@@ -70,6 +74,16 @@ class Node:
                         print(f"The LDEI verification {self.id} in node {node_id} was incorrect: {response.status_code}")
                 except requests.exceptions.RequestException as e:
                     print(f"Error in LDEI verification request at node {node_id}: {e}")
+        """
+
+        # LDEI (Gossip/Direct verification)
+        for neighbor in self.neighbors:
+            try:
+                # Llamamos a la función directamente en el objeto del vecino
+                if not neighbor.verifie_LDEI(self.id):
+                    print(f"The LDEI verification {self.id} in neighbor {neighbor.id} was incorrect.")
+            except Exception as e:
+                print(f"Error in LDEI verification request at neighbor {neighbor.id}: {e}")
         
         return "Commit completed."
     
@@ -79,12 +93,11 @@ class Node:
             ledger.P = [1]
         else:
             ledger.P = self.P
-        # Uncomment to make all nodes honest.
-        # ledger.P = self.P 
 
         self.sync_all_nodes()
 
-        # Verify polynomial 
+        # Verify polynomial (HTTP version, old)
+        """
         for node_id in range(ledger.n):
             if node_id != self.id: 
                 try:
@@ -94,6 +107,17 @@ class Node:
                         return "verify_polynomial operation failed", 400
                 except requests.exceptions.RequestException as e:
                     print(f"Error in polynomial verification at node {node_id}: {e}")
+        """
+
+        # Verify polynomial (Gossip/Direct verification)
+        for neighbor in self.neighbors:
+            try:
+                if not neighbor.verify_polynomial(self.id):
+                    print(
+                        f"The polynomial verification uploaded by node {self.id} was incorrect at neighbor {neighbor.id}.")
+                    return "verify_polynomial operation failed", 400
+            except Exception as e:
+                print(f"Error in polynomial verification at neighbor {neighbor.id}: {e}")
 
         return "Reveal completed."
         
@@ -105,7 +129,8 @@ class Node:
 
         self.sync_all_nodes()
 
-        # Check that the decrypted fragments are correct
+        # Check that the decrypted fragments are correct (HTTP version, old)
+        """
         for node_id in range(ledger.n):
             try:
                 failed_nodes_str = ','.join(map(str, failed_nodes))
@@ -117,6 +142,16 @@ class Node:
 
             except requests.exceptions.RequestException as e:
                 print(f"Error in DLEQ verification request at node {node_id}: {e}")
+        """
+
+        # Check that the decrypted fragments are correct (Gossip/Direct verification)
+        for neighbor in self.neighbors:
+            try:
+                if not neighbor.verifie_DELQ(self.id, failed_nodes):
+                    print(f"The DLEQ verification {self.id} at neighbor {neighbor.id} was incorrect.")
+                    return "verify_dleq operation failed", 400
+            except Exception as e:
+                print(f"Error in DLEQ verification request at neighbor {neighbor.id}: {e}")
 
         return "Decryption correct"
         
@@ -136,15 +171,37 @@ class Node:
         lista_hex = [hex(int(x)) for x in self.S]
         return lista_hex
 
-
-
     def sync_all_nodes(self):
-        try:
+        """
+        Simulación de propagación Gossip P2P en red (Sin HTTP centralizado).
+        Usa un Lock para evitar Race Conditions (list index out of range)
+        al simular concurrencia masiva en la misma memoria RAM.
+        """
+
+        """
+        # Version HTTP old
+                try:
             response = requests.get("http://localhost:5000/sync_nodes")
             if response.status_code != 200:
                 print(f"Error en la sincronización: {response.status_code} - {response.text}")
         except requests.exceptions.RequestException as e:
             print(f"Error en la solicitud de sincronización: {e}")
+        """
+        with _SIMULATION_SYNC_LOCK:
+            # Algoritmo BFS para que el mensaje de sincronización viaje por toda la red
+            visitados = set()
+            cola = [self]
+
+            while cola:
+                nodo_actual = cola.pop(0)
+                if nodo_actual.id not in visitados:
+                    visitados.add(nodo_actual.id)
+                    nodo_actual.gossip_sync()
+
+                    # Añadimos los vecinos de este nodo a la cola de propagación
+                    for vecino in nodo_actual.neighbors:
+                        if vecino.id not in visitados:
+                            cola.append(vecino)
 
     def gossip_sync(self):
         for neighbor in self.neighbors:

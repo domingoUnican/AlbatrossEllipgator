@@ -146,18 +146,18 @@ class ALBATROSS:
         """Handles the output phase by either processing the output or executing the recovery phase."""
         start_time = time.time()
         if len(self.__successful_reveal_ids) >= (self.__num_participants - self.__t):
-            print("All reveals were successful.")
+            print("Threshold reached: Enough reveals were successful")
             self.__process_output()
             end_time = time.time()
             return end_time - start_time
         else:
-            print("Some reveals failed. Proceeding with alternative action.")
+            print("Some reveals failed. Proceeding with alternative action")
             self.__execute_recovery_phase()
             end_time = time.time()
             return end_time - start_time
 
     def __process_output(self):
-        """Processes the output by sending output requests to all successfully revealed nodes."""
+        """Processes the output by sending output requests to all successfully revealed nodes"""
         threads = []
 
         r = self.__num_participants - self.__t
