@@ -174,7 +174,7 @@ class Node_EC:
             ledger.r = neighbor_ledger.r
 
         for i in range(len(ledger.pk)):
-            if ledger.pk[i] == 0*ledger.pk[i] and neighbor_ledger.pk[i] != 0*neighbor_ledger.pk[i] :
+            if ledger.pk[i] is None and neighbor_ledger.pk[i] is not None:
                 ledger.pk[i] = neighbor_ledger.pk[i]
 
         if not ledger.encrypted_fragments and neighbor_ledger.encrypted_fragments:

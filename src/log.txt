@@ -7,24 +7,24 @@
 ########################### Ejecutando Clásica sin EC... ###############################
 ########################################################################################
 Executing commit requests...
-Commit successful on node 1: Commit completed.
-Commit successful on node 3: Commit completed.
-Commit successful on node 2: Commit completed.
 Commit successful on node 0: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.
+Commit successful on node 2: Commit completed.
 Executing reveal requests...
-Reveal successful on node 3: <Response [200]>
 Reveal successful on node 0: <Response [200]>
 Reveal successful on node 2: <Response [200]>
 Reveal successful on node 1: <Response [200]>
+Reveal successful on node 3: <Response [200]>
 All reveals were successful.
 Number of secrets post-add: 1
-Randomness extraction successful on node 2
-Number of secrets post-add: 2
 Randomness extraction successful on node 1
+Number of secrets post-add: 2
+Randomness extraction successful on node 2
 Number of secrets post-add: 3
+Number of secrets post-add: Randomness extraction successful on node 34
 Randomness extraction successful on node 0
-Number of secrets post-add: 4
-Randomness extraction successful on node 3
+
 Vandermonde matrix size: (2, 3)
 Matrix T size: (3, 1)
 Final output size: 2
@@ -32,26 +32,26 @@ Secret reconstruction completed.
 ########################### EXECUTION TIMES ###########################
 N: 4 participants
 N: 0 malicious participants
-Total: 23.270378828048706 seconds
-Commit: 10.770706176757812 seconds
-Reveal: 10.445247411727905 seconds
-Output: 2.054346799850464 seconds
+Total: 23.324851989746094 seconds
+Commit: 10.816887140274048 seconds
+Reveal: 10.432064533233643 seconds
+Output: 2.0758352279663086 seconds
 #######################################################################
 
 
 
 Executing commit requests...
-Commit successful on node 3: Commit completed.Commit successful on node 1: Commit completed.
-
-Commit successful on node 2: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.
 Commit successful on node 0: Commit completed.
+Commit successful on node 2: Commit completed.
 Executing reveal requests...
 The polynomial published by node {node_id} is not correct.
 The polynomial verification uploaded by node 0 was incorrect: 400
 Reveal failed on node 0: 400
-Reveal successful on node 1: <Response [200]>
 Reveal successful on node 2: <Response [200]>
-Reveal successful on node 3: <Response [200]>
+Reveal successful on node 1: <Response [200]>Reveal successful on node 3: <Response [200]>
+
 All reveals were successful.
 Number of secrets post-add: 1
 Randomness extraction successful on node 1
@@ -66,10 +66,10 @@ Secret reconstruction completed.
 ########################### EXECUTION TIMES ###########################
 N: 4 participants
 N: 1 malicious participants
-Total: 23.230831384658813 seconds
-Commit: 10.772679567337036 seconds
-Reveal: 10.404748439788818 seconds
-Output: 2.053337812423706 seconds
+Total: 23.270724058151245 seconds
+Commit: 10.792718172073364 seconds
+Reveal: 10.423265218734741 seconds
+Output: 2.0546786785125732 seconds
 #######################################################################
 
 
@@ -83,24 +83,24 @@ Output: 2.053337812423706 seconds
 ########################### Ejecutando EC Simple... ####################################
 ########################################################################################
 Executing commit requests...
-Commit successful on node 2: Commit completed.
-Commit successful on node 3: Commit completed.
-Commit successful on node 0: Commit completed.
 Commit successful on node 1: Commit completed.
+Commit successful on node 0: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 2: Commit completed.
 Executing reveal requests...
-Reveal successful on node 1: <Response [200]>
+Reveal successful on node 0: <Response [200]>
 Reveal successful on node 3: <Response [200]>
 Reveal successful on node 2: <Response [200]>
-Reveal successful on node 0: <Response [200]>
+Reveal successful on node 1: <Response [200]>
 All reveals were successful.
 Number of secrets post-add: 1
-Randomness extraction successful on node 0
-Number of secrets post-add: 2
 Randomness extraction successful on node 2
+Number of secrets post-add: 2
+Randomness extraction successful on node 1
 Number of secrets post-add: 3
 Randomness extraction successful on node 3
 Number of secrets post-add: 4
-Randomness extraction successful on node 1
+Randomness extraction successful on node 0
 Vandermonde matrix size: (2, 3)
 Matrix T size: (3, 1)
 Final output size: 2
@@ -108,32 +108,32 @@ Secret reconstruction completed.
 ########################### EXECUTION TIMES ###########################
 N: 4 participants
 N: 0 malicious participants
-Total: 23.149910926818848 seconds
-Commit: 10.676378726959229 seconds
-Reveal: 10.412935018539429 seconds
-Output: 2.060549736022949 seconds
+Total: 23.014403820037842 seconds
+Commit: 10.579939842224121 seconds
+Reveal: 10.369620561599731 seconds
+Output: 2.0648043155670166 seconds
 #######################################################################
 
 
 
 Executing commit requests...
-Commit successful on node 2: Commit completed.
 Commit successful on node 0: Commit completed.
-Commit successful on node 1: Commit completed.
 Commit successful on node 3: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 1: Commit completed.
 Executing reveal requests...
 The polynomial published by node {node_id} is not correct.
 The polynomial verification uploaded by node 0 was incorrect: 400
 Reveal failed on node 0: 400
-Reveal successful on node 3: <Response [200]>
 Reveal successful on node 2: <Response [200]>
+Reveal successful on node 3: <Response [200]>
 Reveal successful on node 1: <Response [200]>
 All reveals were successful.
 Number of secrets post-add: 1
-Randomness extraction successful on node 3
-Number of secrets post-add: 2
 Randomness extraction successful on node 2
-Number of secrets post-add: 3
+Number of secrets post-add: Number of secrets post-add: 3
+Randomness extraction successful on node 3
+2
 Randomness extraction successful on node 1
 Vandermonde matrix size: (2, 3)
 Matrix T size: (3, 1)
@@ -142,10 +142,10 @@ Secret reconstruction completed.
 ########################### EXECUTION TIMES ###########################
 N: 4 participants
 N: 1 malicious participants
-Total: 23.39823341369629 seconds
-Commit: 10.615614652633667 seconds
-Reveal: 10.719415426254272 seconds
-Output: 2.063150644302368 seconds
+Total: 23.039256811141968 seconds
+Commit: 10.613431215286255 seconds
+Reveal: 10.3702871799469 seconds
+Output: 2.055479049682617 seconds
 #######################################################################
 
 
@@ -159,21 +159,21 @@ Output: 2.063150644302368 seconds
 ########################### Ejecutando Elligator... ###################################
 ########################################################################################
 Executing commit requests...
-Commit successful on node 3: Commit completed.
-Commit successful on node 2: Commit completed.
-Commit successful on node 1: Commit completed.
 Commit successful on node 0: Commit completed.
+Commit successful on node 2: Commit completed.
+Commit successful on node 3: Commit completed.
+Commit successful on node 1: Commit completed.
 Executing reveal requests...
-Reveal successful on node 2: <Response [200]>
 Reveal successful on node 3: <Response [200]>
 Reveal successful on node 1: <Response [200]>
+Reveal successful on node 2: <Response [200]>
 Reveal successful on node 0: <Response [200]>
 All reveals were successful.
 Number of secrets post-add: 1
-Randomness extraction successful on node 0
+Randomness extraction successful on node 2
 Number of secrets post-add: 2
-Randomness extraction successful on node 2Number of secrets post-add:
- 3
+Randomness extraction successful on node 0
+Number of secrets post-add: 3
 Randomness extraction successful on node 1
 Number of secrets post-add: 4
 Randomness extraction successful on node 3
@@ -184,33 +184,33 @@ Secret reconstruction completed.
 ########################### EXECUTION TIMES ###########################
 N: 4 participants
 N: 0 malicious participants
-Total: 23.157743215560913 seconds
-Commit: 10.66658878326416 seconds
-Reveal: 10.432100534439087 seconds
-Output: 2.0589966773986816 seconds
+Total: 22.99091339111328 seconds
+Commit: 10.597991704940796 seconds
+Reveal: 10.348163843154907 seconds
+Output: 2.044715404510498 seconds
 #######################################################################
 
 
 
 Executing commit requests...
+Commit successful on node 1: Commit completed.
 Commit successful on node 2: Commit completed.
 Commit successful on node 3: Commit completed.
 Commit successful on node 0: Commit completed.
-Commit successful on node 1: Commit completed.
 Executing reveal requests...
 The polynomial published by node {node_id} is not correct.
 The polynomial verification uploaded by node 0 was incorrect: 400
 Reveal failed on node 0: 400
+Reveal successful on node 3: <Response [200]>
 Reveal successful on node 1: <Response [200]>
 Reveal successful on node 2: <Response [200]>
-Reveal successful on node 3: <Response [200]>
 All reveals were successful.
 Number of secrets post-add: 1
 Randomness extraction successful on node 3
 Number of secrets post-add: 2
-Randomness extraction successful on node 1
-Number of secrets post-add: 3
 Randomness extraction successful on node 2
+Number of secrets post-add: 3
+Randomness extraction successful on node 1
 Vandermonde matrix size: (2, 3)
 Matrix T size: (3, 1)
 Final output size: 2
@@ -218,10 +218,10 @@ Secret reconstruction completed.
 ########################### EXECUTION TIMES ###########################
 N: 4 participants
 N: 1 malicious participants
-Total: 23.275384426116943 seconds
-Commit: 10.797794103622437 seconds
-Reveal: 10.417735576629639 seconds
-Output: 2.0597991943359375 seconds
+Total: 22.881675481796265 seconds
+Commit: 10.532115697860718 seconds
+Reveal: 10.29577112197876 seconds
+Output: 2.053736448287964 seconds
 #######################################################################
 
 
@@ -234,8 +234,8 @@ Output: 2.0597991943359375 seconds
 -----------------------------------------------------------------------------
 | Nodos (N)  | Maliciosos (t)  | Clásica      | EC Simple    | Elligator    |
 -----------------------------------------------------------------------------
-| 4          | 0               | 2.0543       | 2.0605       | 2.0590       |
-| 4          | 1               | 2.0533       | 2.0632       | 2.0598       |
+| 4          | 0               | 2.0758       | 2.0648       | 2.0447       |
+| 4          | 1               | 2.0547       | 2.0555       | 2.0537       |
 -----------------------------------------------------------------------------
 
 [+] Todas las pruebas finalizadas.

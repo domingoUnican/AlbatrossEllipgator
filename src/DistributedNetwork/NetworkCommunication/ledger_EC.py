@@ -17,7 +17,7 @@ class Ledger_EC:
         self.t = round(n // 3) 
         self.l = n - (2 * self.t)  
         self.h = h
-        self.pk = [Curve.get_curve('Curve25519')._domain["generator"]] * n
+        self.pk = [None] * n
         self.P = []
         self.alpha = []
         self.r = 0  
