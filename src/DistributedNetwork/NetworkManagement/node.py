@@ -1,6 +1,4 @@
 import random
-import requests
-import threading
 
 from ..NetworkCommunication.ledger import Ledger
 from sympy.polys.galoistools import gf_multi_eval
@@ -8,24 +6,24 @@ from sympy.polys.domains import ZZ
 from ALBATROSSProtocol.PPVSSProtocol.PPVSS import PPVSS
 from ALBATROSSProtocol.Proofs.DLEQ import DLEQ
 
-# Candado global para proteger la memoria compartida en la simulación
-_SIMULATION_SYNC_LOCK = threading.Lock()
+from .base_node import BaseNode
 
-class Node: 
+class Node(BaseNode):
     def __init__(self, id, node_type, n, q, p, h):
-        self.id = id
-        self.node_type = node_type  # Node type: HONEST and MALICIOUS
-        self.ledgers: list[Ledger] = [None] * n
+        super().__init__(id, node_type, n)
+
+        # Variables exclusivas de criptografía clásica
+        self.q = q
+        self.p = p
+        self.h = h
+
+        # Inicialización del Ledger para criptografía clásica
         self.ledgers[id] = Ledger(n, q, p, h)
         self.sk = random.randint(0, q - 1)
         self.pk = pow(h, self.sk, p)
-        self.neighbors: list[Node] = []   
-        self.P = []
-        self.S = []
-        self.dec_frag = []
-
 
     def verifie_LDEI(self, ledger_id):
+        """Sobreescribiendo el de base_node"""
         ledger: Ledger = self.ledgers[ledger_id]
 
         if not ledger.ld.verificar(ledger.q, ledger.p, ledger.pk, ledger.alpha, ledger.t + ledger.l, ledger.encrypted_fragments):
@@ -34,6 +32,7 @@ class Node:
         return True
     
     def verifie_DELQ(self, decrypt_id, failed_nodes):
+        """Sobreescribiendo el de base_node"""
         my_ledger: Ledger = self.ledgers[self.id]
         for node_id in failed_nodes:
             failed_ledger: Ledger = self.ledgers[node_id]
@@ -56,105 +55,6 @@ class Node:
                 return False
         return True
 
-
-    def commit(self):
-        ledger: Ledger = self.ledgers[self.id]
-        ledger.new_ld()
-        self.P, self.S, self.dec_frag = PPVSS(ledger).distribute()
-        ledger.P = self.P
-        self.sync_all_nodes()
-
-        # LDEI (HTTP version: old)
-        """
-        for node_id in range(ledger.n):
-            if node_id != self.id: 
-                try:
-                    response = requests.get(f"http://localhost:5000/node/{node_id}/verify_lde/{self.id}")
-                    if not(response.status_code == 200): 
-                        print(f"The LDEI verification {self.id} in node {node_id} was incorrect: {response.status_code}")
-                except requests.exceptions.RequestException as e:
-                    print(f"Error in LDEI verification request at node {node_id}: {e}")
-        """
-
-        # LDEI (Gossip/Direct verification)
-        for neighbor in self.neighbors:
-            try:
-                # Llamamos a la función directamente en el objeto del vecino
-                if not neighbor.verifie_LDEI(self.id):
-                    print(f"The LDEI verification {self.id} in neighbor {neighbor.id} was incorrect.")
-            except Exception as e:
-                print(f"Error in LDEI verification request at neighbor {neighbor.id}: {e}")
-        
-        return "Commit completed."
-    
-    def reveal(self):
-        ledger: Ledger = self.ledgers[self.id]
-        if self.node_type == "MALICIOUS":
-            ledger.P = [1]
-        else:
-            ledger.P = self.P
-
-        self.sync_all_nodes()
-
-        # Verify polynomial (HTTP version, old)
-        """
-        for node_id in range(ledger.n):
-            if node_id != self.id: 
-                try:
-                    response = requests.get(f"http://localhost:5000/node/{node_id}/verify_polynomial/{self.id}")
-                    if not(response.status_code == 200): 
-                        print(f"The polynomial verification uploaded by node {self.id} was incorrect: {response.status_code}")
-                        return "verify_polynomial operation failed", 400
-                except requests.exceptions.RequestException as e:
-                    print(f"Error in polynomial verification at node {node_id}: {e}")
-        """
-
-        # Verify polynomial (Gossip/Direct verification)
-        for neighbor in self.neighbors:
-            try:
-                if not neighbor.verify_polynomial(self.id):
-                    print(
-                        f"The polynomial verification uploaded by node {self.id} was incorrect at neighbor {neighbor.id}.")
-                    return "verify_polynomial operation failed", 400
-            except Exception as e:
-                print(f"Error in polynomial verification at neighbor {neighbor.id}: {e}")
-
-        return "Reveal completed."
-        
-    def recovery(self, failed_nodes):
-
-        ledger: Ledger = self.ledgers[self.id]
-
-        self.__decrypt_fragment(failed_nodes)
-
-        self.sync_all_nodes()
-
-        # Check that the decrypted fragments are correct (HTTP version, old)
-        """
-        for node_id in range(ledger.n):
-            try:
-                failed_nodes_str = ','.join(map(str, failed_nodes))
-                response = requests.get(f"http://localhost:5000/node/{node_id}/verify_dleq/{self.id}?failed_nodes={failed_nodes_str}")
-
-                if not(response.status_code == 200): 
-                    print(f"The DLEQ verification {self.id} at node {node_id} was incorrect: {response.status_code}")
-                    return "verify_dleq operation failed", 400
-
-            except requests.exceptions.RequestException as e:
-                print(f"Error in DLEQ verification request at node {node_id}: {e}")
-        """
-
-        # Check that the decrypted fragments are correct (Gossip/Direct verification)
-        for neighbor in self.neighbors:
-            try:
-                if not neighbor.verifie_DELQ(self.id, failed_nodes):
-                    print(f"The DLEQ verification {self.id} at neighbor {neighbor.id} was incorrect.")
-                    return "verify_dleq operation failed", 400
-            except Exception as e:
-                print(f"Error in DLEQ verification request at neighbor {neighbor.id}: {e}")
-
-        return "Decryption correct"
-        
     def reconstruction(self, failed_node, reco_parties):
         
         ledger: Ledger = self.ledgers[failed_node]
@@ -163,64 +63,10 @@ class Node:
 
         sec = PPVSS(ledger).reconstruct(reco_parties)
         # Convertimos los enteros a cadenas hexadecimales (O(N))
-        lista_sec = [hex(int(x)) for x in sec]
-        return lista_sec
+        lista_sec_hex = [hex(int(x)) for x in sec]
+        return lista_sec_hex
 
-    def output(self):
-        # Convertimos los shares a strings hexadecimales para la red
-        lista_hex = [hex(int(x)) for x in self.S]
-        return lista_hex
-
-    def sync_all_nodes(self):
-        """
-        Simulación de propagación Gossip P2P en red (Sin HTTP centralizado).
-        Usa un Lock para evitar Race Conditions (list index out of range)
-        al simular concurrencia masiva en la misma memoria RAM.
-        """
-
-        """
-        # Version HTTP old
-                try:
-            response = requests.get("http://localhost:5000/sync_nodes")
-            if response.status_code != 200:
-                print(f"Error en la sincronización: {response.status_code} - {response.text}")
-        except requests.exceptions.RequestException as e:
-            print(f"Error en la solicitud de sincronización: {e}")
-        """
-        with _SIMULATION_SYNC_LOCK:
-            # Algoritmo BFS para que el mensaje de sincronización viaje por toda la red
-            visitados = set()
-            cola = [self]
-
-            while cola:
-                nodo_actual = cola.pop(0)
-                if nodo_actual.id not in visitados:
-                    visitados.add(nodo_actual.id)
-                    nodo_actual.gossip_sync()
-
-                    # Añadimos los vecinos de este nodo a la cola de propagación
-                    for vecino in nodo_actual.neighbors:
-                        if vecino.id not in visitados:
-                            cola.append(vecino)
-
-    def gossip_sync(self):
-        for neighbor in self.neighbors:
-            self.__sync_all_ledgers_with_neighbor(neighbor)
-
-    def __sync_all_ledgers_with_neighbor(self, neighbor: "Node"):
-        for i in range(len(self.ledgers)):
-            self_ledger = self.ledgers[i]
-            neighbor_ledger = neighbor.ledgers[i]
-            
-            if neighbor_ledger is None:
-                continue
-            
-            if self_ledger is None:
-                self.ledgers[i] = neighbor_ledger
-            else:
-                self.__sync_single_ledger(self_ledger, neighbor_ledger)
-
-    def __sync_single_ledger(self, ledger: Ledger, neighbor_ledger: Ledger):
+    def _sync_single_ledger(self, ledger: Ledger, neighbor_ledger: Ledger):
         if ledger.P == [] and neighbor_ledger.P != []:
             ledger.P = neighbor_ledger.P
 
@@ -248,9 +94,7 @@ class Node:
             if ledger.dl[i] == 0 and neighbor_ledger.dl[i] != 0:
                 ledger.dl[i] = neighbor_ledger.dl[i]
 
-
-
-    def __decrypt_fragment(self, failed_nodes):
+    def _decrypt_fragment(self, failed_nodes):
         my_ledger: Ledger = self.ledgers[self.id]
         invsk = pow(self.sk, -1, my_ledger.q)
         for node_id in failed_nodes:
@@ -262,29 +106,3 @@ class Node:
             g = [self.pk, encrypted_fragment]
             x = [my_ledger.h, decrypted_fragment]
             other_ledger.dl[self.id].probar(my_ledger.q, my_ledger.p, g, x, invsk)
-
-    def upload_pk_to_ledger(self):
-        for i in range(len(self.ledgers)):
-            ledger = self.ledgers[i]
-            if ledger is None:
-                print(f"Error: Ledger en la posición {i} es None.")
-            else:
-                if hasattr(ledger, 'pk'):
-                    pass
-                else:
-                    print(f"Error: Ledger en la posición {i} no tiene atributo 'pk'.")
-            if ledger is not None and hasattr(ledger, 'pk'):
-                ledger.pk[self.id] = self.pk
-            else:
-                print(f"Error al intentar asignar pk al ledger {i}.")
-
-    def set_neighbors(self, neighbors):
-        for neighbor in neighbors:
-            if neighbor not in self.neighbors:
-                self.neighbors.append(neighbor)
-
-    def get_id(self):
-        return self.id
-
-    def get_neighbors(self) -> list["Node"]:
-        return self.neighbors
