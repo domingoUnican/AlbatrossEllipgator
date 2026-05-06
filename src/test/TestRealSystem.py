@@ -15,10 +15,11 @@ class TestSistemaRealE2E(unittest.TestCase):
         # 1. Parámetros BFT (bizantinos) mínimos reales
         participantes = 4
         maliciosos = 1
+        t = participantes // 3
 
         print("\n[+] Inicializando Network y claves reales...")
         # Llama a tu función real en main.py
-        network = create_network(participantes, maliciosos, EC=False)
+        network = create_network(participantes, maliciosos, t, EC=False)
 
         print("[+] Levantando Flask Server en el puerto 5000 (Hilo de fondo)...")
         # Llama a tu función real en main.py que devuelve el hilo
