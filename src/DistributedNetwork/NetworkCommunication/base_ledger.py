@@ -1,7 +1,7 @@
 from ALBATROSSProtocol.Proofs.LDEI import LDEI
 
 class BaseLedger:
-    def __init__(self, n, q, h, pk=None):
+    def __init__(self, n, t, q, h, pk=None):
         """
         BaseLedger acts as the local state and verifiable data store for a network participant.
 
@@ -20,7 +20,7 @@ class BaseLedger:
         self.n = n # Número de participantes
         self.q = q # Orden: cantidad de elementos
         self.h = h # Generador: semilla generada para generar todos los elementos del grupo q
-        self.t = round(n // 3) # Nodos maliciosos/traidores tolerados
+        self.t = t # Nodos maliciosos/traidores tolerados
         self.l = n - (2 * self.t) # Secretos empaquetamos a la vez
         self.P = [] # Valores públicos del polinomio que se generaron en la fase de Commit. Se usan para comprobar si alguien miente en las fases de Reveal o Recovery (haciendo las pruebas LDEI o DLEQ)
         self.alpha = [] # Coeficientes del polinomio secreto

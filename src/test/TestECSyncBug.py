@@ -13,11 +13,12 @@ class TestECSyncBug(unittest.TestCase):
 
     def test_1_gossip_sync_none_to_point(self):
         """Prueba que un nodo vacío copie la clave pública de su vecino."""
-        node_A = Node_EC(id=0, node_type="HONEST", n=2, q=self.q, h=self.G)
-        node_B = Node_EC(id=1, node_type="HONEST", n=2, q=self.q, h=self.G)
+        t_test = 0
+        node_A = Node_EC(id=0, node_type="HONEST", t=t_test, n=2, q=self.q, h=self.G)
+        node_B = Node_EC(id=1, node_type="HONEST", t=t_test, n=2, q=self.q, h=self.G)
 
         # Creamos el Ledger 0 al Nodo B para que puedan comunicarse entre ellos
-        node_B.ledgers[0] = Ledger(n=2, q=self.q, h=self.G)
+        node_B.ledgers[0] = Ledger(n=2, q=self.q, t=t_test, h=self.G)
 
         # El Nodo B guarda su clave
         node_B.ledgers[0].pk[1] = node_B.pk
@@ -41,10 +42,11 @@ class TestECSyncBug(unittest.TestCase):
 
     def test_2_no_overwrite_existing_keys(self):
         """Prueba que un nodo no borre una clave que ya tenía guardada"""
-        node_A = Node_EC(id=0, node_type="HONEST", n=2, q=self.q, h=self.G)
-        node_B = Node_EC(id=1, node_type="HONEST", n=2, q=self.q, h=self.G)
+        t_test = 0
+        node_A = Node_EC(id=0, node_type="HONEST", t=t_test, n=2, q=self.q, h=self.G)
+        node_B = Node_EC(id=1, node_type="HONEST", t=t_test, n=2, q=self.q, h=self.G)
 
-        node_B.ledgers[0] = Ledger(n=2, q=self.q, h=self.G)
+        node_B.ledgers[0] = Ledger(n=2, t=t_test, q=self.q, h=self.G)
 
         # El Nodo A ya tiene una clave guardada (inventada)
         clave_inventada = self.G * 999

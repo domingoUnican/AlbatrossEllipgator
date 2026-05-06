@@ -42,9 +42,9 @@ def manage_terminal_input():
     return args.n
 
 # Create the network
-def create_network(num_participants, num_malicious_participants, EC=True):
+def create_network(num_participants, num_malicious_participants, t, EC=True):
     network = Network(num_participants, EC)
-    network.create_nodes(num_malicious_participants)
+    network.create_nodes(num_malicious_participants, t)
     network.assign_neighbors()
     network.pk_to_ledger()
     # network.visualize_network()
@@ -61,21 +61,22 @@ def start_flask_server(network):
 
 def test(participants, num_malicious_participants, system, EC, mode):
     """
-    system: BYZANTINE (2/3) o ABSOLUTE_MAJORITY (50%+1)
+        system: BYZANTINE (2/3) o ABSOLUTE_MAJORITY (50%+1)
     """
     #num_participants = manage_terminal_input() # solo si uso entrada por teclado para arrancarlo
-
+    t = 0 # # Nodos maliciosos/traidores tolerados
     # Byzantine Fault Tolerance: esto significa que necesita n>=3t+1, donde n es nodos y t nodos maliciosos, luego, el m´niimo de nodos para ejecutar albatros es 4, ¿no?
-    #if participants < 3*num_malicious_participants+1:
     if system == config.BYZANTINE:
-        if (participants - 1) // 3 < num_malicious_participants:
+        t = (participants - 1) // 3
+        if t < num_malicious_participants:
             #20
             #20//3=6
             print("Error: No hay suficientes nodos honestos para reconstruir el secreto por método bizantino")
             print(f"part: {participants}, bizantino, honest_needed_min {participants - participants // 3} maliciosos {num_malicious_participants}, resultado {participants / 2 < participants // 3}")
             exit(0)
     elif system == config.ABSOLUTE_MAJORITY:
-        if (participants - 1) // 2 < num_malicious_participants:
+        t = (participants - 1) // 2
+        if t < num_malicious_participants:
             print("Error: No hay suficientes nodos honestos para reconstruir el secreto por mayoría absoluta")
             print(f"part: {participants}, ABSOLUTE_MAJORITY, honest_needed_min {int(participants / 2 + 1)} maliciosos {num_malicious_participants} resultado {participants / 2 < num_malicious_participants + 1}")
             exit(0)
@@ -83,7 +84,7 @@ def test(participants, num_malicious_participants, system, EC, mode):
         print("Error: No se especificó el sistema de reconstrucción de secretos: falta elegir el número de nodos honestos mínimos")
         exit(0)
 
-    network = create_network(participants, num_malicious_participants, EC=EC)
+    network = create_network(participants, num_malicious_participants, t, EC=EC)
     server_thread = start_flask_server(network)
 
     start_time = time.time()

@@ -9,7 +9,7 @@ from ALBATROSSProtocol.Proofs.DLEQ import DLEQ
 from .base_node import BaseNode
 
 class Node_EC(BaseNode):
-    def __init__(self, id, node_type, n, q ,h): #h es ahora el punto aG
+    def __init__(self, id, node_type, n, t, q ,h): #h es ahora el punto aG
         super().__init__(id, node_type, n)
 
         # Variables exclusivas de criptografía de curvas elípticas
@@ -17,7 +17,7 @@ class Node_EC(BaseNode):
         self.h = h
 
         # Inicialización del Ledger para criptografía EC (None en las claves)
-        self.ledgers[id] = Ledger_EC(n, q, h)
+        self.ledgers[id] = Ledger_EC(n, t, q, h)
         self.sk = random.randint(0, q - 1)
         self.pk = self.sk * h  # Multiplicación escalar
 

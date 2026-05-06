@@ -3,20 +3,24 @@ import random
 import matplotlib.pyplot as plt
 import networkx as nx
 import sys
+
 from pathlib import Path
 sys.path[0] = str(Path(sys.path[0]).parent)
+
 from DistributedNetwork.NetworkManagement.node import Node
 from DistributedNetwork.NetworkManagement.node_EC import Node_EC
+from DistributedNetwork.NetworkManagement.base_node import BaseNode
+
 from ecpy.curves import Curve, Point
 from ALBATROSSProtocol.PPVSSProtocol.utils import Utils
 
 class Network:
     def __init__(self, malicious_participants,EC=True):
-        self.__nodes: list[Node] = []
+        self.__nodes: list[BaseNode] = []
         self.n = malicious_participants
         self.EC = EC
 
-    def create_nodes(self, malicious_participants):
+    def create_nodes(self, malicious_participants, t):
         if self.EC:
             self.EC = Curve.get_curve('Curve25519')
             self.q = self.EC._domain["order"]
@@ -37,9 +41,9 @@ class Network:
                 node_type = "HONEST"
 
             if self.EC:
-                self.__nodes.append(Node_EC(i, node_type, self.n, self.q, self.h))
+                self.__nodes.append(Node_EC(i, node_type, self.n, t, self.q, self.h))
             else:
-                self.__nodes.append(Node(i, node_type, self.n, self.q, self.p, self.h))
+                self.__nodes.append(Node(i, node_type, self.n, t, self.q, self.p, self.h))
             """
             r = random.random()
             if r < 0.6:

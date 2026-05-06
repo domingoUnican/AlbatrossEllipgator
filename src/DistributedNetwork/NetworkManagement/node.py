@@ -9,7 +9,7 @@ from ALBATROSSProtocol.Proofs.DLEQ import DLEQ
 from .base_node import BaseNode
 
 class Node(BaseNode):
-    def __init__(self, id, node_type, n, q, p, h):
+    def __init__(self, id, node_type, n, t, q, p, h):
         super().__init__(id, node_type, n)
 
         # Variables exclusivas de criptografía clásica
@@ -18,7 +18,7 @@ class Node(BaseNode):
         self.h = h
 
         # Inicialización del Ledger para criptografía clásica
-        self.ledgers[id] = Ledger(n, q, p, h)
+        self.ledgers[id] = Ledger(n, t, q, p, h)
         self.sk = random.randint(0, q - 1)
         self.pk = pow(h, self.sk, p)
 
