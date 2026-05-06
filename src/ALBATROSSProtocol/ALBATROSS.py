@@ -331,14 +331,11 @@ class ALBATROSS:
         print(self.__T)
 
         if self.mode == config.ELLIGATOR_MODE:
-            print(self.__T)
-            Tprima = [[a if isinstance(a, int) else CurvetoNumber(a) for a in i] for i in self.__T]
-            matriz_T = np.array(Tprima)
+            # EC y Elligator usan dtype=object para usar la suma real de la curva
+            matriz_T = np.array(self.__T, dtype=object)
         elif self.mode == config.EC_MODE:
-            print(self.__T)
-            # Para EC Simple: Extrae la coordenada X (a.x)
-            Tprima = [[a if isinstance(a, int) else a.x for a in i] for i in self.__T]
-            matriz_T = np.array(Tprima)
+            # EC y Elligator usan dtype=object para usar la suma real de la curva
+            matriz_T = np.array(self.__T, dtype=object)
         elif self.mode == config.CLASSIC_MODE:
             # Para Clásico: Usa la matriz tal cual
             matriz_T = np.array(self.__T)
@@ -347,16 +344,23 @@ class ALBATROSS:
 
         print("Matrix T size:", matriz_T.shape)
 
-        # Transpose matrix T
-        matriz_T_transpuesta = matriz_T.T
-        print("Transposed T matrix size:", matriz_T_transpuesta.shape)
+        # 2. Multiplicamos directamente (Sin transponer)
+        aleatoriedad_bruta = self.__multiplicar_matrices(matriz_vander, matriz_T)
 
-        # Calculate output by multiplying M * T in the exponent.
-        aleatoriedad_final = self.__multiplicar_matrices(matriz_vander, matriz_T_transpuesta)
+        # 3. Extraemos la X o aplicamos elligator sol oal final
+        aleatoriedad_final = []
+        for resultado in aleatoriedad_bruta.flatten():
+            if self.mode == config.CLASSIC_MODE:
+                aleatoriedad_final.append(resultado)
+            elif self.mode == config.ELLIGATOR_MODE:
+                aleatoriedad_final.append(CurvetoNumber(resultado))
+            elif self.mode == config.EC_MODE:
+                aleatoriedad_final.append(resultado.x)  # Extracción de X al final
 
         # Guardar el contenido de aleatoriedad_final en un archivo .txt
         with open('aleatoriedad_final.txt', 'w') as archivo:
-            archivo.write(str(aleatoriedad_final))
+            lista_hex = [hex(n) if isinstance(n, int) else str(n) for n in aleatoriedad_final]
+            archivo.write(str(lista_hex))
 
         print("Secret reconstruction completed.")
 

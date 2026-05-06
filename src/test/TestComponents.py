@@ -457,6 +457,56 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.assertEqual(texto_recuperado, texto_original, "La lógica nueva ha fallado.")
         self.assertNotEqual(texto_basura, texto_original, "La lógica antigua de milagro ha funcionado.")
 
+    @patch('ALBATROSSProtocol.PPVSSProtocol.utils.Utils.rootunity')
+    @patch('threading.Thread')  # Mockeamos los hilos para que no intente hacer peticiones HTTP reales
+    def test_recovery_phase_ec_geometry_bug(self, mock_thread, mock_rootunity):
+        """
+        Prueba específica para comprobar que la fase recovery funciona correctamente.
+        Fuerza la ejecución de __execute_reconstruction_phase para verificar que
+        no se extrae la coordenada .x antes de multiplicar por Vandermonde.
+        """
+        # Hacemos que devuelva un 2 al instante para evitar el bucle infinito
+        mock_rootunity.return_value = 2
+
+        self.albatross.mode = config.EC_MODE
+        self.albatross._ALBATROSS__num_participants = 4
+        self.albatross._ALBATROSS__t = 1
+        self.albatross.system = config.BYZANTINE
+
+        # 1. Simulamos un escenario de Nodos Caídos para forzar la entrada al Recovery
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2}  # Solo 3 sanos
+        nodos_caidos = [3]  # El nodo 3 falló
+
+        # 2. Mockeamos la red y el generador 'h' (simulamos que h=1 para no alterar el MockECPoint)
+        self.albatross._ALBATROSS__network.EC = True
+        self.albatross._ALBATROSS__network.h = 1
+        self.albatross._ALBATROSS__network.get_q.return_value = 97
+
+        # 3. Insertamos directamente los fragmentos como PUNTOS SIMULADOS
+        self.albatross._ALBATROSS__T = [[MockECPoint(10)], [MockECPoint(20)], [MockECPoint(30)]]
+
+        # 4. Simulamos Vandermonde (matriz 1x3)
+        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
+            return_value=np.array([[2, 3, 4]])
+        )
+
+        # 5. EJECUTAMOS LA FASE DE RECOVERY DIRECTAMENTE
+        self.albatross._ALBATROSS__execute_reconstruction_phase(nodos_caidos)
+
+        # 6. VERIFICACIÓN
+        with open('aleatoriedad_final.txt', 'r') as f:
+            resultado = f.read()
+
+        # Si extrajo la .x antes de tiempo, Numpy sumará como enteros (10*2 + 20*3 + 30*4 = 200).
+        # Si usó la geometría de la curva (MockECPoint), el resultado NO debe ser un múltiplo entero simple.
+        self.assertFalse(
+            "200" in resultado or "0xc8" in resultado,
+            "¡BUG DETECTADO! Numpy extrajo la coordenada .x demasiado pronto y operó con enteros."
+        )
+
+        # Si llega aquí y no hay error, el fix que te di en el mensaje anterior funcionó perfectamente.
+        self.assertTrue(len(resultado) > 0)
+
     # =====================================================================
     # BLOQUE 5: TESTS NEGATIVOS (Modificación del polinomio)
     # =====================================================================

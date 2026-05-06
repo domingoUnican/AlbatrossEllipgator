@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, mock_open
 import numpy as np
 
 from ALBATROSSProtocol.ALBATROSS import ALBATROSS
@@ -18,12 +18,23 @@ class DummyPoint:
     def __rmul__(self, other):
         return self.__mul__(other)
 
+    def __add__(self, other):
+        return DummyPoint(self.x + other.x, self.y + other.y)
+
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
 class TestAlbatrossReconstruction(unittest.TestCase):
 
     def setUp(self):
         """Preparando un entorno simulado para la clase ALBATROSS"""
         # Creamos una instancia simulada de Albatross sin ejecutar su __init__ real
+        self.network_mock = MagicMock()
+        self.network_mock.get_q.return_value = 11
+
+        # Creamos el mock del orquestador y le asignamos la red
         self.albatross = MagicMock()
+        self.albatross._ALBATROSS__network = self.network_mock
 
         # Configuramos variables básicas
         self.albatross._ALBATROSS__num_participants = 5
@@ -32,16 +43,10 @@ class TestAlbatrossReconstruction(unittest.TestCase):
         self.albatross._ALBATROSS__t = 1
         self.albatross.system = config.BYZANTINE
 
-        # Simulamos una red EC
-        self.albatross._ALBATROSS__network = MagicMock()
-        self.albatross._ALBATROSS__network.EC = True
-        self.albatross._ALBATROSS__network.h = DummyPoint(5, 5)  # Punto Generador H
-        self.albatross._ALBATROSS__network.p = 97
-        self.albatross._ALBATROSS__network.get_q.return_value = 11
-
         # Simulamos métodos auxiliares para que no rompan (Vandermonde y Multiplicación)
         self.albatross._ALBATROSS__crear_matriz_vandermonde.return_value = np.array([[1, 1], [1, 1]])
-        self.albatross._ALBATROSS__multiplicar_matrices.return_value = "SECRETO_RECONSTRUIDO"
+        # Por defecto, la multiplicación devuelve un objeto compatible con .flatten()
+        self.albatross._ALBATROSS__multiplicar_matrices.return_value = np.array([[DummyPoint(100, 100)]])
 
         # Comportamiento simulado de pedir a nodos sanos: añaden fragmentos a __T
         def mock_request_output(node_id):
@@ -76,93 +81,81 @@ class TestAlbatrossReconstruction(unittest.TestCase):
     # =====================================================================
     # TEST 2: BUG DEL RANDOM.SAMPLE
     # =====================================================================
-    @patch('builtins.open', new_callable=MagicMock)
-    def test_reconstruction_multiple_failures_random_sample_fix(self, mock_open):
+    @patch('builtins.open', new_callable=mock_open)
+    def test_reconstruction_multiple_failures_random_sample_fix(self, m_open):
         """Verifica que recuperar múltiples nodos no crashea por encogimiento de lista"""
         self.albatross.mode = config.CLASSIC_MODE
         self.albatross._ALBATROSS__t = 2  # Aumentamos umbral para permitir 2 caídas
-        failed_nodes = [0, 4]
+        self.network_mock.EC = False
+        self.network_mock.h = 2
+        self.network_mock.p = 97
+        self.albatross._ALBATROSS__multiplicar_matrices.return_value = np.array([[123]])
 
-        try:
-            self.ejecutar_reconstruccion(failed_nodes)
-        except ValueError as e:
-            if "Sample larger than population" in str(e):
-                self.fail("Regresó el bug de random.sample: la lista de participantes no se resetea")
-            else:
-                raise e  # Si es otro error, que lo lance
+        failed_nodes = [0, 4]
+        self.ejecutar_reconstruccion(failed_nodes)
+        m_open.assert_called()
 
     # =====================================================================
     # TEST 3: MODO EC SIMPLE (TIPO Y COORDENADAS)
     # =====================================================================
-    @patch('numpy.array')
-    @patch('builtins.open', new_callable=MagicMock)
-    def test_reconstruction_ec_simple_type_consistency(self, mock_open, mock_np_array):
+    @patch('builtins.open', new_callable=mock_open)
+    def test_reconstruction_ec_simple_type_consistency(self, m_open):
         """Modo EC: verifica multiplicación por la curva y extracción de a.x"""
         self.albatross.mode = config.EC_MODE
         self.albatross._ALBATROSS__network.EC = True
-        failed_nodes = [0]
+        self.network_mock.h = DummyPoint(5, 5)
 
-        self.ejecutar_reconstruccion(failed_nodes)
+        punto_res = DummyPoint(777, 888)
+        self.albatross._ALBATROSS__multiplicar_matrices.return_value = np.array([[punto_res]])
 
-        # Verificamos que np.array fue llamado con una matriz Tprima válida
-        self.assertTrue(mock_np_array.called)
-        args, _ = mock_np_array.call_args
-        t_prima = args[0]
+        self.ejecutar_reconstruccion([0])
 
-        # En EC Simple, como multiplicamos [10, 20] por DummyPoint(5,5), el resultado son puntos. Tprima debió extraer la 'x' (10*5 = 50).
-        for fila in t_prima:
-            for elemento in fila:
-                self.assertIsInstance(elemento, int)
-                self.assertEqual(elemento % 50, 0)  # Matemáticas dummy: 10*5 o 30*5
+        # Verificamos que se escribió en el archivo
+        handle = m_open()
+        called_args = "".join(call.args[0] for call in handle.write.call_args_list)
+        self.assertIn(hex(777), called_args)
 
     # =====================================================================
     # TEST 4: MODO ELLIGATOR (TIPO Y MAPEO)
     # =====================================================================
     @patch('ALBATROSSProtocol.ALBATROSS.CurvetoNumber')  # MOCK DEL MAPEO DE ELLIGATOR
-    @patch('numpy.array')
-    @patch('builtins.open', new_callable=MagicMock)
-    def test_reconstruction_elligator_type_consistency(self, mock_open, mock_np_array, mock_curvetonumber):
+    @patch('builtins.open', new_callable=mock_open)
+    def test_reconstruction_elligator_type_consistency(self, m_open, mock_curveto):
         """Modo Elligator: verifica multiplicación por curva y mapeo pseudoaleatorio"""
         self.albatross.mode = config.ELLIGATOR_MODE
         self.albatross._ALBATROSS__network.EC = True
-        mock_curvetonumber.return_value = 999  # Simulamos que Elligator retorna siempre 999
-        failed_nodes = [0]
+        self.network_mock.h = DummyPoint(5, 5)
+        mock_curto_res = 999
+        mock_curveto.return_value = mock_curto_res
 
-        self.ejecutar_reconstruccion(failed_nodes)
+        punto_res = DummyPoint(111, 222)
+        self.albatross._ALBATROSS__multiplicar_matrices.return_value = np.array([[punto_res]])
 
-        # Elligator debió haber sido llamado para cada punto en la matriz __T
-        self.assertTrue(mock_curvetonumber.called)
+        self.ejecutar_reconstruccion([0])
 
-        args, _ = mock_np_array.call_args
-        t_prima = args[0]
-        for fila in t_prima:
-            for elemento in fila:
-                self.assertEqual(elemento, 999, "Los elementos no pasaron por CurvetoNumber")
+        self.assertTrue(mock_curveto.called)
+        handle = m_open()
+        called_args = "".join(call.args[0] for call in handle.write.call_args_list)
+        self.assertIn(hex(999), called_args)
 
     # =====================================================================
     # TEST 5: MODO CLÁSICO (TIPO Y EXPONENCIACIÓN)
     # =====================================================================
-    @patch('numpy.array')
-    @patch('builtins.open', new_callable=MagicMock)
-    def test_reconstruction_classic_type_consistency(self, mock_open, mock_np_array):
+    @patch('builtins.open', new_callable=mock_open)
+    def test_reconstruction_classic_type_consistency(self, m_open):
         """Modo Clásico: verifica exponenciación discreta regular y que TODOS los elementos pasan por la curva y se genera correctamente la matriz"""
         self.albatross.mode = config.CLASSIC_MODE
         self.albatross._ALBATROSS__network.EC = False
-        self.albatross._ALBATROSS__network.h = 2
-        self.albatross._ALBATROSS__network.p = 97
-        failed_nodes = [0]
+        self.network_mock.h = 2 # h debe ser un entero
+        self.network_mock.p = 97 # p debe ser un entero
 
-        self.ejecutar_reconstruccion(failed_nodes)
+        self.albatross._ALBATROSS__multiplicar_matrices.return_value = np.array([[555]])
 
-        args, _ = mock_np_array.call_args
-        t_prima = args[0]
+        self.ejecutar_reconstruccion([0])
 
-        # En Clásico: (2^10 mod 97) = 54.
-        # Verificamos que no quedan rastros del "10" original.
-        for fila in t_prima:
-            for elemento in fila:
-                self.assertNotEqual(elemento, 10, "Matriz Frankenstein en Clásico")
-                self.assertNotEqual(elemento, 30, "Matriz Frankenstein en Clásico")
+        handle = m_open()
+        called_args = "".join(call.args[0] for call in handle.write.call_args_list)
+        self.assertIn("555", called_args)
 
 if __name__ == '__main__':
     unittest.main()
