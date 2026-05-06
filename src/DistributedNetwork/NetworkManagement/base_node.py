@@ -218,11 +218,6 @@ class BaseNode(ABC):
         raise NotImplementedError("El hijo debe implementar la verificacion del polinomio: Clásica hace pow, EC multiplica puntos")
 
     @abstractmethod
-    def _decrypt_fragment(self, failed_nodes):
-        """Obligado de implementar en el hijo"""
-        raise NotImplementedError("El hijo debe desencriptarlos: Clásica inverso del pow, EC usa escaleras")
-
-    @abstractmethod
     def reconstruction(self, failed_node, reco_parties):
         """Obligado de implementar en el hijo"""
         raise NotImplementedError("El hijo debe implementar la reconstrucción: Clásica pide un entero y EC un punto")

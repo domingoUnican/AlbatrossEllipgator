@@ -177,6 +177,11 @@ class ALBATROSS:
 
     def __process_final_output(self):
         """Processes the final output by reconstructing the secret using Vandermonde matrix and randomness."""
+
+        if not self.__T or len(self.__T) == 0:
+            raise ValueError(
+                "Fallo crítico: Ningún nodo devolvió fragmentos en la fase de Output. La red está vacía. Revisa la conexión HTTP.")
+        
         w = Utils.rootunity(len(self.__T[0]), self.__network.get_q()) 
         t = self.__num_participants // 3
 
