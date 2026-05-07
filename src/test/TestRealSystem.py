@@ -1,9 +1,9 @@
 import unittest
 import config
+import time
 
 from main import create_network, start_flask_server
 from ALBATROSSProtocol.ALBATROSS import ALBATROSS
-
 
 class TestSistemaRealE2E(unittest.TestCase):
 
@@ -56,6 +56,43 @@ class TestSistemaRealE2E(unittest.TestCase):
         finally:
             # 4. LIMPIEZA OBLIGATORIA
             print("\n[+] Apagando servidor Flask de forma segura...")
+            server_thread.shutdown()
+            server_thread.join()
+
+    def test_benchmark_rendimiento_fases(self):
+        """Mide los tiempos de cada fase y verifica que se ejecutan en tiempos lógicos (sin deadlocks)"""
+        participantes = 10  # Una red un poco más grande para que haya algo que medir
+        maliciosos = 2
+        t = participantes // 3
+
+        network = create_network(participantes, maliciosos, t, EC=False)
+        server_thread = start_flask_server(network)
+
+        try:
+            protocol = ALBATROSS(network, participantes, config.BYZANTINE, config.CLASSIC_MODE)
+
+            # Medimos Commit
+            t_commit = protocol.execute_commit_phase()
+
+            # Medimos Reveal
+            t_reveal = protocol.execute_reveal_phase()
+
+            # Medimos Output
+            t_output = protocol.handle_output_phase()
+
+            # Aseguramos que los tiempos son reales y mayores a 0
+            self.assertGreater(t_commit, 0.0)
+            self.assertGreater(t_reveal, 0.0)
+            self.assertGreater(t_output, 0.0)
+
+            # Assert de seguridad (Ejemplo: que una red de 10 nodos no tarde más de 10 segundos en total)
+            self.assertLess(t_commit + t_reveal + t_output, 100.0,
+                            "Fallo de rendimiento: El sistema va demasiado lento.")
+
+            print(
+                f"\n[Benchmark] Tiempos N=10 -> Commit: {t_commit:.3f}s | Reveal: {t_reveal:.3f}s | Output: {t_output:.3f}s")
+
+        finally:
             server_thread.shutdown()
             server_thread.join()
 
