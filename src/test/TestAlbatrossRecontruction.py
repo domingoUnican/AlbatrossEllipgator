@@ -158,7 +158,7 @@ class TestAlbatrossReconstruction(unittest.TestCase):
         self.assertIn("555", called_args)
 
     # =====================================================================
-    # TEST 6: LÍMITE EXACTO DE SUPERVIVENCIA (QUÓRUM BFT)
+    # TEST 6: LÍMITE EXACTO DE SUPERVIVENCIA (QUORUM BFT)
     # =====================================================================
     def test_reconstruction_exact_quorum_survival(self):
         """Verifica el límite matemático para ver su escalabilidad: sobrevivir con exactamente (n - t) nodos"""
@@ -245,6 +245,68 @@ class TestAlbatrossReconstruction(unittest.TestCase):
             "Imposible recuperar" in str(context.exception) or "Fallo crítico" in str(context.exception),
             "Fallo de Seguridad: El protocolo fue engañado por un Sybil Attack (Nodos duplicados)"
         )
+
+    # =====================================================================
+    # TEST 9: E2E MATEMÁTICO (RECUPERACIÓN EXACTA DE UN STRING)
+    # =====================================================================
+    @patch('ALBATROSSProtocol.PPVSSProtocol.utils.Utils.rootunity')
+    @patch('builtins.open', new_callable=mock_open)
+    def test_reconstruction_e2e_string_recovery(self, m_open, mock_rootunity):
+        """Prueba que la reconstruccion recupera la cadena de texto exacta con álgebra de Numpy"""
+        mock_rootunity.return_value = 2
+
+        self.albatross.mode = config.CLASSIC_MODE
+        self.albatross._ALBATROSS__num_participants = 3
+        self.albatross._ALBATROSS__t = 1
+
+        # Configuramos la red (h=1 para que la exponenciación h^s no altere el secreto original)
+        self.network_mock.EC = True
+        self.network_mock.h = 1
+        self.network_mock.p = 9999999999999999999999999999999 # Primo gigante
+
+        # 1. Secretomoriginal
+        mensaje_original = "HOLA MUNDO CRUEL"
+        secreto_int = int.from_bytes(mensaje_original.encode('utf-8'), 'big')
+
+        # 2. Simulación de fragmentos con interpolación simple
+        # Añadimos un 0 en el medio. Columna 0 = 2, Columna 1 = 0, Columna 2 = -1
+        self.albatross._ALBATROSS__crear_matriz_vandermonde.return_value = np.array([[2, 0, -1]])
+
+        # El Nodo 0 y el Nodo 2 responden con fragmentos. El Nodo 1 está muerto.
+        frag_0 = secreto_int + 10
+        frag_2 = secreto_int + 20
+        failed_nodes = [1]
+        self.albatross._ALBATROSS__successful_reveal_ids = [0, 2]
+
+        # Configuramos multiplicar_matrices para que haga el np.dot REAL
+        def dot_real(vander, matriz_t):
+            return np.dot(vander, matriz_t)
+
+        self.albatross._ALBATROSS__multiplicar_matrices.side_effect = dot_real
+
+        # Los fragmentos recibidos en T
+        self.albatross._ALBATROSS__T = [[frag_0], [frag_2]]
+
+        # Desactivamos los Mocks del setUp para que no añadan basura de [10, 20] a nuestro secreto
+        self.albatross._ALBATROSS__request_output.side_effect = lambda x: None
+        self.albatross._ALBATROSS__request_reconstruction.side_effect = lambda x, y, z: None
+
+        # 3. Ejecuamos la reconstruccion
+        self.ejecutar_reconstruccion(failed_nodes)
+
+        # 4. Comprobacion
+        handle = m_open()
+        called_args = "".join(call.args[0] for call in handle.write.call_args_list)
+
+        # Limpiamos el formato (quitar corchetes, comillas simples y leer hex)
+        str_limpio = called_args.replace('[', '').replace(']', '').replace("'", "").strip()
+        numero_recuperado = int(str_limpio, 16)
+
+        # Traducir de vuelta a texto
+        num_bytes = (numero_recuperado.bit_length() + 7) // 8
+        mensaje_recuperado = numero_recuperado.to_bytes(num_bytes, 'big').decode('utf-8')
+
+        self.assertEqual(mensaje_recuperado, mensaje_original, "¡Fallo E2E! El string reconstruido está corrupto.")
 
 if __name__ == '__main__':
     unittest.main()
