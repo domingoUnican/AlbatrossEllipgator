@@ -111,12 +111,9 @@ class ALBATROSS:
         except requests.exceptions.RequestException as e:
             print(f"Error during reconstruction request on node {node_id}: {e}")
 
-
-
-
     def execute_commit_phase(self):
         """Executes the commit phase by sending commit requests to all participants."""
-        start_time = time.time()
+        start_time = time.perf_counter()
         threads = []
         print("Executing commit requests...")
         for i in range(self.__num_participants):
@@ -125,12 +122,12 @@ class ALBATROSS:
             thread.start()
         for thread in threads:
             thread.join()
-        end_time = time.time()
+        end_time = time.perf_counter()
         return end_time - start_time
 
     def execute_reveal_phase(self):
         """Executes the reveal phase by sending reveal requests to all successfully committed nodes."""
-        start_time = time.time()
+        start_time = time.perf_counter()
         threads = []
         print("Executing reveal requests...")
         for node_id in self.__successful_commit_ids:
@@ -139,21 +136,21 @@ class ALBATROSS:
             thread.start()
         for thread in threads:
             thread.join()
-        end_time = time.time()
+        end_time = time.perf_counter()
         return end_time - start_time
 
     def handle_output_phase(self):
         """Handles the output phase by either processing the output or executing the recovery phase."""
-        start_time = time.time()
+        start_time = time.perf_counter()
         if len(self.__successful_reveal_ids) >= (self.__num_participants - self.__t):
             print("Threshold reached: Enough reveals were successful")
             self.__process_output()
-            end_time = time.time()
+            end_time = time.perf_counter()
             return end_time - start_time
         else:
             print("Some reveals failed. Proceeding with alternative action")
             self.__execute_recovery_phase()
-            end_time = time.time()
+            end_time = time.perf_counter()
             return end_time - start_time
 
     def __process_output(self):

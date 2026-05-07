@@ -87,12 +87,13 @@ def test(participants, num_malicious_participants, system, EC, mode):
     network = create_network(participants, num_malicious_participants, t, EC=EC)
     server_thread = start_flask_server(network)
 
-    start_time = time.time()
+    start_time = time.perf_counter()
     protocol = ALBATROSS(network, participants, system, mode)
     commit_time = protocol.execute_commit_phase()
     reveal_time = protocol.execute_reveal_phase()
     output_time = protocol.handle_output_phase()
-    end_time = time.time()
+    end_time = time.perf_counter()
+
     execution_time = end_time - start_time
 
     # Apagamos el hilo de Flask limpiamente
@@ -106,10 +107,10 @@ def print_time(commit_time: float, execution_time: float, output_time: float, pa
     print("########################### EXECUTION TIMES ###########################")
     print(f"N: {participants} participants")
     print(f"N: {num_malicious_participants} malicious participants")
-    print(f"Total: {execution_time} seconds")
-    print(f"Commit: {commit_time} seconds")
-    print(f"Reveal: {reveal_time} seconds")
-    print(f"Output: {output_time} seconds")
+    print(f"Total: {execution_time:.4f} seconds")
+    print(f"Commit: {commit_time:.4f} seconds")
+    print(f"Reveal: {reveal_time:.4f} seconds")
+    print(f"Output: {output_time:.4f} seconds")
     print("#######################################################################")
     print("\n"*2)
 
