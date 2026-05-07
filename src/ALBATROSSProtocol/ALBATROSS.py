@@ -344,6 +344,15 @@ class ALBATROSS:
 
         print("Matrix T size:", matriz_T.shape)
 
+        # Convertimos la lista de supervivientes a lista normal ya que es un set() para trabajar com Numpy
+        indices_sanos = list(self.__successful_reveal_ids)
+
+        # Seleccionamos SOLO las columnas de los nodos que sobrevivieron para alinear perfectamente la matemática de Vandermonde con los fragmentos recibidos
+        if not isinstance(matriz_vander, np.ndarray):
+            matriz_vander = np.array(matriz_vander)
+
+        matriz_vander = matriz_vander[:, indices_sanos]
+
         # 2. Multiplicamos directamente (Sin transponer)
         aleatoriedad_bruta = self.__multiplicar_matrices(matriz_vander, matriz_T)
 
