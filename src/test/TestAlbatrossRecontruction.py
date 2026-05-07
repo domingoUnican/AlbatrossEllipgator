@@ -39,7 +39,7 @@ class TestAlbatrossReconstruction(unittest.TestCase):
         # Configuramos variables básicas
         self.albatross._ALBATROSS__num_participants = 5
         self.albatross._ALBATROSS__successful_reveal_ids = [1, 2, 3, 4]  # Nodos sanos
-        self.albatross._ALBATROSS__T = []
+        self.albatross._ALBATROSS__T = {}
         self.albatross._ALBATROSS__t = 1
         self.albatross.system = config.BYZANTINE
 
@@ -51,12 +51,12 @@ class TestAlbatrossReconstruction(unittest.TestCase):
         # Comportamiento simulado de pedir a nodos sanos: añaden fragmentos a __T
         def mock_request_output(node_id):
             """Simula que el nodo devuelve [10, 20]"""
-            self.albatross._ALBATROSS__T.append([10, 20])
+            self.albatross._ALBATROSS__T[node_id] = [10, 20]
 
         # Comportamiento simulado de recuperar nodos: añaden fragmentos a __T
         def mock_request_reconstruction(node_id, primary, subgroup):
             """Simula que el grupo recupera [30, 40]"""
-            self.albatross._ALBATROSS__T.append([30, 40])
+            self.albatross._ALBATROSS__T[node_id] = [30, 40]
 
         self.albatross._ALBATROSS__request_output.side_effect = mock_request_output
         self.albatross._ALBATROSS__request_reconstruction.side_effect = mock_request_reconstruction
@@ -189,37 +189,45 @@ class TestAlbatrossReconstruction(unittest.TestCase):
     # =====================================================================
     # TEST 7: ALINEACIÓN DE ÍNDICES VANDERMONDE (MATHEMATICAL SLICING)
     # =====================================================================
-    def test_reconstruction_vandermonde_index_alignment(self):
+    @patch('ALBATROSSProtocol.PPVSSProtocol.utils.Utils.rootunity')
+    def test_reconstruction_vandermonde_index_alignment(self, mock_rootunity):
         """Asegura que si el Nodo 2 falla, no se utilicen sus datos en Vandermonde garantizando
         la correspondencia entre nodods supervivientes y datos utilizados"""
+        mock_rootunity.return_value = 2  # Evitamos bucles infinitos
+
         self.albatross.mode = config.CLASSIC_MODE
+        self.albatross._ALBATROSS__num_participants = 5
+        self.albatross._ALBATROSS__t = 1
+        self.albatross.system = config.BYZANTINE
 
-        # Simulamos que el nodo 1 ha fallado
-        failed_nodes = [1]
-        self.albatross._ALBATROSS__successful_reveal_ids = [0, 2, 3, 4]  # Faltan los datos del 1
+        # Simulamos que el nodo 1 ha fallado, solo sobreviven 0, 2, 3 y 4
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 2, 3, 4}
 
-        # Simulamos una matriz de Vandermonde completa (5 filas x N columnas)
+        # Simulamos una matriz de Vandermonde completa (2 filas x 5 columnas)
+        # El 11 y 21 pertenecen al nodo 1 que está muerto
         matriz_completa = np.array([
-            [10, 11, 12, 13, 14],  # El 11 pertenece al nodo 1 que está muerto
-            [10, 11, 12, 13, 14]
+            [10, 11, 12, 13, 14],
+            [20, 21, 22, 23, 24]
         ])
         self.albatross._ALBATROSS__crear_matriz_vandermonde.return_value = matriz_completa
-        self.albatross._ALBATROSS__multiplicar_matrices.return_value = np.array([[999]])
+        self.albatross._ALBATROSS__T = {0: [99], 2: [99], 3: [99], 4: [99]}
 
-        self.ejecutar_reconstruccion(failed_nodes)
+        # Interceptamos el méto-do real
+        self.albatross._ALBATROSS__multiplicar_matrices = MagicMock(return_value=np.array([[999]]))
+
+        # To-do va bien: se recorta la matriz descartando muertos
+        ALBATROSS._ALBATROSS__process_final_output(self.albatross)
 
         # Capturamos la matriz reducida que Albatross intentó enviar a la multiplicación
-        args_multiplicacion = self.albatross._ALBATROSS__multiplicar_matrices.call_args[0]
-        matriz_vander_filtrada = args_multiplicacion[0]
+        matriz_vander_filtrada = self.albatross._ALBATROSS__multiplicar_matrices.call_args[0][0]
 
-        # Comprobaciones matemáticas críticas:
-        # 1. La fila del nodo caído (11, 11) NO debe estar en la matriz final
-        self.assertNotIn(11, matriz_vander_filtrada, "Fallo algorítmico: La matriz usa la fila del nodo muerto.")
-        # 2. Las filas de los supervivientes SÍ deben estar
+        # Comprobación de seguridad: la columna del Nodo 1 (los valores 11 y 21) deben haber sido eliminados
+        self.assertNotIn(11, matriz_vander_filtrada, "La matriz usa la fila del nodo muerto.")
+        self.assertNotIn(21, matriz_vander_filtrada)
+
+        # Las columnas sanas sí están
         self.assertIn(10, matriz_vander_filtrada)
         self.assertIn(12, matriz_vander_filtrada)
-        self.assertIn(13, matriz_vander_filtrada)
-        self.assertIn(14, matriz_vander_filtrada)
 
     # =====================================================================
     # TEST 8: CORRUPCIÓN DE ENTRADA (NODOS DUPLICADOS)
@@ -285,11 +293,16 @@ class TestAlbatrossReconstruction(unittest.TestCase):
         self.albatross._ALBATROSS__multiplicar_matrices.side_effect = dot_real
 
         # Los fragmentos recibidos en T
-        self.albatross._ALBATROSS__T = [[frag_0], [frag_2]]
+        self.albatross._ALBATROSS__T = {0: [frag_0], 2: [frag_2]}
 
         # Desactivamos los Mocks del setUp para que no añadan basura de [10, 20] a nuestro secreto
         self.albatross._ALBATROSS__request_output.side_effect = lambda x: None
-        self.albatross._ALBATROSS__request_reconstruction.side_effect = lambda x, y, z: None
+        # Habilitamos la recuperación para que salve al Nodo 1
+        # Simulamos que la red recupera un fragmento '0' para el Nodo 1 (porque 2*frag_0 + 0*frag_1 - 1*frag_2 nos dará el string perfecto)
+        def mock_recuperacion(node_id, p, s):
+            self.albatross._ALBATROSS__T[node_id] = [0]
+
+        self.albatross._ALBATROSS__request_reconstruction.side_effect = mock_recuperacion
 
         # 3. Ejecuamos la reconstruccion
         self.ejecutar_reconstruccion(failed_nodes)

@@ -29,7 +29,7 @@ class ALBATROSS:
         self.__successful_commit_ids = set()
         self.__successful_reveal_ids = set()
         self.__successful_recovery_ids = set()
-        self.__T = []
+        self.__T = {} # Uso de diccionario
 
     def __request_commit(self, node_id):
         """Sends a commit request to the node and adds the node to successful commits if successful."""
@@ -68,8 +68,8 @@ class ALBATROSS:
                 # Parseamos la base 16 (hexadecimal), el if para que sea compatible con test unitarios antiguos en base 10
                 numbers = [int(x, 16) if isinstance(x, str) and x.startswith('0x') else int(x) for x in
                            decoded_response]
-                self.__T.append(numbers)
-                print("Number of secrets post-add:", len(self.__T))
+                self.__T[node_id] = numbers
+                print("Number of secrets post-add:", len(self.__T.keys()))
                 print(f"Randomness extraction successful on node {node_id}")
             else:
                 print(f"Output request failed on node {node_id}: {response.status_code}")
@@ -100,8 +100,8 @@ class ALBATROSS:
                 json_response = response.json()
                 decoded_response = json_response.get('result', [])
                 numbers = [int(x, 16) if isinstance(x, str) and x.startswith('0x') else int(x) for x in decoded_response]
-                self.__T.append(numbers)
-                print("Number of secrets post-add:", len(self.__T))
+                self.__T[node_id] = numbers
+                print("Number of secrets post-add:", len(self.__T.keys()))
 
 
 
@@ -181,8 +181,11 @@ class ALBATROSS:
         if not self.__T or len(self.__T) == 0:
             raise ValueError(
                 "Fallo crítico: Ningún nodo devolvió fragmentos en la fase de Output. La red está vacía. Revisa la conexión HTTP.")
-        
-        w = Utils.rootunity(len(self.__T[0]), self.__network.get_q()) 
+
+        # Cogemos cualquier fragmento que exista en el diccionario para ver su longitud
+        any_fragment = next(iter(self.__T.values()))
+        w = Utils.rootunity(len(any_fragment), self.__network.get_q())
+
         t = self.__num_participants // 3
 
         if self.system == config.BYZANTINE:
@@ -206,11 +209,25 @@ class ALBATROSS:
 
         # Cogemos exactamente los primeros 'r' fragmentos: más rápido que cogerlos aleatorios e igual de válido
         # de la matriz de Vandermonde (que dicta el tamaño: (l, r)) para que el np.dot encaje perfecto
-        T_recortada = self.__T[:r]
+        #T_recortada = self.__T[:r]
 
+        # 1. Obtenemos los IDs ordenados matemáticamente
+        nodos_necesarios = sorted(list(self.__successful_reveal_ids))[:r]
+
+        # 2. Alineamos Vandermonde con los IDs exactos
+        if not isinstance(matriz_vander, np.ndarray):
+            matriz_vander = np.array(matriz_vander)
+        matriz_vander = matriz_vander[:, nodos_necesarios]
+
+        # 3. Extraemos fragmentos en el orden estricto de Vandermonde
+        T_recortada = [self.__T[nid] for nid in nodos_necesarios]
+
+        # 3. Extraemos fragmentos en el orden estricto de Vandermonde
         # dtype=object respeta tanto el álgebra lineal normal (enteros) como la geometría no lineal (Puntos de la curva)
         # Forzamos una matriz de tamaño (r, 1) y metemos los objetos uno a uno para que Numpy NO desempache las coordenadas (x, y) de los Puntos EC
         matriz_T = np.empty((len(T_recortada), 1), dtype=object)
+
+        # 4. Forzamos matriz protegiendo EC
         for i, fragmento in enumerate(T_recortada):
             # Si el fragmento viene anidado en una lista [[Punto]], lo extraemos
             item = fragmento[0] if isinstance(fragmento, list) else fragmento
@@ -219,7 +236,7 @@ class ALBATROSS:
         print("Matrix T size:", matriz_T.shape)
 
         # Vandermonde (l, r) * matriz_T (r, 1) = Resultado (l, 1)
-        aleatoriedad = np.dot(matriz_vander, matriz_T)
+        aleatoriedad = self.__multiplicar_matrices(matriz_vander, matriz_T)
 
         # Extracción del valor final
         aleatoriedad_final = []
@@ -316,36 +333,41 @@ class ALBATROSS:
 
         # Convert the matrix to h^s elements
         print("Number of secrets:", len(self.__T))
-        for lista in self.__T:
+        for lista in self.__T.values():
             for i in range(len(lista)):
                 if self.__network.EC:
                     lista[i]= lista[i]*self.__network.h
                 else:
                     lista[i] = pow(self.__network.h, lista[i], self.__network.p)
-       
+
+        # Cogemos cualquier fragmento que exista en el diccionario para ver su longitud
+        any_fragment = next(iter(self.__T.values()))
         # Create Vandermonde matrix with w.
-        w = Utils.rootunity(len(self.__T[0]), self.__network.get_q())
+        w = Utils.rootunity(len(any_fragment), self.__network.get_q())
 
         matriz_vander = self.__crear_matriz_vandermonde(w, l, t)
         print("Vandermonde matrix size:", matriz_vander.shape)
         print(self.__T)
 
-        if self.mode == config.ELLIGATOR_MODE:
-            # EC y Elligator usan dtype=object para usar la suma real de la curva
-            matriz_T = np.array(self.__T, dtype=object)
-        elif self.mode == config.EC_MODE:
-            # EC y Elligator usan dtype=object para usar la suma real de la curva
-            matriz_T = np.array(self.__T, dtype=object)
+        # Convertimos la lista de supervivientes y fallados a lista normal ya que es un set() para trabajar com Numpy y la ordenamos
+        indices_sanos = sorted(list(self.__successful_reveal_ids) + failed_nodes)
+
+        # Extraemos los fragmentos desempaquetando las listas anidadas
+        fragmentos_ordenados = []
+        for nid in indices_sanos:
+            frag = self.__T[nid]
+            item = frag[0] if isinstance(frag, list) else frag
+            fragmentos_ordenados.append([item])
+
+        # Creamos la matriz T respetando el modo criptográfico
+        if self.mode == config.ELLIGATOR_MODE or self.mode == config.EC_MODE:
+            matriz_T = np.array(fragmentos_ordenados, dtype=object)
         elif self.mode == config.CLASSIC_MODE:
-            # Para Clásico: Usa la matriz tal cual
-            matriz_T = np.array(self.__T)
+            matriz_T = np.array(fragmentos_ordenados)
         else:
             raise ValueError("Modo inválido. Usa 'ec', 'elligator' o 'classic'.")
 
         print("Matrix T size:", matriz_T.shape)
-
-        # Convertimos la lista de supervivientes a lista normal ya que es un set() para trabajar com Numpy
-        indices_sanos = list(self.__successful_reveal_ids)
 
         # Seleccionamos SOLO las columnas de los nodos que sobrevivieron para alinear perfectamente la matemática de Vandermonde con los fragmentos recibidos
         if not isinstance(matriz_vander, np.ndarray):
@@ -375,10 +397,11 @@ class ALBATROSS:
 
     def __crear_matriz_vandermonde(self, omega, l, t):
         """
-        Creates a Vandermonde matrix of size (l, t + l).
+        Creates a Vandermonde matrix of size (l, num_participants).
         """
-        n_columnas = t + l
-        return np.array([[omega**(i * j) for j in range(n_columnas)] for i in range(l)])
+        # Debe haber una columna por cada posible participante para poder alinear el ID
+        n_columnas = self.__num_participants
+        return np.array([[omega ** (i * j) for j in range(n_columnas)] for i in range(l)])
 
     def __multiplicar_matrices(self, matriz_a, matriz_b):
         """

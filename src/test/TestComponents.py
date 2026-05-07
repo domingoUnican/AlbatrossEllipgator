@@ -1,5 +1,7 @@
 import threading
 import unittest
+import time
+
 import numpy as np
 
 from unittest.mock import patch, MagicMock
@@ -182,7 +184,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         matriz = self.albatross._ALBATROSS__crear_matriz_vandermonde(omega, l, t)
 
         self.assertIsInstance(matriz, np.ndarray)
-        self.assertEqual(matriz.shape, (4, 7), "Las dimensiones de Vandermonde no respetan el paper de Albatross.")
+        self.assertEqual(matriz.shape, (4, 5), "Las dimensiones de Vandermonde no respetan el paper de Albatross.")
 
     def test_crear_matriz_vandermonde_math(self):
         """Prueba que los exponentes de omega crecen correctamente en las columnas."""
@@ -199,6 +201,28 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.assertEqual(matriz[0][0], 1)
         self.assertEqual(matriz[1][1], 3)
         self.assertEqual(matriz[1][2], 9)
+
+    def test_crear_matriz_vandermonde_exhaustivo_dimensiones(self):
+        """Verifica que las dimensiones de Vandermonde se adaptan dinámicamente a N en múltiples escenarios"""
+        # Configuramos varios tamaños de red: [N, t, l_esperado (N - 2t)]
+        casos_prueba = [
+            {"N": 4, "t": 1, "l": 2},  # Red mínima
+            {"N": 10, "t": 3, "l": 4},  # Red mediana
+            {"N": 100, "t": 33, "l": 34}  # Red gigante
+        ]
+
+        omega = 2
+        for caso in casos_prueba:
+            self.albatross._ALBATROSS__num_participants = caso["N"]
+
+            matriz = self.albatross._ALBATROSS__crear_matriz_vandermonde(omega, caso["l"], caso["t"])
+
+            self.assertIsInstance(matriz, np.ndarray)
+            # Comprobamos las Filas (l)
+            self.assertEqual(matriz.shape[0], caso["l"], f"Fallo en filas para N={caso['N']}")
+            # Comprobamos las Columnas (Deben ser siempre igual a N)
+            self.assertEqual(matriz.shape[1], caso["N"],
+                             f"Fallo de arquitectura: Columnas != Participantes en N={caso['N']}")
 
     # =====================================================================
     # BLOQUE 4: TESTS DE CRIPTOGRAFÍA (Reconstrucción del secreto)
@@ -217,11 +241,12 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         self.albatross._ALBATROSS__num_participants = 4
         self.albatross._ALBATROSS__t = 1
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2, 3}
         self.albatross.system = config.BYZANTINE
         self.albatross.mode = config.CLASSIC_MODE
 
         # Metemos en la matriz T los fragmentos recibidos (cada nodo manda 1 lista con su fragmento)
-        self.albatross._ALBATROSS__T = [[150], [200], [999]]
+        self.albatross._ALBATROSS__T = {0: [150], 1: [200], 2: [999]}
 
         # Forzamos una raíz de la unidad sencilla para el test matemático
         self.albatross._ALBATROSS__network.get_q.return_value = 97
@@ -260,9 +285,10 @@ class TestAlbatrossComponents(unittest.TestCase):
         # Configuramos el entorno (N=3, t=1, r=2)
         self.albatross._ALBATROSS__num_participants = 4
         self.albatross._ALBATROSS__t = 1
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2, 3}
         self.albatross.system = config.BYZANTINE
         self.albatross.mode = config.CLASSIC_MODE
-        self.albatross._ALBATROSS__T = [[frag_1], [frag_2], [999]]
+        self.albatross._ALBATROSS__T = {0: [frag_1], 1: [frag_2], 2: [999]}
         self.albatross._ALBATROSS__network.get_q.return_value = 97
 
         # INTERPOLACIÓN MATEMÁTICA
@@ -297,7 +323,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross.mode = config.EC_MODE  # Activamos modo EC
         self.albatross._ALBATROSS__network.get_q.return_value = 97
 
-        self.albatross._ALBATROSS__T = [[MockECPoint(150)], [MockECPoint(200)], [MockECPoint(999)]]
+        self.albatross._ALBATROSS__T = {0: [MockECPoint(150)], 1: [MockECPoint(200)], 2: [MockECPoint(999)]}
 
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0]]))
 
@@ -323,15 +349,21 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross._ALBATROSS__t = 1
         self.albatross.system = config.BYZANTINE
         self.albatross.mode = config.ELLIGATOR_MODE  # Activamos modo Elligator
+
+        self.albatross._ALBATROSS__network.EC = True
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2}
+
         self.albatross._ALBATROSS__network.get_q.return_value = 97
 
-        # Hacemos que el generador 'h' de la curva simulada sea un 1.
-        # Así, cuando Albatross haga (100 * h), el resultado seguirá siendo 100 puro.
+        # Hacemos que el generador 'h' de la curva simulada sea un 1
+        # Así, cuando Albatross haga (100 * h), el resultado seguirá siendo 100 puro
         self.albatross._ALBATROSS__network.get_h.return_value = 1
 
         # Le pasamos cualquier objeto, la función mockeada hará el trabajo
-        self.albatross._ALBATROSS__T = [[150], [200], [999]]
-        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0]]))
+        self.albatross._ALBATROSS__T = {0: [150], 1: [200], 2: [999]}
+
+        # Matriz de N=4 (4 columnas fijas)
+        self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(return_value=np.array([[2, -1, 0, 0]]))
 
         # Simulamos que Elligator coge el secreto matemático (que dará 100) y lo ofusca
         mock_curvetonumber.side_effect = lambda p: f"ELLIGATOR_{p}"
@@ -483,12 +515,15 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross._ALBATROSS__network.get_q.return_value = 97
 
         # 3. Insertamos directamente los fragmentos como PUNTOS SIMULADOS
-        self.albatross._ALBATROSS__T = [[MockECPoint(10)], [MockECPoint(20)], [MockECPoint(30)]]
+        self.albatross._ALBATROSS__T = {0: [MockECPoint(10)], 1: [MockECPoint(20)], 2: [MockECPoint(30)]}
 
         # 4. Simulamos Vandermonde (matriz 1x3)
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-            return_value=np.array([[2, 3, 4]])
+            return_value=np.array([[2, 3, 4, 5]])
         )
+
+        # Simulamos que la red logró recuperar el fragmento del Nodo 3
+        self.albatross._ALBATROSS__T[3] = [MockECPoint(40)]
 
         # 5. EJECUTAMOS LA FASE DE RECOVERY DIRECTAMENTE
         self.albatross._ALBATROSS__execute_reconstruction_phase(nodos_caidos)
@@ -541,10 +576,11 @@ class TestAlbatrossComponents(unittest.TestCase):
         """Prueba que el modo clásico funciona con álgebra lineal normal"""
         self.albatross.mode = config.CLASSIC_MODE
         self.albatross._ALBATROSS__num_participants = 4
-        self.albatross._ALBATROSS__t = 0
+        self.albatross._ALBATROSS__t = 1
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2, 3}
 
         # Fragmentos puros (Enteros): el orquestador cogerá los que necesite (l)
-        self.albatross._ALBATROSS__T = [[10], [20], [30], [40]]
+        self.albatross._ALBATROSS__T = {0: [10], 1: [20], 2: [30], 3: [40]}
 
         # El test se adapta dinámicamente al tamaño 'l' que pida el Orquestador
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
@@ -569,9 +605,10 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross.mode = config.EC_MODE
         self.albatross._ALBATROSS__num_participants = 4
         self.albatross._ALBATROSS__t = 0
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2, 3}
 
         # Los nodos envían PUNTOS DE LA CURVA (Simulados)
-        self.albatross._ALBATROSS__T = [[MockECPoint(10)], [MockECPoint(20)], [MockECPoint(30)], [MockECPoint(40)]]
+        self.albatross._ALBATROSS__T = {0: [MockECPoint(10)], 1: [MockECPoint(20)], 2: [MockECPoint(30)], 3: [MockECPoint(40)]}
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
             side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
         )
@@ -594,9 +631,10 @@ class TestAlbatrossComponents(unittest.TestCase):
         self.albatross.mode = config.ELLIGATOR_MODE
         self.albatross._ALBATROSS__num_participants = 4
         self.albatross._ALBATROSS__t = 0
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1, 2, 3}
 
         # Los nodos envían NÚMEROS ofuscados (Ej: 10, 20, 30 y 40)
-        self.albatross._ALBATROSS__T = [[MockECPoint(10)], [MockECPoint(20)], [MockECPoint(30)], [MockECPoint(40)]]
+        self.albatross._ALBATROSS__T = {0: [MockECPoint(10)], 1: [MockECPoint(20)], 2: [MockECPoint(30)], 3: [MockECPoint(40)]}
         self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
             side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
         )
@@ -641,7 +679,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # --- CASO EXTREMO 1: FALLO DE RED CRÍTICO (6 FRAGMENTOS) ---
         # Le damos 6 fragmentos. Al ser menor que r=7, DEBE abortar por seguridad.
-        self.albatross._ALBATROSS__T = [[10], [20], [30], [40], [50], [60]]
+        self.albatross._ALBATROSS__T = {i: [x*10] for i, x in enumerate(range(1, 7))}
 
         with self.assertRaises(ValueError) as context:
             self.albatross._ALBATROSS__process_final_output()
@@ -650,7 +688,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # --- CASO EXTREMO 2: SUPERVIVENCIA AL LÍMITE (7 FRAGMENTOS EXACTOS) ---
         # Le damos exactamente r=7 fragmentos. Debe sobrevivir y recortar a l=4.
-        self.albatross._ALBATROSS__T = [[10], [20], [30], [40], [50], [60], [70]]
+        self.albatross._ALBATROSS__T = {i: [x*10] for i, x in enumerate(range(1, 8))}
 
         try:
             self.albatross._ALBATROSS__process_final_output()
@@ -662,7 +700,7 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         # --- CASO EXTREMO 3: RED PERFECTA (10 FRAGMENTOS) ---
         # Le damos los 10 fragmentos. Debe ignorar los 6 extra y dar el MISMO resultado matemático
-        self.albatross._ALBATROSS__T = [[10], [20], [30], [40], [50], [60], [70], [80], [90], [100]]
+        self.albatross._ALBATROSS__T = {i: [x*10] for i, x in enumerate(range(1, 11))}
         self.albatross._ALBATROSS__process_final_output()
 
         with open('aleatoriedad_final.txt', 'r') as f:
@@ -685,7 +723,7 @@ class TestAlbatrossComponents(unittest.TestCase):
         T2 = 2 if secreto_int % 2 == 0 else 1
         T1 = (secreto_int - (3 * T2)) // 2
 
-        fragmentos_red = {1: T1, 2: T2, 3: 999, 4: 999}
+        fragmentos_red = {0: T1, 1: T2, 2: 999, 3: 999}
         servidores_activos = arrancar_red_nodos_reales(fragmentos_red)
 
         try:
@@ -693,20 +731,23 @@ class TestAlbatrossComponents(unittest.TestCase):
             self.albatross._ALBATROSS__num_participants = 4
             self.albatross._ALBATROSS__t = 1
 
-            # Como la URL real es localhost:5000, ya no necesitamos mockear el endpoint
+            # Le damos una matriz que tenga obligatoriamente 4 columnas (N=4)
             self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-                side_effect = lambda w, l, t: np.array([[2, 3, 0, 0, 0, 0]])[:, :l + t]
+                return_value=np.array([[2, 3, 0, 0]])
             )
 
             # 1. FASE COMMIT (TCP Real al puerto 5000)
-            for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
+            for i in range(0, 4): self.albatross._ALBATROSS__request_commit(i)
 
             # 2. FASE REVEAL (Descarga TCP Real del puerto 5000)
-            self.albatross._ALBATROSS__T = []
+            self.albatross._ALBATROSS__T = {}
+            # Le decimos al orquestador que los nodos se han revelado correctamente
+            self.albatross._ALBATROSS__successful_reveal_ids = self.albatross._ALBATROSS__successful_commit_ids.copy()
+
             for i in self.albatross._ALBATROSS__successful_commit_ids:
                 respuesta = requests.get(f"http://localhost:5000/node/{i}/reveal")
                 valor = int(respuesta.text.replace('[', '').replace(']', ''))
-                self.albatross._ALBATROSS__T.append([valor])
+                self.albatross._ALBATROSS__T[i] = [valor]
 
             # 3. RECONSTRUCCIÓN FINAL
             self.albatross._ALBATROSS__process_final_output()
@@ -725,24 +766,25 @@ class TestAlbatrossComponents(unittest.TestCase):
 
     def test_e2e_real_network_ec_mode(self):
         """E2E Curvas Elípticas: Descarga JSON TCP y procesado geométrico"""
-        fragmentos_red = {1: 150, 2: 200, 3: 999, 4: 999}
+        fragmentos_red = {0: 150, 1: 200, 2: 999, 3: 999}
         servidores_activos = arrancar_red_nodos_reales(fragmentos_red)
 
         try:
             self.albatross.mode = config.EC_MODE
             self.albatross._ALBATROSS__num_participants = 4
             self.albatross._ALBATROSS__t = 1
+            # Le damos una matriz que tenga obligatoriamente 4 columnas (N=4)
             self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
+                return_value=np.array([[2, 3, 0, 0]])
             )
 
-            for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
+            for i in range(0, 4): self.albatross._ALBATROSS__request_commit(i)
 
-            self.albatross._ALBATROSS__T = []
+            self.albatross._ALBATROSS__T = {}
             for i in self.albatross._ALBATROSS__successful_commit_ids:
                 respuesta = requests.get(f"http://localhost:5000/node/{i}/reveal")
                 punto_ec = MockECPoint(int(respuesta.text))
-                self.albatross._ALBATROSS__T.append([punto_ec])
+                self.albatross._ALBATROSS__T[i] = [punto_ec]
 
             self.albatross._ALBATROSS__process_final_output()
 
@@ -756,24 +798,25 @@ class TestAlbatrossComponents(unittest.TestCase):
     @patch('ALBATROSSProtocol.ALBATROSS.CurvetoNumber')
     def test_e2e_real_network_elligator_mode(self, mock_curvetonumber):
         """E2E Elligator: Red TCP, geometría y ofuscación determinista final"""
-        fragmentos_red = {1: 150, 2: 200, 3: 999, 4: 999}
+        fragmentos_red = {0: 150, 1: 200, 2: 999, 3: 999}
         servidores_activos = arrancar_red_nodos_reales(fragmentos_red)
 
         try:
             self.albatross.mode = config.ELLIGATOR_MODE
             self.albatross._ALBATROSS__num_participants = 4
             self.albatross._ALBATROSS__t = 1
+            # Le damos una matriz que tenga obligatoriamente 4 columnas (N=4)
             self.albatross._ALBATROSS__crear_matriz_vandermonde = MagicMock(
-                side_effect=lambda w, l, t: np.array([[2, 3, 4, 5, 6, 7]])[:, :l+t]
+                return_value=np.array([[2, 3, 0, 0]])
             )
             mock_curvetonumber.side_effect = lambda p: f"ELLIGATOR_{p}"
 
-            for i in range(1, 5): self.albatross._ALBATROSS__request_commit(i)
+            for i in range(0, 4): self.albatross._ALBATROSS__request_commit(i)
 
-            self.albatross._ALBATROSS__T = []
+            self.albatross._ALBATROSS__T = {}
             for i in self.albatross._ALBATROSS__successful_commit_ids:
                 respuesta = requests.get(f"http://localhost:5000/node/{i}/reveal")
-                self.albatross._ALBATROSS__T.append([int(respuesta.text)])
+                self.albatross._ALBATROSS__T[i] = [int(respuesta.text)]
 
             self.albatross._ALBATROSS__process_final_output()
 
@@ -783,6 +826,55 @@ class TestAlbatrossComponents(unittest.TestCase):
 
         finally:
             apagar_red_nodos_reales(servidores_activos)
+
+    # =====================================================================
+    # TEST 9: CONDICIÓN DE CARRERA EN HILOS HTTP (RACE CONDITION)
+    # =====================================================================
+    @patch('ALBATROSSProtocol.ALBATROSS.requests.get')
+    def test_race_condition_network_threads(self, mock_get):
+        """Verifica si los hilos desordenan los secretos al llegar a distintas velocidades"""
+
+        # Simulamos que el Nodo 0 tiene mucho LAG y el Nodo 1 es rapidísimo
+        def latencia_simulada(*args, **kwargs):
+            url = args[0]
+            # La URL es tipo: http://localhost:5000/node/0/output
+            node_id = int(url.split('/')[4])
+            mock_resp = MagicMock()
+            mock_resp.status_code = 200
+
+            if node_id == 0:
+                time.sleep(0.5)  # Nodo 0 con LAG
+                mock_resp.json.return_value = {'result': ['0xa']}  # Devuelve 10
+            elif node_id == 1:
+                mock_resp.json.return_value = {'result': ['0x14']}  # Devuelve 20
+
+            return mock_resp
+
+        mock_get.side_effect = latencia_simulada
+
+        mock_get.side_effect = latencia_simulada
+
+        # Ajustamos el tamaño de la red para que 2 fragmentos sean quorum suficiente
+        self.albatross._ALBATROSS__num_participants = 3
+        self.albatross._ALBATROSS__t = 1
+        self.albatross.system = config.BYZANTINE
+
+        # Preparamos el entorno para la fase de descargas (Plan A)
+
+        # Preparamos el entorno para la fase de descargas (Plan A)
+        self.albatross._ALBATROSS__successful_reveal_ids = {0, 1}
+        self.albatross._ALBATROSS__T = {}  # Simulamos el diccionario vulnerable
+
+        # Ejecutamos el méto-do que lanza los HILOS
+        self.albatross._ALBATROSS__process_output()
+
+        # Comprobación de seguridad:
+        # Como el Nodo 0 es el índice 0, su valor (10) DEBE estar en la posición 0 de __T
+        # Si el valor es 20, significa que el hilo rápido ganó la carrera y desordenó la matriz
+
+        if len(self.albatross._ALBATROSS__T) > 0 and self.albatross._ALBATROSS__T.get(0) == [20]:
+            self.fail(
+                "¡CONDICIÓN DE CARRERA DETECTADA! El Nodo 1 (rápido) ocupó el índice del Nodo 0. La matriz de Vandermonde se corromperá.")
 
 
 if __name__ == '__main__':
