@@ -5,6 +5,7 @@ bug_secreto_correcto.txt
 comparativa_texto.txt
 src/log.txt
 Utils/prueba_io.txt
+src/test_jcr/
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/*

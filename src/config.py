@@ -15,8 +15,8 @@ DEFAULT_TESTS_TO_RUN = ['all']
 ACTIVE_TEST_CASES = TEST_CASES
 
 REAL_TEST_CASES = [
-    (3, 0, BYZANTINE), # Válida, aunque inútil en el mundo real y para ALBATROSS, solo por tomar tiempos
-    (3, 1, BYZANTINE), # No tiene el mínimo de nodos honestos para funcionar
+    # (3, 0, BYZANTINE), # Válida, aunque inútil en el mundo real y para ALBATROSS, solo por tomar tiempos
+    # (3, 1, BYZANTINE), # No tiene el mínimo de nodos honestos para funcionar
     (4, 0, BYZANTINE),
     (4, 1, BYZANTINE),
     (5, 0, BYZANTINE),
@@ -26,7 +26,15 @@ REAL_TEST_CASES = [
     (20, 0, BYZANTINE),
     (20, 6, BYZANTINE),
     (30, 0, BYZANTINE),
-    (30, 10, BYZANTINE),
+    (30, 9, BYZANTINE),
     (40, 0, BYZANTINE),
-    (40, 13, BYZANTINE)
+    (40, 13, BYZANTINE),
+    (50, 0, BYZANTINE),
+    (50, 16, BYZANTINE),
+    (60, 0, BYZANTINE),
+    (60, 19, BYZANTINE),
+    (80, 0, BYZANTINE),
+    (80, 26, BYZANTINE),
+    (100, 0, BYZANTINE),
+    (100, 33, BYZANTINE)
 ]
